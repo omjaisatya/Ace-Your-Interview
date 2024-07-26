@@ -1,0 +1,58 @@
+# Ace Your Interview
+
+Welcome to the **Ace Your Interview** repository! This collection is designed to help you prepare for job interviews by providing a wide range of questions and answers across various domains and levels of experience.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Categories](#categories)
+  - [Technical](#technical)
+  - [Behavioral](#behavioral)
+  - [HR](#hr)
+- [Contributing](#contributing)
+
+## Introduction
+
+Preparing for an interview can be a daunting task. This repository aims to ease that process by offering a comprehensive set of questions and answers that you might encounter during job interviews. Whether you are preparing for a technical role, a managerial position, or a general HR round, you'll find relevant resources here.
+
+## Categories
+
+### Technical
+
+1. **Programming Languages**
+   - [Python](questions/technical/programming_languages/python/python.md)
+   - [JavaScript](questions/technical/programming_languages/javascript)
+   - [Java](questions/technical/programming_languages/java/java.md)
+2. **Web Development**
+   - [HTML](questions/technical/web_development/html.md)
+   - [CSS](questions/technical/web_development/css.md)
+   - [React](questions/technical/web_development/react.md)
+   - [Node.js](questions/technical/web_development/nodejs.md)
+3. **Database Management**
+   - [SQL](questions/technical/databases/sql.md)
+   - [MongoDB](questions/technical/databases/mongodb.md)
+
+### Behavioral
+
+- [Teamwork](questions/behavioral/teamwork.md)
+- [Problem Solving](questions/behavioral/problem_solving.md)
+- [Communication](questions/behavioral/communication.md)
+
+### HR
+
+- [General HR Questions](questions/hr/general.md)
+
+## Contributing
+
+We welcome contributions from the community to make this repository more comprehensive and up-to-date. If you have any interview questions and answers that you think would be helpful, please follow these steps to contribute:
+
+1. Fork the repository.
+2. Create a new branch (`git checkout -b feature-branch`).
+3. Add your question and answer to the appropriate category.
+4. Commit your changes (`git commit -m 'Add new interview question and answer'`).
+5. Push to the branch (`git push origin feature-branch`).
+6. Create a pull request.
+
+Please ensure that your contributions are well-organized and follow the existing format.
+
+Happy interviewing!

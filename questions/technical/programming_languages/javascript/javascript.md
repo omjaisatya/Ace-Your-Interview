@@ -172,7 +172,7 @@ const greetJohn = greet.bind(null, "John");
 greetJohn(); // Output: 'Hello, John'
 ```
 
-### 3. What are arrow functions and how do they differ from regular functions?
+### 13. What are arrow functions and how do they differ from regular functions?
 
 **Answer:**
 Arrow functions provide a concise syntax for writing functions. They differ from regular functions in several ways:
@@ -191,7 +191,7 @@ function add(a, b) {
 const add = (a, b) => a + b;
 ```
 
-### 4. What is the `apply` method in JavaScript?
+### 14. What is the `apply` method in JavaScript?
 
 **Answer:**
 The `apply` method calls a function with a given `this` value and arguments provided as an array (or an array-like object). It is similar to `call`, but `apply` takes arguments as an array.

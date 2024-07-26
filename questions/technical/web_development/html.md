@@ -63,14 +63,14 @@ The <head> section contains meta-information about the HTML document, such as th
 ### 11. Describe the <table> element and its sub-elements.
 
 **Answer:**
-The <table> element defines a table in HTML. Its sub-elements include:
+The `<table>` element defines a table in HTML. Its sub-elements include:
 
-- <tr>: Table row.
-- <td>: Table data cell.
-- <th>: Table header cell.
-- <thead>: Group of header rows.
-- <tbody>: Group of body rows.
-- <tfoot>: Group of footer rows.
+- `<tr>`: Table row.
+- `<td>`: Table data cell.
+- `<th>`: Table header cell.
+- `<thead>`: Group of header rows.
+- `<tbody>`: Group of body rows.
+- `<tfoot>`: Group of footer rows.
 
 ### 12. What is the difference between id and class attributes?
 

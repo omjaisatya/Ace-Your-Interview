@@ -139,3 +139,67 @@ let b;
 console.log(a); // null
 console.log(b); // undefined
 ```
+
+### 11. What is the difference between `function` declarations and `function` expressions?
+
+**Answer:**
+
+- **Function Declarations**: Hoisted to the top of their scope, so they can be called before their definition. They are also called function statements.
+  ```javascript
+  function greet() {
+    console.log("Hello");
+  }
+  ```
+- **Function Expressions**: Not hoisted. They are defined and assigned to a variable. They can be named or anonymous.
+
+```javascript
+const greet = function () {
+  console.log("Hello");
+};
+```
+
+### 12. What is the bind method in JavaScript?
+
+Answer:
+The `bind` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+
+```javascript
+function greet(name) {
+  console.log(`Hello, ${name}`);
+}
+
+const greetJohn = greet.bind(null, "John");
+greetJohn(); // Output: 'Hello, John'
+```
+
+### 3. What are arrow functions and how do they differ from regular functions?
+
+**Answer:**
+Arrow functions provide a concise syntax for writing functions. They differ from regular functions in several ways:
+
+- They do not have their own `this`, `arguments`, or `super` keyword.
+- They cannot be used as constructors.
+- They do not have a `prototype` property.
+
+```javascript
+// Regular function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+```
+
+### 4. What is the `apply` method in JavaScript?
+
+**Answer:**
+The `apply` method calls a function with a given `this` value and arguments provided as an array (or an array-like object). It is similar to `call`, but `apply` takes arguments as an array.
+
+```javascript
+function sum(a, b) {
+  return a + b;
+}
+
+console.log(sum.apply(null, [1, 2])); // Output: 3
+```

@@ -60,7 +60,7 @@ A hyperlink is created using the `<a>` (anchor) element with the `href` attribut
 **Answer:**
 The <head> section contains meta-information about the HTML document, such as the title, character set, styles, scripts, and other meta tags. This information is not displayed directly on the web page.
 
-### 11. Describe the <table> element and its sub-elements.
+### 11. Describe the `<table>` element and its sub-elements.
 
 **Answer:**
 The `<table>` element defines a table in HTML. Its sub-elements include:

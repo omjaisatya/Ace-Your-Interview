@@ -9,7 +9,7 @@ Welcome to the **Ace Your Interview** repository! This collection is designed to
   - [Technical](#technical)
   - [Behavioral](#behavioral)
   - [HR](#hr)
-- [Contributing](#contributing)
+  <!-- - [Contributing](#contributing) -->
 
 ## Introduction
 
@@ -42,7 +42,8 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
 
 - [General HR Questions](questions/hr/general.md)
 
-## Contributing
+<!-- I'll open it when all questions list -->
+<!-- ## Contributing
 
 We welcome contributions from the community to make this repository more comprehensive and up-to-date. If you have any interview questions and answers that you think would be helpful, please follow these steps to contribute:
 
@@ -53,6 +54,6 @@ We welcome contributions from the community to make this repository more compreh
 5. Push to the branch (`git push origin feature-branch`).
 6. Create a pull request.
 
-Please ensure that your contributions are well-organized and follow the existing format.
+Please ensure that your contributions are well-organized and follow the existing format. -->
 
 Happy interviewing!

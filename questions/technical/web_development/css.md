@@ -414,3 +414,76 @@ The `@import` rule is used to import one CSS file into another. It must be place
 ```css
 @import url("styles2.css");
 ```
+
+### Question 21: What is the `box-sizing` property in CSS?
+
+**Answer:**
+The `box-sizing` property defines how the width and height of an element are calculated: whether they include padding and borders, or not.
+
+- **`content-box`:** The default value. The width and height only include the content. Padding, border, and margin are not included.
+- **`border-box`:** The width and height include the content, padding, and border, but not the margin.
+
+```css
+.element {
+  box-sizing: border-box;
+}
+```
+
+### Question 22: What are CSS variables and how do you use them?
+
+**Answer:**
+CSS variables, also known as custom properties, allow you to store values that you can reuse throughout your stylesheet.
+
+```css
+:root {
+  --main-color: #3498db;
+  --padding: 10px;
+}
+
+.element {
+  color: var(--main-color);
+  padding: var(--padding);
+}
+```
+
+### Question 23: How does the `calc()` function work in CSS?
+
+**Answer:**
+The `calc()` function allows you to perform calculations to determine CSS property values. It can be used to mix units, like percentages and pixels.
+
+```css
+.element {
+  width: calc(100% - 50px);
+  padding: calc(1em + 10px);
+}
+```
+
+### Question 24: What is a CSS preprocessor and can you name a few?
+
+**Answer:**
+A CSS preprocessor extends CSS with variables, nesting, functions, and other features that make CSS more maintainable and easier to write. Popular CSS preprocessors include:
+
+- **Sass (Syntactically Awesome Stylesheets)**
+- **LESS (Leaner Style Sheets)**
+- **Stylus**
+  These preprocessors need to be compiled into standard CSS before they can be used in a web page.
+
+### Question 25: Explain the difference between `:nth-child()` and `:nth-of-type()`.
+
+**Answer:**
+
+- **`:nth-child(n)`**: Selects the nth child of its parent, regardless of type.
+
+```css
+p:nth-child(2) {
+  color: red;
+}
+```
+
+- **`:nth-of-type(n)`**: Selects the nth child of its parent that is of a specific type.
+
+```css
+p:nth-of-type(2) {
+  color: blue;
+}
+```

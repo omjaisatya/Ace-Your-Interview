@@ -487,3 +487,127 @@ p:nth-of-type(2) {
   color: blue;
 }
 ```
+
+### Question 26: What is the `object-fit` property and when would you use it?
+
+**Answer**:
+The `object-fit` property specifies how the content of a replaced element (like `<img>` or `<video>`) should be resized to fit its container.
+
+- **`fill`**: Stretches the content to fill the container.
+- **`contain`**: Scales the content to maintain its aspect ratio while fitting within the container.
+- **`cover`**: Scales the content to maintain its aspect ratio while filling the container.
+- **`none`**: Content is not resized.
+- **`scale-down`**: Scales the content down to the smallest size while preserving aspect ratio.
+
+```css
+img {
+  object-fit: cover;
+}
+```
+
+### Question 27: How do you create a CSS animation?
+
+**Answer**:
+CSS animations are created using the `@keyframes` rule, which defines the animation's behavior, and applying it to an element with properties like `animation-name`, `animation-duration`, and `animation-timing-function`.
+
+```css
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100px);
+  }
+}
+
+.element {
+  animation-name: slide;
+  animation-duration: 2s;
+  animation-timing-function: ease-in-out;
+}
+```
+
+### Question 28: What is a CSS combinator and can you provide examples?
+
+**Answer**:
+CSS combinators describe the relationship between selectors. There are four types of combinators:
+
+- **Descendant combinator (space)**: Selects elements that are descendants of another element.
+
+```css
+div p {
+  color: blue;
+}
+```
+
+- **Child combinator (`>`)**: Selects elements that are direct children of another element.
+
+```css
+div > p {
+  color: green;
+}
+```
+
+- **Adjacent sibling combinator (`+`)**: Selects elements that are the next sibling of another element.
+
+```css
+h1 + p {
+  margin-top: 0;
+}
+```
+
+- **General sibling combinator (`~`)**: Selects elements that are siblings of a specified element.
+
+```css
+h1 ~ p {
+  color: gray;
+}
+```
+
+### Question 29: How do you create a responsive navigation menu using CSS?
+
+**Answer:**
+To create a responsive navigation menu, you can use media queries to adjust the layout for different screen sizes. Here is a basic example:
+
+```html
+<nav>
+  <ul class="menu">
+    <li><a href="#">Home</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+</nav>
+```
+
+```css
+.menu {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+}
+
+.menu li {
+  margin-right: 20px;
+}
+
+@media (max-width: 600px) {
+  .menu {
+    flex-direction: column;
+  }
+  .menu li {
+    margin: 10px 0;
+  }
+}
+```
+
+### Question 30: What is the purpose of the `will-change` property in CSS?
+
+**Answer:**
+The `will-change` property informs the browser of which properties are likely to change, allowing the browser to optimize for these changes ahead of time. This can improve performance for complex animations and transitions.
+
+```css
+.element {
+  will-change: transform, opacity;
+}
+```

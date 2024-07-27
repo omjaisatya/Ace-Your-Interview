@@ -720,3 +720,73 @@ The viewport meta tag controls the layout of the viewport on mobile browsers. It
   animation: example 5s infinite;
 }
 ```
+
+### Question 36: What is the `overflow` property and what values can it have?
+
+**Answer:**
+The `overflow` property controls what happens to content that overflows an element's box. Possible values include:
+
+- **`visible`**: Default value. Content is not clipped and may be rendered outside the element's box.
+- **`hidden`**: Content is clipped and no scrollbars are provided.
+- **`scroll`**: Content is clipped and scrollbars are provided to scroll inside the box.
+- **`auto`**: Content is clipped and scrollbars are added only when necessary.
+
+```css
+.container {
+  overflow: hidden;
+}
+```
+
+### Question 37: How can you make a background image cover the entire page without stretching?
+
+**Answer:**
+You can use the `background-size` property with the value `cover` to ensure a background image covers the entire element.
+
+```css
+body {
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+}
+```
+
+### Question 38: What is the `display: grid;` property in CSS and how is it used?
+
+**Answer:**
+The **`display: grid;`** property enables the Grid Layout, a two-dimensional layout system for the web.
+
+```css
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 10px;
+}
+.item {
+  background-color: lightblue;
+}
+```
+
+### Question 39: What is the `filter` property in CSS?
+
+**Answer:**
+The `filter` property applies graphical effects like blur, grayscale, or brightness to an element.
+
+```css
+.element {
+  filter: blur(5px);
+}
+```
+
+### Question 40: What is the purpose of `pointer-events` in CSS?
+
+**Answer:**
+The `pointer-events` property specifies under what circumstances (if any) a particular graphic element can become the target of mouse events.
+
+- **`none:`** The element does not react to pointer events.
+- **`auto:`** The element reacts to pointer events.
+
+```css
+.element {
+  pointer-events: none;
+}
+```

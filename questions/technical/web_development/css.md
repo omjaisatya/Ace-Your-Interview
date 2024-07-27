@@ -228,7 +228,7 @@ Media queries are used in CSS to apply styles based on the characteristics of th
 <div>This is a block element.</div>
 ```
 
-### Question 2: What are pseudo-classes and pseudo-elements in CSS? Provide examples.
+### Question 12: What are pseudo-classes and pseudo-elements in CSS? Provide examples.
 
 **Answer**:
 
@@ -252,7 +252,7 @@ p::first-line {
 
 In this example, the ::first-line pseudo-element applies styles to the first line of a paragraph.
 
-### Question 3: What is the CSS `z-index` and how does it work?
+### Question 13: What is the CSS `z-index` and how does it work?
 
 **Answer**:
 The `z-index` property in CSS controls the vertical stacking order of elements that overlap. It only works on positioned elements (`position: relative;`, `absolute;, fixed;`, or `sticky;`). Elements with a higher `z-index` value are displayed in front of those with a lower value.
@@ -268,7 +268,7 @@ The `z-index` property in CSS controls the vertical stacking order of elements t
 }
 ```
 
-### Question 4: How do you make a responsive design in CSS?
+### Question 14: How do you make a responsive design in CSS?
 
 **Answer**:
 Responsive design can be achieved using:
@@ -300,7 +300,7 @@ img {
 }
 ```
 
-### Question 5: What is the difference between `em` and `rem` units in CSS?
+### Question 15: What is the difference between `em` and `rem` units in CSS?
 
 **Answer**:
 

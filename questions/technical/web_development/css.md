@@ -319,3 +319,98 @@ img {
   font-size: 2rem; /* 2 times the size of the root font-size */
 }
 ```
+
+### Question 16: How do you hide an element in CSS?
+
+**Answer**:
+There are several ways to hide an element in CSS:
+
+- **`display: none;`**: The element is removed from the document flow.
+
+```css
+.hidden {
+  display: none;
+}
+```
+
+- **`visibility: hidden;`**: The element is invisible but still occupies space in the layout.
+
+```css
+.hidden {
+  visibility: hidden;
+}
+```
+
+- **`opacity: 0;`**: The element is fully transparent but still occupies space and can interact with events.
+
+```css
+.hidden {
+  opacity: 0;
+}
+```
+
+### Question 17: Explain CSS specificity and how it is calculated.
+
+**Answer**:
+CSS specificity determines which CSS rule is applied by the browser when multiple rules could apply to the same element. It is calculated based on the number and type of selectors:
+
+- **Inline styles**: Highest specificity (e.g., `style="..."`).
+- **IDs**: High specificity.
+- **Classes, attributes, pseudo-classes**: Medium specificity.
+- **Elements, pseudo-elements**: Low specificity.
+  For example:
+
+```css
+div {
+  color: black;
+}
+
+.classname {
+  color: blue;
+}
+
+#idname {
+  color: red;
+}
+```
+
+### Question 18: What is the `float` property and how does it work?
+
+**Answer**:
+The `float` property is used for positioning and formatting content by allowing elements to float to the left or right of their container. It affects the flow of content, causing surrounding text and inline elements to wrap around the floated element.
+
+```css
+.img-left {
+  float: left;
+  margin-right: 10px;
+}
+.img-right {
+  float: right;
+  margin-left: 10px;
+}
+```
+
+### Question 19: What are CSS transitions and how are they used?
+
+**Answer**:
+CSS transitions enable the smooth change of properties over a specified duration. They are used to create simple animations.
+
+```css
+.element {
+  width: 100px;
+  transition: width 2s;
+}
+
+.element:hover {
+  width: 200px;
+}
+```
+
+### Question 20: Explain the use of `@import` in CSS.
+
+**Answer**:
+The `@import` rule is used to import one CSS file into another. It must be placed at the top of the CSS file before any other rules.
+
+```css
+@import url("styles2.css");
+```

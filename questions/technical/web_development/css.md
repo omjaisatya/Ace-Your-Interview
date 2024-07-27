@@ -611,3 +611,112 @@ The `will-change` property informs the browser of which properties are likely to
   will-change: transform, opacity;
 }
 ```
+
+### Question 31: What is the `clip-path` property in CSS?
+
+**Answer:**
+The `clip-path` property is used to create a clipping region that determines which parts of an element are visible. The basic shape functions are `circle()`, `ellipse()`, `inset()`, and `polygon()`.
+
+```css
+.element {
+  clip-path: circle(50% at 50% 50%);
+}
+```
+
+### Question 32: What is the difference between `absolute` and `fixed` positioning in CSS?
+
+**Answer:**
+
+- **`absolute`**: The element is positioned relative to the nearest positioned ancestor (other than `static`). If no such ancestor exists, it is positioned relative to the initial containing block.
+
+```css
+.absolute {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+```
+
+- **`fixed`**: The element is positioned relative to the browser window and does not move when the page is scrolled.
+
+```css
+.fixed {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+}
+```
+
+### Question 33: How can you create a CSS-only dropdown menu?
+
+**Answer**:
+A CSS-only dropdown menu can be created using the `:hover` pseudo-class.
+
+```html
+<nav>
+  <ul>
+    <li class="dropdown">
+      <a href="#">Menu</a>
+      <ul class="dropdown-content">
+        <li><a href="#">Link 1</a></li>
+        <li><a href="#">Link 2</a></li>
+        <li><a href="#">Link 3</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+```
+
+```css
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+```
+
+### Question 34: What is the `viewport` meta tag and how is it used in responsive design?
+
+**Answer**:
+The viewport meta tag controls the layout of the viewport on mobile browsers. It is essential for responsive design.
+
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+```
+
+### Question 35: Explain the difference between CSS `transitions` and `animations`.
+
+**Answer:**
+
+- **`Transitions`**: Allow you to change property values smoothly (from one state to another) over a given duration.
+
+```css
+.element {
+  transition: width 2s;
+}
+.element:hover {
+  width: 200px;
+}
+```
+
+- **`Animations`**: Provide more control over the intermediate steps with `@keyframes` and allow repeating animations.
+
+```css
+@keyframes example {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: yellow;
+  }
+}
+.element {
+  animation: example 5s infinite;
+}
+```

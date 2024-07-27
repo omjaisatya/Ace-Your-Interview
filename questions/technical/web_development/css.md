@@ -201,3 +201,121 @@ Media queries are used in CSS to apply styles based on the characteristics of th
   }
 }
 ```
+
+### Question 11: What is the difference between `inline`, `inline-block`, and `block` elements in CSS?
+
+**Answer:**
+
+- **Inline elements:** Do not start on a new line and only take up as much width as necessary. Examples include `<span>`, `<a>`, and `<img>`.
+
+  ```html
+  <span>This is an inline element.</span>
+  ```
+
+- **Inline-block elements**: Behave like inline elements but can have a width and height set. They allow setting margins and paddings like block elements.
+
+```css
+.inline-block {
+  display: inline-block;
+  width: 100px;
+  height: 50px;
+}
+```
+
+- **Block elements**: Start on a new line and take up the full width available. Examples include `<div>`, `<p>`, and `<h1>`.
+
+```html
+<div>This is a block element.</div>
+```
+
+### Question 2: What are pseudo-classes and pseudo-elements in CSS? Provide examples.
+
+**Answer**:
+
+- **Pseudo-classes**: Used to define the special state of an element.
+
+```css
+a:hover {
+  color: red;
+}
+```
+
+In this example, the :hover pseudo-class applies styles to an anchor element when the user hovers over it.
+
+- **Pseudo-elements**: Used to style specified parts of an element.
+
+```css
+p::first-line {
+  font-weight: bold;
+}
+```
+
+In this example, the ::first-line pseudo-element applies styles to the first line of a paragraph.
+
+### Question 3: What is the CSS `z-index` and how does it work?
+
+**Answer**:
+The `z-index` property in CSS controls the vertical stacking order of elements that overlap. It only works on positioned elements (`position: relative;`, `absolute;, fixed;`, or `sticky;`). Elements with a higher `z-index` value are displayed in front of those with a lower value.
+
+```css
+.div1 {
+  position: absolute;
+  z-index: 1;
+}
+.div2 {
+  position: absolute;
+  z-index: 2;
+}
+```
+
+### Question 4: How do you make a responsive design in CSS?
+
+**Answer**:
+Responsive design can be achieved using:
+
+- **Fluid Grid Layouts**: Using percentages instead of fixed widths.
+
+```css
+.container {
+  width: 80%;
+}
+```
+
+- **Flexible Images**: Ensuring images scale within their containing elements.
+
+```css
+img {
+  max-width: 100%;
+  height: auto;
+}
+```
+
+- **Media Queries**: Applying different styles based on device characteristics.
+
+```css
+@media (max-width: 600px) {
+  .container {
+    flex-direction: column;
+  }
+}
+```
+
+### Question 5: What is the difference between `em` and `rem` units in CSS?
+
+**Answer**:
+
+- **`em units`**: Relative to the font-size of the element they are used on. If an element has a font-size of 16px, `1em` equals `16px`.
+
+```css
+.element {
+  font-size: 2em; /* 2 times the size of the current font-size */
+}
+```
+
+- **`rem units`**: Relative to the font-size of the root element (`<html>`). If the root element has a font-size of 16px, `1rem` equals `16px` regardless of where it is used.
+
+```css
+.element {
+  font-size: 2rem; /* 2 times the size of the root font-size */
+}
+```

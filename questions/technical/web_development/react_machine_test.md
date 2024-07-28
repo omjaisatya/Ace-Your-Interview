@@ -214,3 +214,114 @@ function App() {
 
 export default App;
 ```
+
+# React Problem 3: Creating a Weather App
+
+## Problem Description
+
+Create a simple Weather application using React that fetches and displays weather information for a specified city. The application should have the following functionalities:
+
+1. Input field to enter a city name.
+2. Button to fetch the weather information.
+3. Display the city name, temperature, and weather description.
+4. Handle loading states and errors gracefully.
+
+## Requirements
+
+- Use functional components and hooks (`useState`, `useEffect`).
+- Use a free weather API (e.g., OpenWeatherMap) to fetch weather data.
+- The application should handle loading and error states.
+
+## Solution
+
+**Get an API Key:**
+Sign up for a free API key at [OpenWeatherMap](https://openweathermap.org/).
+
+**Create the Weather Component:**
+Create a `Weather` component that fetches and displays weather information.
+
+```javascript
+import React, { useState } from "react";
+import "./Weather.css";
+
+const Weather = () => {
+  const [city, setCity] = useState("");
+  const [weather, setWeather] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const fetchWeather = async () => {
+    setLoading(true);
+    setError(null);
+    try {
+      const response = await fetch(`Weather-API-from-website`);
+      if (!response.ok) {
+        throw new Error("City not found");
+      }
+      const data = await response.json();
+      setWeather(data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="weather">
+      <h1>Weather App</h1>
+      <input
+        type="text"
+        value={city}
+        onChange={(e) => setCity(e.target.value)}
+        placeholder="Enter city"
+      />
+      <button onClick={fetchWeather}>Get Weather</button>
+      {loading && <p>Loading...</p>}
+      {error && <p className="error">{error}</p>}
+      {weather && (
+        <div className="weather-info">
+          <h2>{weather.name}</h2>
+          <p>Temperature: {weather.main.temp}°C</p>
+          <p>Weather: {weather.weather[0].description}</p>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default Weather;
+```
+
+**Add Some Basic Styling:**
+Create a `Weather.css` file for basic styling.
+
+```css
+.weather {
+  text-align: center;
+  margin-top: 50px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.weather-info {
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+}
+```
+
+**Update the Main App Component:**
+Update the `App.js` file to include the Weather component.

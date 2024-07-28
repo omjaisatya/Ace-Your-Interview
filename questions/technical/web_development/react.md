@@ -185,3 +185,192 @@ return (
 - **Context API:** Using React's Context API for global state management.
 - **State Management Libraries:** Utilizing libraries like Redux, MobX, or Recoil for more complex state management needs.
 - **Hooks:** Using custom hooks to encapsulate and share stateful logic.
+
+## 21. What are the differences between class components and functional components?
+
+**Answer:**
+
+- **Class Components:**
+  - Defined using ES6 class syntax.
+  - Can have state and lifecycle methods.
+  - `render()` method is used to return JSX.
+- **Functional Components:**
+  - Defined using plain JavaScript functions.
+  - Can use hooks to manage state and lifecycle.
+  - Simpler and shorter, often preferred in modern React development.
+
+## 22. What is the `useEffect` hook and how does it work?
+
+**Answer:** The `useEffect` hook allows you to perform side effects in functional components. It serves the same purpose as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in class components. You can use it to fetch data, set up subscriptions, or manually change the DOM.
+
+```javascript
+import { useEffect } from "react";
+
+function ExampleComponent() {
+  useEffect(() => {
+    return () => {};
+  }, []);
+
+  return <div>Example</div>;
+}
+```
+
+## 23. What is `React.memo` and when would you use it?
+
+**Answer:** `React.memo` is a higher-order component that memoizes a functional component. It prevents unnecessary re-renders by only re-rendering the component if its props change. This can improve performance for components that render the same output given the same props.
+
+```javascript
+const MyComponent = React.memo(function MyComponent(props) {
+  return <div>{props.value}</div>;
+});
+```
+
+## 24. What is the `useRef` hook and how do you use it?
+
+**Answer:** The `useRef` hook returns a mutable ref object whose `.current `property is initialized to the passed argument. It can be used to access DOM elements directly or to persist a mutable value that does not cause re-renders when updated.
+
+```javascript
+import { useRef } from "react";
+
+function ExampleComponent() {
+  const inputRef = useRef(null);
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  return (
+    <div>
+      <input ref={inputRef} />
+      <button onClick={focusInput}>Focus Input</button>
+    </div>
+  );
+}
+```
+
+## 25. What is the `useContext` hook and how do you use it?
+
+**Answer:** The `useContext` hook allows you to access the value of a context directly within a functional component. It simplifies the process of consuming context values without needing a `Context.Consumer` wrapper.
+
+```javascript
+import { useContext } from "react";
+import { MyContext } from "./MyContext";
+
+function ExampleComponent() {
+  const contextValue = useContext(MyContext);
+
+  return <div>{contextValue}</div>;
+}
+```
+
+## 26. What is code-splitting and how is it implemented in React?
+
+**Answer:** Code-splitting is a technique to split your code into smaller chunks, which can be loaded on demand. In React, it is implemented using `React.lazy` and `Suspense` to dynamically load components.
+
+```javascript
+import React, { Suspense, lazy } from "react";
+
+const LazyComponent = lazy(() => import("./LazyComponent"));
+
+function App() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <LazyComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+
+## 27. What is PropTypes and how do you use it?
+
+**Answer:** PropTypes is a library for type-checking props in React components. It helps catch bugs by ensuring the components receive props of the correct type.
+
+```javascript
+import PropTypes from "prop-types";
+
+function MyComponent({ name, age }) {
+  return (
+    <div>
+      Name: {name}, Age: {age}
+    </div>
+  );
+}
+
+MyComponent.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+};
+```
+
+## 28. What are React portals and how do you use them?
+
+**Answer:** React portals provide a way to render children into a DOM node that exists outside the DOM hierarchy of the parent component.
+
+```javascript
+import ReactDOM from "react-dom";
+
+function PortalComponent() {
+  return ReactDOM.createPortal(
+    <div>Portal Content</div>,
+    document.getElementById("portal-root")
+  );
+}
+```
+
+## 29. What is a reducer and how do you use the useReducer hook?
+
+**Answer:** A reducer is a function that determines changes to an application's state. The `useReducer` hook is an alternative to `useState` for managing complex state logic in functional components.
+
+```javascript
+import { useReducer } from "react";
+
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case "increment":
+      return { count: state.count + 1 };
+    case "decrement":
+      return { count: state.count - 1 };
+    default:
+      return state;
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      Count: {state.count}
+      <button onClick={() => dispatch({ type: "increment" })}>+</button>
+      <button onClick={() => dispatch({ type: "decrement" })}>-</button>
+    </div>
+  );
+}
+```
+
+## 30. What is the difference between `useEffect` and `useLayoutEffect`?
+
+**Answer:**
+
+- **useEffect:** Runs asynchronously after the render phase. It doesn't block the browser paint.
+- **useLayoutEffect:** Runs synchronously after all DOM mutations but before the browser has a chance to paint. It's useful for reading layout from the DOM and synchronously re-rendering.
+
+```javascript
+import { useEffect, useLayoutEffect } from "react";
+
+function ExampleComponent() {
+  useEffect(() => {
+    // Runs after render
+  });
+
+  useLayoutEffect(() => {
+    // Runs before the browser paint
+  });
+
+  return <div>Example</div>;
+}
+```

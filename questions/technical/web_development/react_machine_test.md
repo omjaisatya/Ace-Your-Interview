@@ -762,7 +762,7 @@ textarea {
 }
 ```
 
-**Update the Main App Component**
+**Update the Main App Component:**
 Update `App.js` to include the UserProfile component.
 
 ```javascript
@@ -777,6 +777,131 @@ function App() {
     </div>
   );
 }
+
+export default App;
+```
+
+# React Problem 7: Build a Simple Pagination Component
+
+## Problem Description
+
+Create a simple pagination component using React. The component should include the following functionalities:
+
+1. **Display a List**: Render a list of items with pagination controls.
+2. **Pagination Controls**: Include buttons for "Previous" and "Next" to navigate through pages.
+3. **Page Numbers**: Display the current page number and total number of pages.
+4. **Items Per Page**: Allow setting the number of items per page.
+
+## Requirements
+
+- Use functional components and hooks (`useState`).
+- Implement pagination logic to display a subset of items based on the current page.
+
+## Solution
+
+**Create the Pagination Component:**
+Create a `Pagination` component that handles pagination logic and renders the items.
+
+```javascript
+import React, { useState } from "react";
+import "./Pagination.css";
+
+const Pagination = ({ items, itemsPerPage }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const totalPages = Math.ceil(items.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const currentItems = items.slice(startIndex, startIndex + itemsPerPage);
+
+  const handlePrevious = () => {
+    setCurrentPage((prevPage) => Math.max(prevPage - 1, 1));
+  };
+
+  const handleNext = () => {
+    setCurrentPage((prevPage) => Math.min(prevPage + 1, totalPages));
+  };
+
+  return (
+    <div className="pagination">
+      <ul className="item-list">
+        {currentItems.map((item, index) => (
+          <li key={index}>{item}</li>
+        ))}
+      </ul>
+      <div className="controls">
+        <button onClick={handlePrevious} disabled={currentPage === 1}>
+          Previous
+        </button>
+        <span>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button onClick={handleNext} disabled={currentPage === totalPages}>
+          Next
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Pagination;
+```
+
+**Add Basic Styling:**
+Create a `Pagination.css` file for basic styling.
+
+```css
+/* src/Pagination.css */
+.pagination {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+.item-list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.item-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.controls {
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+```
+
+**Use the Pagination Component in App:**
+Update `App.js` to include and use the Pagination component.
+
+```javascript
+import React from "react";
+import Pagination from "./Pagination";
+import "./App.css";
+
+const App = () => {
+  const items = Array.from({ length: 50 }, (_, index) => `Item ${index + 1}`);
+
+  return (
+    <div className="App">
+      <h1>Pagination Example</h1>
+      <Pagination items={items} itemsPerPage={10} />
+    </div>
+  );
+};
 
 export default App;
 ```

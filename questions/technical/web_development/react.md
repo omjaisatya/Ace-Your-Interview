@@ -374,3 +374,174 @@ function ExampleComponent() {
   return <div>Example</div>;
 }
 ```
+
+## 31. How can you handle errors in React components?
+
+**Answer:** Errors in React components can be handled using error boundaries. An error boundary is a component that catches JavaScript errors in its child component tree, logs those errors, and displays a fallback UI.
+
+```javascript
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError(error) {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    console.log(error, info);
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <h1>Something went wrong.</h1>;
+    }
+
+    return this.props.children;
+  }
+}
+```
+
+## 32. What are custom hooks in React?
+
+**Answer:** Custom hooks are functions that start with `use` and allow you to extract and reuse stateful logic across multiple components. They enable code reuse and abstraction without the complexity of higher-order components or render props.
+
+```javascript
+import { useState, useEffect } from "react";
+
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+  }, [url]);
+
+  return { data, loading };
+}
+```
+
+## 33. How do you optimize a React application's performance?
+
+**Answer:** Performance can be optimized by:
+
+- Memoizing components using `React.memo`.
+- Using the `useMemo` and `useCallback` hooks to memoize expensive calculations and functions.
+- Lazy loading components using `React.lazy` and Suspense.
+- Implementing pagination or infinite scroll for large data sets.
+- Avoiding inline functions and object creations in render methods.
+- Using the production build of React.
+- Splitting code with dynamic imports.
+
+## 34. What is the purpose of the key prop in React?
+
+**Answer:** The `key` prop is a special attribute used to identify elements in a list. It helps React optimize rendering by keeping track of which items have changed, been added, or removed. Keys should be unique among siblings.
+
+```javascript
+const listItems = items.map((item) => <li key={item.id}>{item.name}</li>);
+```
+
+## 35. How do you manage side effects in React?
+
+**Answer:** Side effects in React are managed using the `useEffect` hook in functional components and lifecycle methods (`componentDidMount`, `componentDidUpdate`, `componentWillUnmount`) in class components. The `useEffect` hook allows you to perform data fetching, subscriptions, or manual DOM changes.
+
+## 36. How do you pass data between sibling components?
+
+**Answer:** Data can be passed between sibling components by lifting the state up to their common parent. The parent component manages the state and passes it down as props to the siblings.
+
+```javascript
+function Parent() {
+  const [sharedData, setSharedData] = useState("Hello");
+
+  return (
+    <div>
+      <ChildA data={sharedData} setData={setSharedData} />
+      <ChildB data={sharedData} />
+    </div>
+  );
+}
+
+function ChildA({ data, setData }) {
+  return <button onClick={() => setData("Updated")}>{data}</button>;
+}
+
+function ChildB({ data }) {
+  return <div>{data}</div>;
+}
+```
+
+## 37. What is a pure component in React?
+
+**Answer:** A pure component is a class component that implements the `shouldComponentUpdate` lifecycle method with a shallow prop and state comparison. It avoids unnecessary re-renders, improving performance. Functional components can be made pure using `React.memo`.
+
+```javascript
+class PureComponentExample extends React.PureComponent {
+  render() {
+    return <div>{this.props.value}</div>;
+  }
+}
+```
+
+## 38. How do you handle routing in React?
+
+**Answer:** Routing in React is typically handled using the `react-router-dom` library. It allows you to define routes and navigate between different components.
+
+```javascript
+import { BrowserRouter, Router, Route } from "react-router-dom";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <BrowserRouter>
+        <Route path="/home" component={Home} />
+        <Route path="/about" component={About} />
+        <Route path="/contact" component={Contact} />
+      </BrowserRouter>
+    </BrowserRouter>
+  );
+}
+```
+
+## 39. What is the useImperativeHandle hook?
+
+**Answer:** The `useImperativeHandle` hook customizes the instance value that is exposed when using `ref` in functional components. It is typically used with `forwardRef` to allow parent components to access child component methods.
+
+```javascript
+import { useImperativeHandle, forwardRef, useRef } from "react";
+
+const Child = forwardRef((props, ref) => {
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current.focus();
+    },
+  }));
+
+  const inputRef = useRef();
+
+  return <input ref={inputRef} />;
+});
+
+function Parent() {
+  const childRef = useRef();
+
+  return (
+    <div>
+      <Child ref={childRef} />
+      <button onClick={() => childRef.current.focus()}>
+        Focus Child Input
+      </button>
+    </div>
+  );
+}
+```
+
+## 40. How does React handle reconciliation?
+
+**Answer:** Reconciliation is the process React uses to update the DOM with the results of rendering a component. When a component's state or props change, React generates a new Virtual DOM tree and compares it to the previous one. This comparison process, known as "diffing", allows React to determine the minimal set of changes needed to update the real DOM efficiently.

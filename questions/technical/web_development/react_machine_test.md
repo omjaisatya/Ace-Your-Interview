@@ -335,8 +335,7 @@ Create a simple form using React that includes fields for a user's name, email, 
 1. **Name Field**: Must be non-empty.
 2. **Email Field**: Must be a valid email address.
 3. **Message Field**: Must be non-empty.
-4. **Submit Button**: Should be disabled if any validation fails.
-5. **Display Errors**: Show validation error messages below each field.
+4. **Display Errors**: Show validation error messages below each field.
 
 ## Requirements
 
@@ -421,9 +420,7 @@ const Form = () => {
         />
         {errors.message && <p className="error">{errors.message}</p>}
       </div>
-      <button type="submit" disabled={Object.values(errors).some((e) => e)}>
-        Submit
-      </button>
+      <button type="submit">Submit</button>
     </form>
   );
 };
@@ -477,6 +474,145 @@ function App() {
     <div className="App">
       <h1>Contact Form</h1>
       <Form />
+    </div>
+  );
+}
+
+export default App;
+```
+
+# React Problem 5: Build a Todo List with Local Storage
+
+## Problem Description
+
+Create a Todo List application using React that includes the following functionalities:
+
+1. **Add Todo**: Input a new todo item and add it to the list.
+2. **Toggle Complete**: Mark a todo item as completed or not completed.
+3. **Remove Todo**: Remove a todo item from the list.
+4. **Persist Data**: Save the todo list to local storage and load it on app startup.
+
+## Requirements
+
+- Use functional components and hooks (`useState`, `useEffect`).
+- Use local storage to persist the todo list.
+
+## Solution
+
+**Create the Todo Component:**
+Create a `TodoApp` component that includes functionality to add, toggle, and remove todos. It should also handle local storage.
+
+```javascript
+import React, { useState, useEffect } from "react";
+import "./TodoApp.css";
+
+const TodoApp = () => {
+  const [todos, setTodos] = useState([]);
+  const [input, setInput] = useState("");
+
+  useEffect(() => {
+    const storedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+    setTodos(storedTodos);
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
+  const addTodo = () => {
+    if (input.trim()) {
+      setTodos([...todos, { id: Date.now(), text: input, completed: false }]);
+      setInput("");
+    }
+  };
+
+  const toggleComplete = (id) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  const removeTodo = (id) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
+  return (
+    <div className="todo-app">
+      <h1>Todo List</h1>
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Add a new todo"
+      />
+      <button onClick={addTodo}>Add</button>
+      <ul>
+        {todos.map((todo) => (
+          <li
+            key={todo.id}
+            style={{ textDecoration: todo.completed ? "line-through" : "none" }}
+          >
+            {todo.text}
+            <button onClick={() => toggleComplete(todo.id)}>
+              {todo.completed ? "Undo" : "Complete"}
+            </button>
+            <button onClick={() => removeTodo(todo.id)}>Delete</button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default TodoApp;
+```
+
+**Add Some Basic Styling:**
+Create a `TodoApp.css` file for basic styling.
+
+```css
+.todo-app {
+  max-width: 600px;
+  margin: auto;
+  text-align: center;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+```
+
+**Update the Main App Component:**
+Update `App.js` to include the TodoApp component.
+
+```javascript
+import React from "react";
+import TodoApp from "./TodoApp";
+import "./App.css";
+
+function App() {
+  return (
+    <div className="App">
+      <TodoApp />
     </div>
   );
 }

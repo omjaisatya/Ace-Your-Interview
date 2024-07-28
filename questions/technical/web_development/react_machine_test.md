@@ -850,7 +850,6 @@ export default Pagination;
 Create a `Pagination.css` file for basic styling.
 
 ```css
-/* src/Pagination.css */
 .pagination {
   max-width: 600px;
   margin: auto;

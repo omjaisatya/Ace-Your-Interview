@@ -325,3 +325,161 @@ button {
 
 **Update the Main App Component:**
 Update the `App.js` file to include the Weather component.
+
+# React Problem 4: Build a Simple Form with Validation
+
+## Problem Description
+
+Create a simple form using React that includes fields for a user's name, email, and a message. Implement basic validation for the form inputs. The form should meet the following requirements:
+
+1. **Name Field**: Must be non-empty.
+2. **Email Field**: Must be a valid email address.
+3. **Message Field**: Must be non-empty.
+4. **Submit Button**: Should be disabled if any validation fails.
+5. **Display Errors**: Show validation error messages below each field.
+
+## Requirements
+
+- Use functional components and hooks (`useState`).
+- Implement form validation.
+- Display appropriate error messages.
+
+## Solution
+
+**Create the Form Component:**
+Create a Form component that includes fields for `name`, `email`, and `message` with validation logic.
+
+```javascript
+import React, { useState } from "react";
+import "./Form.css";
+
+const Form = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
+  const [errors, setErrors] = useState({ name: "", email: "", message: "" });
+
+  const validate = () => {
+    let isValid = true;
+    const errors = { name: "", email: "", message: "" };
+
+    if (!name) {
+      errors.name = "Name is required";
+      isValid = false;
+    }
+
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailPattern.test(email)) {
+      errors.email = "Invalid email address";
+      isValid = false;
+    }
+
+    if (!message) {
+      errors.message = "Message is required";
+      isValid = false;
+    }
+
+    setErrors(errors);
+    return isValid;
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (validate()) {
+      alert("Form submitted successfully");
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="form">
+      <div>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        {errors.name && <p className="error">{errors.name}</p>}
+      </div>
+      <div>
+        <label htmlFor="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        {errors.email && <p className="error">{errors.email}</p>}
+      </div>
+      <div>
+        <label htmlFor="message">Message:</label>
+        <textarea
+          id="message"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+        />
+        {errors.message && <p className="error">{errors.message}</p>}
+      </div>
+      <button type="submit" disabled={Object.values(errors).some((e) => e)}>
+        Submit
+      </button>
+    </form>
+  );
+};
+
+export default Form;
+```
+
+**Add Basic Styling:**
+Create a Form.css file to add some basic styling.
+
+```css
+.form {
+  max-width: 500px;
+  margin: auto;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  font-size: 14px;
+}
+```
+
+**Update the Main App Component**
+Update `App.js` to include the Form component.
+
+```javascript
+import React from "react";
+import Form from "./Form";
+import "./App.css";
+
+function App() {
+  return (
+    <div className="App">
+      <h1>Contact Form</h1>
+      <Form />
+    </div>
+  );
+}
+
+export default App;
+```

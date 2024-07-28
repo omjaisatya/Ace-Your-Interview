@@ -619,3 +619,164 @@ function App() {
 
 export default App;
 ```
+
+# React Problem 6: Build a Simple User Profile Page
+
+## Problem Description
+
+Create a simple user profile page using React that includes the following functionalities:
+
+1. **Display User Info**: Show the user's name, email, and bio.
+2. **Edit User Info**: Allow users to edit their name, email, and bio.
+3. **Save Changes**: Save the edited user info and persist it in the component state.
+4. **Reset Changes**: Allow users to cancel edits and reset to the original values.
+
+## Requirements
+
+- Use functional components and hooks (`useState`).
+- Implement form functionality for editing.
+- Display user information with options to edit and save changes.
+
+## Solution
+
+**Create the UserProfile Component:**
+Create a `UserProfile` component that includes functionality to display, edit, and save user information.
+
+```javascript
+import React, { useState } from "react";
+import "./UserProfile.css";
+
+const UserProfile = () => {
+  const [isEditing, setIsEditing] = useState(false);
+  const [user, setUser] = useState({
+    name: "John Doe",
+    email: "john.doe@example.com",
+    bio: "Software developer from XYZ",
+  });
+  const [editUser, setEditUser] = useState({ ...user });
+
+  const handleEditChange = (e) => {
+    const { name, value } = e.target;
+    setEditUser({ ...editUser, [name]: value });
+  };
+
+  const handleSave = () => {
+    setUser(editUser);
+    setIsEditing(false);
+  };
+
+  const handleCancel = () => {
+    setEditUser(user);
+    setIsEditing(false);
+  };
+
+  return (
+    <div className="user-profile">
+      <h1>User Profile</h1>
+      {isEditing ? (
+        <div>
+          <label>
+            Name:
+            <input
+              type="text"
+              name="name"
+              value={editUser.name}
+              onChange={handleEditChange}
+            />
+          </label>
+          <label>
+            Email:
+            <input
+              type="email"
+              name="email"
+              value={editUser.email}
+              onChange={handleEditChange}
+            />
+          </label>
+          <label>
+            Bio:
+            <textarea
+              name="bio"
+              value={editUser.bio}
+              onChange={handleEditChange}
+            />
+          </label>
+          <button onClick={handleSave}>Save</button>
+          <button onClick={handleCancel}>Cancel</button>
+        </div>
+      ) : (
+        <div>
+          <p>
+            <strong>Name:</strong> {user.name}
+          </p>
+          <p>
+            <strong>Email:</strong> {user.email}
+          </p>
+          <p>
+            <strong>Bio:</strong> {user.bio}
+          </p>
+          <button onClick={() => setIsEditing(true)}>Edit</button>
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default UserProfile;
+```
+
+**Add Some Basic Styling:**
+Create a `UserProfile.css` file to style the user profile page.
+
+```css
+.user-profile {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+}
+
+button {
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+textarea {
+  height: 100px;
+}
+```
+
+**Update the Main App Component**
+Update `App.js` to include the UserProfile component.
+
+```javascript
+import React from "react";
+import UserProfile from "./UserProfile";
+import "./App.css";
+
+function App() {
+  return (
+    <div className="App">
+      <UserProfile />
+    </div>
+  );
+}
+
+export default App;
+```

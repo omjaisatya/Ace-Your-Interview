@@ -294,3 +294,96 @@ Data consistency in a distributed MongoDB environment can be managed through:
 - **Read and Write Concerns:** Set appropriate levels of read and write concerns to balance consistency and performance.
 - **Replica Sets:** Use replica sets to provide redundancy and ensure data consistency across nodes.
 - **Transactions:** Use multi-document transactions to ensure atomicity and consistency across multiple operations.
+
+## 46. What is the role of the `mongod` and `mongos` processes in MongoDB?
+
+**Answer:**
+
+- **`mongod`:** This is the primary MongoDB server process that handles data storage, processing, and management. It is responsible for handling read and write operations.
+- **`mongos`:** This is a routing service used in sharded clusters to direct client requests to the appropriate shards. It manages query routing and aggregation across the cluster.
+
+## 47. How does MongoDB handle data replication?
+
+**Answer:**
+MongoDB handles data replication through replica sets. A replica set is a group of MongoDB servers that maintain the same data set. One member is the primary node that handles all write operations, while secondary nodes replicate the primary’s data. If the primary node fails, an election process promotes a secondary node to primary.
+
+## 48. What is a `write concern` and how does it impact performance?
+
+**Answer:**
+Write concern defines the level of acknowledgment required from MongoDB for write operations. For example, `w:1` means the write must be acknowledged by the primary node, while `w:majority` requires acknowledgment from the majority of nodes in a replica set. Higher write concerns provide greater data durability but can impact performance due to increased acknowledgment requirements.
+
+## 49. How can you optimize query performance in MongoDB?
+
+**Answer:**
+Query performance can be optimized by:
+
+- **Creating Indexes:** Add indexes on fields that are frequently queried.
+- **Using Efficient Queries:** Write queries that leverage indexes and avoid full table scans.
+- **Using Aggregation Pipelines:** Utilize aggregation pipelines to process data efficiently.
+- **Profiling Queries:** Analyze slow queries with the database profiler and optimize them.
+- **Sharding:** Distribute data across multiple servers to balance the load.
+
+## 50. What is the `db.collection.update()` method and how does it differ from `db.collection.replaceOne()`?
+
+**Answer:**
+
+- **`db.collection.update()`**: Updates existing documents based on specified criteria. It can update multiple documents and supports various update operators (e.g., `$set`, `$inc`).
+- **`db.collection.replaceOne()`**: Replaces a single document that matches the criteria with a new document, effectively replacing the entire document.
+
+## 51. What is the `MongoDB Compass` tool?
+
+**Answer:**
+MongoDB Compass is a graphical user interface tool for MongoDB that provides a visual interface for interacting with MongoDB databases. It allows users to explore schema, run queries, visualize data, and perform database operations without writing code.
+
+## 52. Explain the concept of `data denormalization` in MongoDB.
+
+**Answer:**
+Data denormalization in MongoDB involves embedding related data within a single document rather than using multiple collections. This approach can reduce the need for joins and improve read performance by consolidating related data into a single document.
+
+## 53. How do you implement authentication and authorization in MongoDB?
+
+**Answer:**
+
+- **Authentication:** MongoDB supports various authentication mechanisms, such as username/password, LDAP, and x.509 certificates. Authentication can be enabled and configured through MongoDB’s security settings.
+- **Authorization:** MongoDB uses role-based access control (RBAC) to manage permissions. Users are assigned roles that define their access levels and permissions within the database.
+
+## 54. What is `MongoDB Atlas`?
+
+**Answer:**
+MongoDB Atlas is a fully managed cloud database service provided by MongoDB. It offers automated backups, scaling, monitoring, and high availability features. Atlas simplifies the deployment and management of MongoDB databases in the cloud.
+
+## 55. What is the difference between `db.collection.find()` and `db.collection.aggregate()`?
+
+**Answer:**
+
+- **`db.collection.find()`:** Used for querying documents with simple filters and returning matching documents. It retrieves data directly.
+- **`db.collection.aggregate()`:** Used for performing advanced data processing and transformation through a pipeline of stages (e.g., filtering, grouping, sorting). It provides more powerful data analysis capabilities.
+
+## 56. What is `MongoDB Change Streams`?
+
+**Answer:**
+MongoDB Change Streams allow applications to access real-time changes to data in a collection or database. They enable applications to listen to changes (e.g., inserts, updates, deletes) and respond to them in real-time, supporting use cases such as event-driven architectures.
+
+## 57. Describe how you would use the `bulkWrite()` method.
+
+**Answer:**
+The `bulkWrite()` method allows you to perform multiple write operations (e.g., inserts, updates, deletes) in a single request. It supports batch operations and provides more efficient processing of bulk writes compared to individual operations.
+
+## 58. How does MongoDB handle transactions?
+
+**Answer:**
+MongoDB supports multi-document transactions, allowing you to execute multiple operations atomically. Transactions ensure that all operations within the transaction are applied successfully or none at all. Transactions are managed using `startSession()`, `commitTransaction()`, and `abortTransaction()` methods.
+
+## 59. What are the `read concerns` in MongoDB and how do they affect data consistency?
+
+**Answer:**
+Read concerns determine the level of isolation for read operations. Common read concerns include:
+
+- **`local`:** Returns the most recent data from the primary node, regardless of replication.
+- **`majority`:** Returns data that has been acknowledged by a majority of nodes, ensuring higher consistency but potentially higher latency.
+- **`linearizable`:** Provides the most up-to-date data, reflecting the latest changes.
+
+## 60. What is a `cursor` in MongoDB?
+
+**Answer:**
+A cursor is an object that allows you to iterate over the results of a query. When using methods like `find()`, MongoDB returns a cursor that you can use to retrieve documents one at a time or in batches. Cursors provide control over query execution and result retrieval.

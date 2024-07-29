@@ -98,3 +98,96 @@ _Data integrity can be ensured through:_
 
 - **Backup:** Use the `mongodump` utility to create a backup of the MongoDB data.
 - **Restore:** Use the `mongorestore` utility to restore data from a backup created by `mongodump`.
+
+## 16. What are the differences between MongoDB and a relational database?
+
+**Answer:**
+
+- **Schema:** MongoDB is schema-less, allowing for flexible document structures, whereas relational databases require a predefined schema.
+- **Data Storage:** MongoDB stores data in BSON documents, while relational databases use tables with rows and columns.
+- **Query Language:** MongoDB uses a query language based on JSON, while relational databases use SQL.
+- **Scalability:** MongoDB supports horizontal scaling via sharding, while relational databases often use vertical scaling.
+
+## 17. What is a BSON?
+
+**Answer:**
+BSON (Binary JSON) is a binary representation of JSON-like documents. It extends JSON’s capabilities by including additional data types, such as `Date` and `Binary`, and providing efficient serialization and deserialization.
+
+## 18. Describe the purpose of the `$match` stage in the aggregation pipeline.
+
+**Answer:**
+The `$match` stage in the aggregation pipeline filters documents based on specified criteria, similar to a `find()` query. It only passes documents that meet the criteria to the next stage in the pipeline.
+
+## 19. What is the purpose of the `$group` stage in the aggregation pipeline?
+
+**Answer:**
+The `$group` stage is used to group documents by a specified identifier and perform aggregation operations, such as counting, summing, or averaging. It helps in summarizing data across groups.
+
+## 20. Explain the use of the `$lookup` stage in MongoDB.
+
+**Answer:**
+The `$lookup` stage performs a left outer join with another collection, allowing you to combine documents from different collections based on a matching field. It enables the aggregation of related data across collections.
+
+## 21. What is the difference between `replaceOne()` and `updateOne()`?
+
+**Answer:**
+
+- **`replaceOne()`:** Replaces a single document that matches the query criteria with a new document. The entire document is replaced.
+- **`updateOne()`:** Updates specific fields in a single document that matches the query criteria, leaving other fields unchanged.
+
+## 22. How does MongoDB handle large objects, such as images or videos?
+
+**Answer:**
+MongoDB handles large objects using GridFS, a specification for storing and retrieving large files. GridFS divides the file into smaller chunks and stores them as separate documents in two collections: `fs.chunks` and `fs.files`.
+
+## 23. What are MongoDB’s data consistency models?
+
+**Answer:**
+MongoDB offers several consistency models:
+
+- **Read Concern:** Determines the level of isolation for read operations (e.g., `local`, `majority`).
+- **Write Concern:** Specifies the level of acknowledgment requested from MongoDB for write operations (e.g., `w:1`, `w:majority`).
+
+## 24. What is a MongoDB index type and give an example?
+
+**Answer:**
+MongoDB supports various index types, including:
+
+- **Single Field Index:** Indexes a single field (e.g., `{ field: 1 }` for ascending order).
+- **Compound Index:** Indexes multiple fields (e.g., `{ field1: 1, field2: -1 }` for ascending and descending order).
+- **Text Index:** Enables text search on string fields (e.g., `{ field: "text" }`).
+- **Geospatial Index:** Supports queries based on location data (e.g., `{ location: "2dsphere" }`).
+
+## 25. How can you ensure that MongoDB is performant?
+
+**Answer:**
+
+- **Indexing:** Create indexes on frequently queried fields to improve query performance.
+- **Sharding:** Distribute data across multiple servers to handle large datasets and high throughput.
+- **Profiling:** Use MongoDB’s profiling tools to identify slow queries and optimize them.
+- **Schema Design:** Design a schema that fits your access patterns and reduces the need for complex joins or aggregations.
+
+## 26. What is a capped collection?
+
+**Answer:**
+A capped collection is a special type of MongoDB collection with a fixed size and automatically overwrites the oldest documents when it reaches its size limit. It maintains insertion order and is ideal for use cases like logs and caching.
+
+## 27. What is the `$unwind` stage in the aggregation pipeline?
+
+**Answer:**
+The `$unwind` stage deconstructs an array field from the input documents to output a document for each element of the array. It is used to normalize data and perform operations on array elements.
+
+## 28. Explain the concept of eventual consistency in MongoDB.
+
+**Answer:**
+Eventual consistency means that while data changes are propagated to all nodes in the replica set, there may be a delay before all nodes reflect the latest data. This model ensures high availability and performance but may result in temporary discrepancies.
+
+## 29. What is the purpose of the `db.collection.stats()` command?
+
+**Answer:**
+The `db.collection.stats()` command provides detailed statistics about a collection, including document count, storage size, index size, and other performance metrics. It helps in analyzing and optimizing database performance.
+
+## 30. Describe how you would model a one-to-many relationship in MongoDB.
+
+**Answer:**
+A one-to-many relationship can be modeled in MongoDB by embedding the "many" documents within the "one" document as an array. Alternatively, you can reference the "many" documents by storing their IDs in the "one" document and querying them separately.

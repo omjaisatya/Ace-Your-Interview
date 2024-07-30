@@ -295,3 +295,63 @@ const path = require("path");
 const filePath = path.join(__dirname, "file.txt");
 console.log(filePath);
 ```
+
+## 41. How do you manage sessions in Express.js?
+
+**Answer:** Sessions in Express.js can be managed using the `express-session` middleware. It allows you to store session data on the server side and associate it with a unique session ID sent to the client in a cookie.
+
+```javascript
+const session = require("express-session");
+const app = express();
+
+app.use(
+  session({
+    secret: "your-secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+```
+
+## 42. Explain the concept of a "worker thread" in Node.js.
+
+**Answer:** Worker threads in Node.js allow you to perform parallel computation by running JavaScript code in separate threads. This helps offload CPU-intensive tasks from the main event loop, improving performance. The `worker_threads` module provides APIs for creating and managing worker threads.
+
+```javascript
+const { Worker } = require("worker_threads");
+
+const worker = new Worker("./worker.js");
+worker.on("message", (message) => console.log(message));
+worker.postMessage("Hello, Worker!");
+```
+
+## 43. What is the difference between `npm start` and `node server.js`?
+
+**Answer:** `npm start` runs the script defined in the start property of the scripts section in `package.json`. It often includes additional configuration and commands. node `server.js` directly executes the `server.js` file using the Node.js runtime. `npm start` provides more flexibility for script configuration.
+
+## 44. What are `Promises` and how are they used in Node.js?
+
+**Answer:** `Promises` represent the eventual completion or failure of an asynchronous operation and its resulting value. They are used to handle asynchronous code more effectively than callbacks. Promises have three states: pending, fulfilled, and rejected. You can chain operations using `.then()` and handle errors with `.catch()`.
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  // Perform an asynchronous operation
+});
+
+promise
+  .then((result) => {
+    // Handle success
+  })
+  .catch((error) => {
+    // Handle error
+  });
+```
+
+## 45. How do you prevent memory leaks in a `Node.js` application?
+
+**Answer:** Preventing memory leaks involves:
+
+- **Monitoring memory usage:** Use tools like node `--inspect` or libraries like `clinic.js`.
+- **Managing references:** Ensure objects are properly dereferenced when no longer needed.
+- **Using proper error handling:** Handle errors and avoid scenarios where resources are unintentionally retained.
+- **Avoiding global variables:** Limit the use of global variables and ensure they are properly managed.

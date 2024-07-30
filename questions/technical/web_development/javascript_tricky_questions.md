@@ -276,5 +276,6 @@ console.log(Object.keys(obj)); // What will this print?
 
 ```javascript
 1;
-undefined[("a", "b", "c")];
+undefined;
+[("a", "b", "c")];
 ```

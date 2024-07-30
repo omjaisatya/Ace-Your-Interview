@@ -30,6 +30,7 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
    - [Sass](questions/technical/web_development/sass_interview_question.md)
    - [JavaScript Tricky](questions/technical/web_development/javascript_tricky_questions.md)
    - [React](questions/technical/web_development/react.md)
+   - [Typescript](questions/technical/web_development/typescript_interview_question.md)
    - [React Machine Test](questions/technical/web_development/react_machine_test.md)
    - [Node.js](questions/technical/web_development/nodejs.md)
 3. **Database Management**

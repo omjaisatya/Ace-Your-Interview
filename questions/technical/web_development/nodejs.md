@@ -214,3 +214,84 @@ mongoose
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 ```
+
+## 31. What is the purpose of the `stream` module in Node.js?
+
+**Answer:** The `stream` module provides a way to work with streaming data, which can be processed piece-by-piece. It is useful for handling large amounts of data efficiently without loading it all into memory at once. The module includes readable, writable, duplex, and transform streams to handle various data flow scenarios.
+
+## 32. How does Node.js achieve scalability?
+
+**Answer:** Node.js achieves scalability through its non-blocking, event-driven architecture and the use of the event loop. It handles multiple concurrent connections with a single thread by delegating I/O operations to the operating system and processing them asynchronously. For CPU-bound tasks, clustering can be used to utilize multiple CPU cores.
+
+## 33. What are `process.argv` and how are they used?
+
+**Answer:** `process.argv` is an array that contains command-line arguments passed when starting a Node.js application. The first element is the path to the Node.js executable, the second element is the path to the script file, and the subsequent elements are the additional arguments provided by the user.
+
+```javascript
+console.log(process.argv);
+```
+
+## 34. Explain the concept of middleware in the context of Express.js.
+
+**Answer:** Middleware in Express.js refers to functions that execute during the request-response cycle. They have access to the request and response objects and can modify them or terminate the request. Middleware functions are used for tasks like logging, authentication, and handling errors. They are defined using `app.use()` and executed in the order they are specified.
+
+## 35. What is the difference between `require()` and import statements?
+
+**Answer:** `require()` is used in CommonJS modules and is synchronous. It allows dynamic loading of modules. `import` is part of ES6 modules, which are static and asynchronous. ES6 modules support `import` and `export` statements and are designed for better performance and static analysis.
+
+```javascript
+// CommonJS
+const module = require("module");
+
+// ES6
+import module from "module";
+```
+
+## 36. What is a "callback hell" and how can it be avoided?
+
+**Answer:** "Callback hell" refers to deeply nested callbacks that make code hard to read and maintain. It often occurs when multiple asynchronous operations are chained together. To avoid callback hell, use Promises, `async/await`, or modularize the code into smaller functions.
+
+## 37. Describe how `async/await` improves code readability.
+
+**Answer:** `async/await` simplifies working with asynchronous code by allowing developers to write code that looks synchronous while still being asynchronous. `async` functions return a Promise, and `await` pauses the execution until the Promise resolves. This reduces the need for nested callbacks and improves error handling.
+
+## 38. How do you handle errors in asynchronous code?
+
+**Answer:** Errors in asynchronous code can be handled using:
+
+- **Callbacks:** Check for errors in the callback function.
+- **Promises:** Use `.catch()` to handle errors.
+- **Async/Await:** Use `try/catch` blocks to handle errors.
+
+```javascript
+// Using async/await
+try {
+  const data = await someAsyncFunction();
+} catch (err) {
+  console.error(err);
+}
+```
+
+## 39. What is the use of the `fs` module in Node.js?
+
+**Answer:** The `fs` (File System) module provides APIs for interacting with the file system. It includes methods for reading, writing, updating, and deleting files and directories. It supports both synchronous and asynchronous operations.
+
+```javascript
+const fs = require("fs");
+
+// Asynchronous read
+fs.readFile("file.txt", "utf8", (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+```
+
+## 40. What is the role of the path module?
+
+**Answer:** The path module provides utilities for working with file and directory paths. It includes methods for resolving, joining, normalizing, and extracting parts of paths, which helps ensure that file paths are handled correctly across different operating systems.
+
+```javascript
+const path = require("path");
+const filePath = path.join(__dirname, "file.txt");
+console.log(filePath);
+```

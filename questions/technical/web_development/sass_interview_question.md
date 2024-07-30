@@ -576,3 +576,63 @@ body {
   font-family: Helvetica, sans-serif; // This comment will also be omitted.
 }
 ```
+
+## 33. How do you create a function in Sass, and how is it different from a mixin?
+
+**Answer:**
+A function in Sass is a reusable block of code that returns a value. It is defined with `@function` and used to perform calculations or transformations. Functions are different from mixins in that they return a single value rather than outputting styles directly.
+
+```scss
+@function calculate-percentage($part, $total) {
+  @return ($part / $total) * 100%;
+}
+
+.progress {
+  width: calculate-percentage(50px, 200px); // 25%
+}
+```
+
+## 34. What is the difference between `%` and `@extend` in Sass?
+
+**Answer:**
+
+- **`%` (Placeholder Selector)**: Defines styles that are meant to be extended and do not generate CSS on their own.
+- **`@extend`**: Extends a placeholder or another selector to inherit its styles.
+
+```scss
+%button-style {
+  padding: 10px;
+  border: none;
+}
+
+.button {
+  @extend %button-style;
+  background-color: blue;
+}
+```
+
+## 35. How can you split Sass code into multiple files and import them?
+
+**Answer:**
+Sass allows you to split code into multiple files (partials) for better organization. Partials are named with a leading underscore and imported using `@use` or `@forward`.
+
+```scss
+// _variables.scss
+$primary-color: #333;
+
+// _mixins.scss
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// main.scss
+@use "variables";
+@use "mixins";
+
+body {
+  color: variables.$primary-color;
+  @include mixins.center;
+}
+```

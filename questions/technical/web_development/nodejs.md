@@ -355,3 +355,156 @@ promise
 - **Managing references:** Ensure objects are properly dereferenced when no longer needed.
 - **Using proper error handling:** Handle errors and avoid scenarios where resources are unintentionally retained.
 - **Avoiding global variables:** Limit the use of global variables and ensure they are properly managed.
+
+## 46. What is the difference between `app.use()` and `app.all()` in Express.js?
+
+**Answer:**
+
+- `app.use()` is used to define middleware functions that are executed for every request to the app or for specific routes. Middleware functions are executed in the order they are defined.
+- `app.all()` is used to handle all HTTP methods (GET, POST, PUT, DELETE, etc.) for a specific route. It allows you to define a handler for any type of request at the specified path.
+
+```javascript
+// app.use() example
+app.use(express.json());
+
+// app.all() example
+app.all("/route", (req, res) => {
+  res.send("Handled all HTTP methods for this route");
+});
+```
+
+## 47. How do you perform input validation in a Node.js application?
+
+**Answer:** Input validation can be performed using middleware and validation libraries. Common libraries include:
+
+- **express-validator:** Provides a set of validation and sanitization middlewares for Express.js.
+- **joi:** A powerful schema description language and data validator.
+
+```javascript
+const { body, validationResult } = require("express-validator");
+
+app.post(
+  "/user",
+  [body("email").isEmail(), body("password").isLength({ min: 5 })],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+    // Handle valid input
+  }
+);
+```
+
+## 48. What is a callback function and how is it used in `Node.js`?
+
+**Answer:** A callback function is a function passed as an argument to another function, which is then invoked once an asynchronous operation is completed. In Node.js, callbacks are used to handle results of asynchronous operations such as I/O tasks.
+
+```javascript
+const fs = require("fs");
+
+fs.readFile("file.txt", "utf8", (err, data) => {
+  if (err) throw err;
+  console.log(data);
+});
+```
+
+## 49. Explain the concept of event loop in Node.js.
+
+**Answer:** The event loop is a core component of Node.js that handles asynchronous operations. It continuously checks for new events and processes them by executing callbacks associated with these events. This mechanism allows Node.js to perform non-blocking operations by delegating tasks to the system kernel and only processing completed tasks.
+
+## 50. What is the purpose of the `util` module in Node.js?
+
+**Answer:** The `util` module provides utility functions that are commonly used in Node.js applications. It includes functions for formatting strings, inspecting objects, and inheriting prototypes. Key methods include `util.promisify()`, which converts callback-based functions into Promise-based functions.
+
+## 51. What are environment variables and how are they used in Node.js?
+
+**Answer:** Environment variables are key-value pairs used to store configuration settings and sensitive data outside of the application code. They can be accessed using `process.env` in Node.js. They are often used for settings such as database connection strings, API keys, and other configuration details.
+
+```javascript
+const dbHost = process.env.DB_HOST;
+console.log(`Database Host: ${dbHost}`);
+```
+
+## 52. How do you handle large files or streams of data in Node.js?
+
+**Answer:** To handle large files or streams of data efficiently, use Node.js streams. Streams allow you to process data in chunks rather than loading the entire file into memory. This approach is useful for reading or writing large files or handling data from network requests.
+
+```javascript
+const fs = require("fs");
+const readStream = fs.createReadStream("large-file.txt");
+const writeStream = fs.createWriteStream("output-file.txt");
+
+readStream.pipe(writeStream);
+```
+
+## 53. What is `node_modules` and how does it work?
+
+**Answer:** `node_modules` is a directory where npm installs all the packages (dependencies) required by your Node.js application. It contains the code for libraries and modules used in the project, and npm automatically manages these packages based on the `package.json` file.
+
+## 54. Explain the purpose and usage of `process.exit()`.
+
+**Answer:** `process.exit()` is a method that terminates the Node.js process. It takes an optional exit code, where a code of `0` indicates success, and any non-zero code indicates an error or abnormal termination. It should be used cautiously as it immediately stops the execution of the Node.js application.
+
+```javascript
+process.exit(1); // Exits with an error code
+```
+
+## 55. What is CORS and how can you handle it in a Node.js application?
+
+**Answer:** _CORS_ (Cross-Origin Resource Sharing) is a security feature implemented by browsers to restrict resources on a web page from being requested from another domain. In Node.js applications, you can handle CORS by using middleware such as `cors` in `Express.js` to allow or restrict access to your API from different origins.
+
+```javascript
+const cors = require("cors");
+const express = require("express");
+const app = express();
+
+app.use(cors()); // Enable CORS for all routes
+```
+
+## 56. What is a `Promise.all()` and how is it used?
+
+**Answer:** `Promise.all()` is a method that takes an array of Promises and returns a single Promise that resolves when all the Promises in the array have resolved, or rejects if any of the Promises reject. It is useful for running multiple asynchronous operations in parallel.
+
+```javascript
+Promise.all([fetch("url1"), fetch("url2")])
+  .then((responses) => {
+    // Handle all responses
+  })
+  .catch((err) => {
+    // Handle any error
+  });
+```
+
+## 57. Describe the use of `npm scripts` in a Node.js project.
+
+**Answer:** `npm scripts` are custom commands defined in the scripts section of the `package.json` file. They are used to automate common tasks such as testing, building, and running applications. You can define scripts to execute commands like `node app.js`, `npm run test`, or any other shell commands.
+
+```json
+
+"scripts": {
+  "start": "node app.js",
+  "test": "mocha tests/"
+}
+```
+
+## 58. How do you ensure security in a Node.js application?
+
+**Answer:** Security in a Node.js application can be ensured by:
+
+- **Sanitizing inputs:** Prevent SQL injection and other attacks by validating and sanitizing user inputs.
+- **Using HTTPS:** Secure data in transit using HTTPS.
+- **Setting security headers:** Use libraries like `helmet` to set security-related HTTP headers.
+- **Managing dependencies:** Regularly update and audit dependencies to fix vulnerabilities.
+
+## 59. What is rate limiting and why is it important?
+
+**Answer:** Rate limiting is a technique used to control the number of requests a client can make to a server within a given timeframe. It helps prevent abuse, mitigate denial-of-service attacks, and ensure fair usage of resources. Rate limiting can be implemented using middleware like `express-rate-limit`.
+
+## 60. What is Node Package Manager (NPM) and what are its key features?
+
+**Answer:** _NPM_ (Node Package Manager) is the default package manager for Node.js. It is used to manage project dependencies, run scripts, and share modules. Key features include:
+
+- **Dependency management:** Install and update libraries and packages.
+- **Script management:** Define and run custom scripts for tasks.
+- **Package publishing:** Share and publish your own packages to the npm registry.

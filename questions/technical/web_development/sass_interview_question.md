@@ -636,3 +636,42 @@ body {
   @include mixins.center;
 }
 ```
+
+## 36. Explain the use of `@debug`,` @warn`, and `@error` directives in Sass.
+
+**Answer:**
+
+- **`@debug`:** Outputs the value of an expression to the standard error, useful for debugging.
+- **`@warn`:** Outputs a warning message without stopping the compilation process.
+- **`@error`:** Outputs an error message and stops the compilation process.
+
+```scss
+$debug-value: 10;
+@debug $debug-value; // Debug message
+
+$warn-value: 20;
+@warn "This is a warning message: #{$warn-value}"; // Warning message
+
+$error-value: false;
+@if $error-value == false {
+  @error "An error occurred: value cannot be false"; // Error message
+}
+```
+
+## 37. How do you create a mixin that accepts a variable number of arguments in Sass?
+
+**Answer:**
+You can create a mixin that accepts a variable number of arguments using the `...` operator. This allows the mixin to handle multiple arguments as a list.
+
+```scss
+@mixin box-shadow($shadows...) {
+  box-shadow: $shadows;
+}
+
+.card {
+  @include box-shadow(
+    2px 2px 5px rgba(0, 0, 0, 0.2),
+    0 0 10px rgba(0, 0, 0, 0.1)
+  );
+}
+```

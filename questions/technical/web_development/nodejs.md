@@ -64,3 +64,153 @@
 ## 15. How does Node.js handle concurrency?
 
 **Answer:** Node.js handles concurrency through its event-driven, non-blocking I/O model. Instead of creating a new thread for each request, Node.js uses a single-threaded event loop to manage multiple operations. It processes requests asynchronously, allowing it to handle numerous connections concurrently without waiting for one operation to complete before starting another.
+
+## 16. What is the role of the `cluster` module in Node.js?
+
+**Answer:** The `cluster` module allows you to create child processes (workers) that share the same server port. This is useful for taking advantage of multi-core systems and improving the performance and scalability of Node.js applications by distributing the load across multiple CPU cores.
+
+## 17. What are the main types of Node.js modules?
+
+**Answer:** The main types of Node.js modules are:
+
+- **Core Modules:** Built-in modules provided by Node.js, such as `fs`, `http`, and `path`.
+- **Local Modules:** Modules created within your application, typically organized in separate files.
+- **Third-Party Modules:** Modules installed from the npm registry, such as `express`, `lodash`, and `mongoose`.
+
+## 18. How can you create a simple HTTP server using Node.js?
+
+**Answer:** You can create a simple HTTP server using the `http` module. Here's a basic example:
+
+```javascript
+const http = require("http");
+
+const server = http.createServer((req, res) => {
+  res.statusCode = 200;
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello, World!\n");
+});
+
+server.listen(3000, "127.0.0.1", () => {
+  console.log("Server running at http://127.0.0.1:3000/");
+});
+```
+
+## 19. What is `npm` and how is it used in Node.js?
+
+**Answer:** `npm` (Node Package Manager) is the default package manager for Node.js. It is used to install, manage, and share packages or modules that extend the functionality of Node.js applications. With npm, you can install dependencies, run scripts, and manage versioning of packages.
+
+## 20. What is `process` in Node.js?
+
+**Answer:** `process` is a global object in Node.js that provides information and control over the current Node.js process. It allows you to access command-line arguments (`process.argv`), environment variables (`process.env`), and handle process events and signals (`process.on()`, `process.exit()`).
+
+## 21. How do you manage dependencies in a Node.js project?
+
+**Answer:** Dependencies in a Node.js project are managed using the `package.json` file, where you list the required modules under `dependencies` or `devDependencies`. You can install `dependencies` using `npm install` or `yarn install`, and update them using `npm update` or `yarn upgrade`.
+
+## 22. What are `Promises` and how are they used in Node.js?
+
+**Answer:** Promises are a way to handle asynchronous operations by representing the eventual completion (or failure) of an operation. A Promise is an object that can be in one of three states: pending, fulfilled, or rejected. In Node.js, Promises are used to work with asynchronous operations, replacing callback functions for better readability and chaining.
+
+```javascript
+const fs = require("fs").promises;
+
+fs.readFile("file.txt", "utf8")
+  .then((data) => console.log(data))
+  .catch((err) => console.error(err));
+```
+
+## 23. What is middleware in Express.js and how is it used?
+
+**Answer:** Middleware in Express.js is a function that has access to the request object, response object, and the `next` function. It is used to perform tasks such as logging, authentication, and modifying request or response objects. Middleware functions are executed in the order they are defined in the application.
+
+```javascript
+const express = require("express");
+const app = express();
+
+app.use((req, res, next) => {
+  console.log("Request received");
+  next();
+});
+
+app.get("/", (req, res) => {
+  res.send("Hello World");
+});
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
+```
+
+## 24. How do you handle file uploads in a Node.js application?
+
+**Answer:** File uploads in Node.js can be handled using middleware such as multer for Express.js applications. multer is used to process multipart/form-data requests, which is commonly used for file uploads.
+
+```javascript
+const express = require("express");
+const multer = require("multer");
+const app = express();
+const upload = multer({ dest: "uploads/" });
+
+app.post("/upload", upload.single("file"), (req, res) => {
+  res.send("File uploaded successfully");
+});
+
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
+});
+```
+
+## 25. What is the purpose of `async/await` in Node.js?
+
+**Answer:** `async/await` is syntactic sugar introduced in ES2017 that simplifies working with asynchronous code. async functions return a Promise, and await pauses the execution of the function until the Promise resolves. This makes asynchronous code look and behave more like synchronous code, improving readability and error handling.
+
+```javascript
+const fetchData = async () => {
+  try {
+    const data = await someAsyncOperation();
+    console.log(data);
+  } catch (err) {
+    console.error(err);
+  }
+};
+```
+
+## 26. What are Buffers in Node.js?
+
+**Answer:** Buffers are objects used to handle binary data in Node.js. They provide a way to work with raw memory allocations and are especially useful for dealing with streams of binary data, such as files or network communications.
+
+```javascript
+const buffer = Buffer.from("Hello, World!");
+console.log(buffer.toString()); // Outputs: Hello, World!
+```
+
+## 27. How can you manage application configuration in a Node.js application?
+
+**Answer:** Application configuration in Node.js can be managed using environment variables, configuration files, or configuration management libraries like config or dotenv. Environment variables are often used for sensitive data and settings, while configuration files or libraries can manage application-specific settings.
+
+## 28. What are the differences between `setImmediate()` and `process.nextTick()`?
+
+**Answer:** Both `setImmediate()` and `process.nextTick()` are used to schedule callbacks, but they differ in when the callbacks are executed:
+
+- **`process.nextTick()`** callbacks are executed immediately after the current operation completes and before any I/O operations.
+- **`setImmediate()`** callbacks are executed on the next iteration of the event loop, after I/O events.
+
+## 29. What is the purpose of the `http` module in Node.js?
+
+**Answer:** The http module provides utilities to create HTTP servers and clients. It allows you to handle HTTP requests and responses, manage headers, and control the behavior of web servers and HTTP-based communication.
+
+## 30. How does Node.js handle database connections?
+
+**Answer:** Node.js handles database connections using various database drivers or ORMs (Object-Relational Mappers). For example, you might use `mongoose` for MongoDB, `pg` for PostgreSQL, or `mysql` for MySQL. These libraries provide methods for connecting to databases, executing queries, and managing data.
+
+```javascript
+const mongoose = require("mongoose");
+
+mongoose
+  .connect("mongodb://localhost/test", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("MongoDB connected"))
+  .catch((err) => console.error("MongoDB connection error:", err));
+```

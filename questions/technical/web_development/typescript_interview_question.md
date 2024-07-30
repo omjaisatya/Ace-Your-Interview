@@ -119,3 +119,171 @@ let value: string | null = null;
 value = "Hello"; // valid
 value = undefined; // error if strictNullChecks is enabled
 ```
+
+## 11. What is type assertion in TypeScript?
+
+**Answer:**
+Type assertion is a way to inform the TypeScript compiler about the type of a variable when the developer is certain of its type. It does not perform any special checking or restructuring of data; it simply tells the compiler to treat a value as a specific type.
+
+```typescript
+let someValue: any = "Hello World";
+let strLength: number = (someValue as string).length;
+```
+
+12. How can you use `type guards` in TypeScript?
+    **Answer:**
+    Type guards are used to narrow down the type of a variable within a conditional block. They can be implemented using `typeof`, `instanceof`, or custom type predicates:
+
+```typescript
+function isString(value: any): value is string {
+  return typeof value === "string";
+}
+
+function printLength(value: string | number) {
+  if (isString(value)) {
+    console.log(value.length);
+  } else {
+    console.log("Not a string");
+  }
+}
+```
+
+## 13. What is `type inference` in TypeScript?
+
+**Answer:**
+Type inference is the process by which TypeScript automatically infers the type of a variable or expression when it is not explicitly specified. For example:
+
+```typescript
+let message = "Hello World"; // TypeScript infers `message` as `string`
+```
+
+## 14. What are `enums` in TypeScript, and how are they used?
+
+**Answer:**
+Enums are a way to define a set of named constants. They can be numeric or string-based. Enums help in giving meaningful names to sets of values:
+
+```typescript
+enum Color {
+  Red = 1,
+  Green,
+  Blue,
+}
+
+let color: Color = Color.Green;
+```
+
+## 15. How does TypeScript handle `modules` and `namespaces`?
+
+**Answer:**
+TypeScript supports both `modules` and `namespaces` for organizing code. `Modules` use ES6 `import/export` syntax, while `namespaces` use TypeScript's own syntax.
+
+- Modules:
+
+```typescript
+// math.ts
+export function add(a: number, b: number): number {
+  return a + b;
+}
+
+// app.ts
+import { add } from "./math";
+console.log(add(2, 3));
+```
+
+- Namespaces:
+
+```typescript
+namespace Geometry {
+  export function areaOfCircle(radius: number): number {
+    return Math.PI * radius * radius;
+  }
+}
+
+console.log(Geometry.areaOfCircle(5));
+```
+
+## 16. How do you handle asynchronous operations in TypeScript?
+
+**Answer:**
+Asynchronous operations in TypeScript are handled using `Promise` and `async/await` syntax, similar to JavaScript:
+
+```typescript
+async function fetchData(): Promise<string> {
+  return "Data fetched";
+}
+
+fetchData().then((data) => console.log(data));
+
+async function fetchDataAsync() {
+  let data = await fetchData();
+  console.log(data);
+}
+```
+
+## 17. What is `decorator` in TypeScript, and how is it used?
+
+**Answer:**
+Decorators are a special kind of declaration that can be attached to a class, method, accessor, property, or parameter. They are used to modify or annotate classes and their members.
+
+To use decorators, you must enable the `experimentalDecorators` option in the `tsconfig.json` file.
+
+Example of a class decorator:
+
+```typescript
+function Component(target: Function) {
+  console.log(`Component decorator applied to: ${target.name}`);
+}
+
+@Component
+class MyComponent {
+  // class definition
+}
+```
+
+## 18. How can you create a type alias for a function type in TypeScript?
+
+**Answer:**
+You can create a type alias for a function `type` using the type keyword:
+
+```typescript
+type GreetFunction = (name: string) => void;
+
+const greet: GreetFunction = (name) => {
+  console.log(`Hello, ${name}`);
+};
+```
+
+## 19. What is `type narrowing`, and how does it work?
+
+**Answer:**
+Type narrowing is the process of refining the type of a variable based on certain conditions. TypeScript uses control flow analysis to narrow down types within conditional blocks:
+
+```typescript
+function processValue(value: string | number) {
+  if (typeof value === "string") {
+    console.log(value.toUpperCase());
+  } else {
+    console.log(value.toFixed(2));
+  }
+}
+```
+
+## 20. Explain the use of `partial` and `readonly` utility types in TypeScript.
+
+**Answer:**
+
+- **`Partial<T>`:** Constructs a type with all properties of `T` set to optional.
+- **`Readonly<T>`:** Constructs a type with all properties of `T` set to read-only.
+  Examples:
+
+```typescript
+interface User {
+  name: string;
+  age: number;
+}
+
+const user1: Partial<User> = { name: "Alice" }; // age is optional
+
+const user2: Readonly<User> = { name: "Bob", age: 30 };
+// user2.age = 31; // Error: Cannot assign to 'age' because it is a read-only property.
+```

@@ -443,3 +443,240 @@
       git add conflicted-file.js
       git commit -m "Resolved merge conflict"
       ```
+
+### Performance Optimization
+
+1. **What are some techniques for optimizing the performance of a web application?**
+
+   - **Minify and Compress Files**: Use tools like UglifyJS for JavaScript, CSSNano for CSS, and HTMLMinifier for HTML to reduce file sizes.
+   - **Use a Content Delivery Network (CDN)**: Serve assets from locations closer to users to reduce latency.
+   - **Lazy Loading**: Load resources as they are needed rather than all at once.
+   - **Cache Static Content**: Use browser caching and server-side caching to store static assets.
+   - **Optimize Images**: Compress images using tools like ImageOptim or TinyPNG, and use modern formats like WebP.
+   - **Reduce HTTP Requests**: Combine files, use sprites for images, and reduce the number of third-party resources.
+   - **Code Splitting**: Break up large JavaScript bundles into smaller chunks that can be loaded on demand using tools like Webpack.
+
+2. **Explain the concept of lazy loading.**
+
+   **Lazy Loading** is a design pattern commonly used to defer the loading of non-critical resources at page load time. Instead, these resources are loaded when they are needed, which can significantly improve the initial load time of a web application.
+
+   - **Images**: Only load images when they come into the viewport.
+     ```html
+     <img data-src="image.jpg" class="lazyload" />
+     <script>
+       document.addEventListener("DOMContentLoaded", function () {
+         const lazyImages = document.querySelectorAll("img.lazyload");
+         const observer = new IntersectionObserver((entries) => {
+           entries.forEach((entry) => {
+             if (entry.isIntersecting) {
+               const img = entry.target;
+               img.src = img.dataset.src;
+               img.classList.remove("lazyload");
+               observer.unobserve(img);
+             }
+           });
+         });
+         lazyImages.forEach((img) => observer.observe(img));
+       });
+     </script>
+     ```
+
+3. **How do you reduce the load time of a webpage?**
+
+   - **Optimize Asset Delivery**: Use techniques like minification, compression (Gzip/Brotli), and CDNs.
+   - **Leverage Browser Caching**: Set appropriate caching headers to store assets in the browser cache.
+   - **Defer Non-Essential Resources**: Use `defer` and `async` attributes on scripts to load them after the initial page load.
+   - **Preload Critical Resources**: Use `<link rel="preload">` for critical resources like fonts or above-the-fold content.
+   - **Reduce Render-Blocking Resources**: Minimize the impact of CSS and JavaScript files that block rendering.
+   - **Optimize CSS and JavaScript**: Remove unused code, and use tree-shaking to eliminate dead code in JavaScript bundles.
+   - **Use Modern Image Formats**: Use WebP or AVIF for images to reduce size without losing quality.
+
+### Security
+
+1. **What are some common security vulnerabilities in web applications?**
+
+   - **Cross-Site Scripting (XSS)**: Attackers inject malicious scripts into web pages viewed by other users.
+   - **SQL Injection**: Malicious SQL statements are inserted into a query to manipulate the database.
+   - **Cross-Site Request Forgery (CSRF)**: Unauthorized commands are transmitted from a user that the web application trusts.
+   - **Insecure Direct Object References (IDOR)**: Attackers manipulate URLs or parameters to access unauthorized data.
+   - **Security Misconfiguration**: Insecure settings or configurations in applications, servers, or databases.
+   - **Sensitive Data Exposure**: Inadequate protection of sensitive data (e.g., credit card information, passwords).
+
+2. **Explain Cross-Site Scripting (XSS) and how to prevent it.**
+
+   **Cross-Site Scripting (XSS)** is a security vulnerability that allows attackers to inject malicious scripts into web pages viewed by users. These scripts can steal cookies, session tokens, or other sensitive information.
+
+   **Prevention**:
+
+   - **Input Validation and Sanitization**: Validate and sanitize all user inputs to remove malicious code.
+   - **Output Encoding**: Encode data before rendering it in the browser to prevent the browser from interpreting it as code.
+   - **Content Security Policy (CSP)**: Implement CSP to restrict sources from which scripts can be loaded.
+   - **Use Secure Frameworks**: Use frameworks and libraries that automatically handle XSS protections.
+
+3. **What is CSRF (Cross-Site Request Forgery) and how can it be mitigated?**
+
+   **CSRF (Cross-Site Request Forgery)** is an attack that tricks a user into performing actions on a web application in which they are authenticated, without their knowledge.
+
+   **Mitigation**:
+
+   - **CSRF Tokens**: Include a unique token in each form and validate it on the server side.
+   - **SameSite Cookies**: Use the `SameSite` attribute on cookies to prevent them from being sent in cross-site requests.
+   - **Double Submit Cookies**: Send the CSRF token in both a cookie and a request parameter and validate them on the server side.
+   - **Check Referer Header**: Validate the `Referer` header to ensure requests come from trusted sources.
+
+### DevOps and Deployment
+
+1. **What is Continuous Integration/Continuous Deployment (CI/CD)?**
+
+   **Continuous Integration (CI)** is the practice of frequently integrating code changes into a shared repository, followed by automated builds and testing. The goal is to detect issues early.
+
+   **Continuous Deployment (CD)** extends CI by automatically deploying code changes to production after they pass automated tests. This ensures that software can be released quickly and reliably.
+
+   **CI/CD Pipeline Example**:
+
+   - **Source Code Management**: Code changes are pushed to a version control system (e.g., Git).
+   - **Automated Build**: A build server (e.g., Jenkins, Travis CI) compiles the code and runs automated tests.
+   - **Automated Testing**: Unit tests, integration tests, and other automated tests are executed.
+   - **Deployment**: If tests pass, the code is deployed to staging or production environments.
+
+2. **Explain the concept of containerization and how Docker is used.**
+
+   **Containerization** is the process of packaging an application and its dependencies into a container, which can run consistently across different environments. Docker is a popular containerization platform.
+
+   **Docker Workflow**:
+
+   - **Dockerfile**: A text file that contains instructions for building a Docker image.
+     ```dockerfile
+     # Example Dockerfile
+     FROM node:14
+     WORKDIR /app
+     COPY package.json ./
+     RUN npm install
+     COPY . .
+     EXPOSE 3000
+     CMD ["npm", "start"]
+     ```
+   - **Build Image**: Create a Docker image using the Dockerfile.
+     ```bash
+     docker build -t my-app .
+     ```
+   - **Run Container**: Start a container from the image.
+     ```bash
+     docker run -p 3000:3000 my-app
+     ```
+
+3. **How do you monitor and maintain a web application post-deployment?**
+
+   - **Logging**: Implement logging to capture application and server logs. Use tools like ELK Stack (Elasticsearch, Logstash, Kibana) or Splunk for log management and analysis.
+   - **Monitoring**: Use monitoring tools like Prometheus, Grafana, Datadog, or New Relic to track application performance, server health, and resource usage.
+   - **Alerting**: Set up alerts to notify the team of critical issues, such as downtime, errors, or performance degradation.
+   - **Automated Backups**: Regularly back up databases and important data to prevent data loss.
+   - **Scaling**: Use auto-scaling to handle increased traffic and ensure application availability.
+   - **Security Patching**: Regularly update dependencies and apply security patches to protect against vulnerabilities.
+
+### Additional Tools and Concepts
+
+1. **What is a task runner and why would you use one? Provide examples.**
+
+   A **task runner** is a tool that automates repetitive tasks in a development workflow, such as minification, compilation, linting, and testing.
+
+   - **Examples**:
+
+     - **Gulp**: Uses a code-over-configuration approach with a simple API to define tasks.
+
+       ```javascript
+       const { src, dest, series } = require("gulp");
+       const uglify = require("gulp-uglify");
+
+       function minify() {
+         return src("src/*.js").pipe(uglify()).pipe(dest("dist"));
+       }
+
+       exports.default = series(minify);
+       ```
+
+     - **Grunt**: Uses a configuration-over-code approach to define tasks in a `Gruntfile`.
+       ```javascript
+       module.exports = function (grunt) {
+         grunt.initConfig({
+           uglify: {
+             my_target: {
+               files: {
+                 "dist/output.min.js": ["src/input.js"],
+               },
+             },
+           },
+         });
+         grunt.loadNpmTasks("grunt-contrib-uglify");
+         grunt.registerTask("default", ["uglify"]);
+       };
+       ```
+
+2. **Explain the concept of responsive design.**
+
+   **Responsive Design** is an approach to web design that ensures web pages render well on a variety of devices and window or screen sizes. This is achieved through:
+
+   - **Flexible Grid Layouts**: Use relative units like percentages and `em` instead of fixed units like pixels.
+   - **Media Queries**: Apply different styles based on the device's characteristics, such as width, height, and orientation.
+     ```css
+     @media ;
+     ```
+
+max-width: 600px) {
+body {
+background-color: lightblue;
+}
+}
+```
+
+- **Flexible Images and Media**: Use CSS to ensure images and media scale appropriately within their containing elements.
+  ```css
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  ```
+
+3. **What is GraphQL and how does it differ from REST?**
+
+   **GraphQL** is a query language for APIs and a runtime for executing those queries by using a type system you define for your data. It was developed by Facebook as an alternative to REST.
+
+   - **Key Differences**:
+
+     - **Data Fetching**: In REST, multiple endpoints are used to fetch related data, often resulting in over-fetching or under-fetching. In GraphQL, a single endpoint is used, and the client specifies the exact data needed.
+     - **Schema and Types**: GraphQL uses a strongly typed schema to define the structure of the API. Clients can query for specific fields, and the server validates and returns the data according to the schema.
+     - **Real-Time Updates**: GraphQL supports real-time updates with subscriptions, which are not inherently supported by REST.
+
+   - **Example**:
+
+     ```graphql
+     // Query
+     {
+       user(id: "1") {
+         name
+         posts {
+           title
+           comments {
+             body
+           }
+         }
+       }
+     }
+
+     // Response
+     {
+       "data": {
+         "user": {
+           "name": "John Doe",
+           "posts": [
+             {
+               "title": "GraphQL is awesome",
+               "comments": [
+                 { "body": "Great post!" }
+               ]
+             }
+           ]
+         }
+       }
+     }
+     ```

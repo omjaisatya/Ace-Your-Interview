@@ -287,3 +287,158 @@ const user1: Partial<User> = { name: "Alice" }; // age is optional
 const user2: Readonly<User> = { name: "Bob", age: 30 };
 // user2.age = 31; // Error: Cannot assign to 'age' because it is a read-only property.
 ```
+
+## 21. What are the differences between `var`, `let`, and `const` in TypeScript?
+
+**Answer:**
+
+- **`var`:** Function-scoped, can be re-declared and updated. Hoisted to the top of its scope.
+- **`let`:** Block-scoped, can be updated but not re-declared in the same scope. Not hoisted.
+- **`const`:** Block-scoped, cannot be updated or re-declared. The value it holds cannot be changed.
+
+## 22. Explain TypeScript's type inference system.
+
+**Answer:**
+TypeScript's type inference system automatically determines the type of a variable when no explicit type annotation is provided. This helps in maintaining code simplicity while still benefiting from type safety.
+
+```typescript
+let num = 10; // TypeScript infers `num` as `number`
+let str = "hello"; // TypeScript infers `str` as `string`
+```
+
+## 23. How do you create a tuple in TypeScript?
+
+**Answer:**
+A tuple in TypeScript is an array with fixed types and length. Each element in the tuple has a known type.
+
+```typescript
+let tuple: [string, number];
+tuple = ["hello", 42]; // Valid
+// tuple = [42, 'hello']; // Error: Type 'number' is not assignable to type 'string'.
+```
+
+## 24. What is a `namespace` in TypeScript?
+
+**Answer:**
+A `namespace` is a way to group related code together under a single name. It helps in organizing code and preventing global scope pollution.
+
+```typescript
+namespace Utilities {
+  export function log(message: string) {
+    console.log(message);
+  }
+}
+
+Utilities.log("Hello, world!");
+```
+
+## 25. How do you enforce a class to implement a specific interface?
+
+**Answer:**
+A class can be enforced to implement a specific interface using the `implements` keyword. This ensures the class adheres to the structure defined by the interface.
+
+```typescript
+interface Animal {
+  name: string;
+  makeSound(): void;
+}
+
+class Dog implements Animal {
+  name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+  makeSound() {
+    console.log("Bark");
+  }
+}
+```
+
+## 26. What are `abstract` classes and methods in TypeScript?
+
+**Answer:**
+`Abstract` classes cannot be instantiated directly and are meant to be subclassed. Abstract methods within these classes must be implemented by derived classes.
+
+```typescript
+abstract class Animal {
+  abstract makeSound(): void;
+  move(): void {
+    console.log("Moving");
+  }
+}
+
+class Dog extends Animal {
+  makeSound() {
+    console.log("Bark");
+  }
+}
+
+let dog = new Dog();
+dog.makeSound(); // Output: Bark
+dog.move(); // Output: Moving
+```
+
+## 27. How do you define a `readonly` property in TypeScript?
+
+**Answer:**
+A `readonly` property can only be set during initialization or within the constructor of a class. Once set, it cannot be modified.
+
+```typescript
+class Person {
+  readonly name: string;
+  constructor(name: string) {
+    this.name = name;
+  }
+}
+
+let person = new Person("Alice");
+// person.name = 'Bob'; // Error: Cannot assign to 'name' because it is a read-only property.
+```
+
+## 28. What is the `unknown` type in TypeScript?
+
+Answer:
+The `unknown` type is a safer alternative to any. It means that the value can be of `any` type, but unlike `any`, you must perform some type checking before performing operations on it.
+
+```typescript
+let value: unknown;
+value = "Hello";
+
+if (typeof value === "string") {
+  console.log(value.toUpperCase()); // Valid
+}
+```
+
+## 29. Explain how you can use `keyof` and `typeof` operators in TypeScript.
+
+**Answer:**
+
+- **`keyof`:** Used to get the keys of an interface or type as a union of string literals.
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+let key: keyof Person; // 'name' | 'age'
+```
+
+- **`typeof`:** Used to get the type of a value.
+
+```typescript
+let s = "hello";
+let sType: typeof s; // string
+```
+
+## 30. What are TypeScript mapped types?
+
+**Answer:**
+Mapped types generate new types by transforming properties of an existing type. For example, `Partial`, `Readonly`, and `Record` are mapped types.
+
+```typescript
+type ReadonlyPerson = Readonly<Person>;
+
+const person: ReadonlyPerson = { name: "Alice", age: 25 };
+// person.age = 30; // Error: Cannot assign to 'age' because it is a read-only property.
+```

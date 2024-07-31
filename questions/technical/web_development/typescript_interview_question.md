@@ -442,3 +442,154 @@ type ReadonlyPerson = Readonly<Person>;
 const person: ReadonlyPerson = { name: "Alice", age: 25 };
 // person.age = 30; // Error: Cannot assign to 'age' because it is a read-only property.
 ```
+
+## 31. How do you create a conditional type in TypeScript?
+
+**Answer:**
+Conditional types provide a way to select one of two types based on a condition. The syntax is `T extends U ? X : Y`.
+
+```typescript
+type IsString<T> = T extends string ? "Yes" : "No";
+
+type Test1 = IsString<string>; // 'Yes'
+type Test2 = IsString<number>; // 'No'
+```
+
+## 32. What is the purpose of `declaration merging` in TypeScript?
+
+**Answer:**
+Declaration merging allows you to combine multiple declarations with the same name into a single definition. This is useful for extending existing interfaces or modules.
+
+```typescript
+interface User {
+  name: string;
+}
+
+interface User {
+  age: number;
+}
+
+let user: User = { name: "Alice", age: 25 }; // Merged interface
+```
+
+## 33. How do you create a `generic interface` in TypeScript?
+
+**Answer:**
+A generic interface can accept type parameters, making it reusable for different types.
+
+```typescript
+interface Box<T> {
+  contents: T;
+}
+
+let stringBox: Box<string> = { contents: "Hello" };
+let numberBox: Box<number> = { contents: 123 };
+```
+
+## 34. What are `type predicates` and how are they used?
+
+**Answer:**
+Type predicates are used to narrow down types within a conditional block. They use the `value is Type `syntax.
+
+```typescript
+function isString(value: any): value is string {
+  return typeof value === "string";
+}
+
+function printValue(value: string | number) {
+  if (isString(value)) {
+    console.log(`String: ${value}`);
+  } else {
+    console.log(`Number: ${value}`);
+  }
+}
+```
+
+## 35. Explain the `Excess Property Checks` feature in TypeScript.
+
+**Answer:**
+Excess property checks occur when an object is assigned to another type, and TypeScript ensures no extra properties are present.
+
+```typescript
+interface Person {
+  name: string;
+  age: number;
+}
+
+let person: Person = { name: "Alice", age: 25, gender: "female" }; // Error: Object literal may only specify known properties.
+```
+
+## 36. What is the purpose of `module augmentation` in TypeScript?
+
+**Answer:**
+Module augmentation allows you to add new exports to an existing module. This is useful for extending third-party libraries with additional features.
+
+```typescript
+// math.d.ts
+declare module "math" {
+  export function add(a: number, b: number): number;
+}
+
+// augmentation.ts
+declare module "math" {
+  export function subtract(a: number, b: number): number;
+}
+```
+
+## 37. How can you `handle optional` chaining in TypeScript?
+
+**Answer:**
+Optional chaining allows you to safely access deeply nested properties even if an intermediate property is `null` or `undefined`.
+
+```typescript
+let person: { name?: { first?: string } } = {};
+
+console.log(person.name?.first); // undefined
+```
+
+## 38. How does TypeScript support `literal` types?
+
+**Answer:**
+Literal types are exact values instead of broad types. They can be string, number, or boolean values.
+
+```typescript
+let direction: "up" | "down";
+direction = "up"; // Valid
+// direction = 'left'; // Error: Type '"left"' is not assignable to type '"up" | "down"'.
+```
+
+## 39. What is a `decorator factory` in TypeScript?
+
+**Answer:**
+A decorator factory is a function that returns a decorator function. This is useful when you need to pass parameters to a decorator.
+
+```typescript
+function Logger(prefix: string) {
+  return function (target: Function) {
+    console.log(`${prefix} - ${target.name}`);
+  };
+}
+
+@Logger("Component")
+class MyComponent {
+  // class definition
+}
+```
+
+## 40. How do you create a `type alias` for an intersection type in TypeScript?
+
+**Answer:**
+A type alias for an intersection type combines multiple types into one. This is useful for creating types that have all the properties of the combined types.
+
+```typescript
+type Admin = { name: string; privileges: string[] };
+type Employee = { name: string; startDate: Date };
+
+type ElevatedEmployee = Admin & Employee;
+
+let employee: ElevatedEmployee = {
+  name: "Alice",
+  privileges: ["manage"],
+  startDate: new Date(),
+};
+```

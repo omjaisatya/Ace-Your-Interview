@@ -165,3 +165,195 @@ You can customize Bootstrap components by:
 
 **Answer:**
 Responsive design in Bootstrap ensures that web pages adjust smoothly to different screen sizes and resolutions. Bootstrap uses a mobile-first approach, where styles are applied to smaller screens first, then expanded for larger screens using media queries and responsive grid classes.
+
+## 11. What are the main features of Bootstrap?
+
+**Answer:**  
+Bootstrap offers several key features, including:
+
+- Responsive grid system
+- Extensive pre-built components
+- Sass variables and mixins
+- JavaScript plugins
+- Customizable design via themes
+- Extensive documentation
+
+## 12. Explain the Bootstrap grid system and how it works.
+
+**Answer:**  
+Bootstrap's grid system is a flexible layout structure that allows you to create complex web layouts. It is based on a 12-column grid layout, where you can divide the row into up to 12 columns. You can specify different column sizes for different screen sizes using classes like `.col-sm-`, `.col-md-`, `.col-lg-`, and `.col-xl-`.
+
+## 13. How do you implement a Bootstrap carousel?
+
+**Answer:**  
+To create a carousel, use the following structure:
+
+```html
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li
+      data-target="#carouselExampleIndicators"
+      data-slide-to="0"
+      class="active"
+    ></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="..." alt="First slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Second slide" />
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="..." alt="Third slide" />
+    </div>
+  </div>
+  <a
+    class="carousel-control-prev"
+    href="#carouselExampleIndicators"
+    role="button"
+    data-slide="prev"
+  >
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a
+    class="carousel-control-next"
+    href="#carouselExampleIndicators"
+    role="button"
+    data-slide="next"
+  >
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+```
+
+## 14. What are Bootstrap badges, and how do you use them?
+
+**Answer:**
+Badges are small count and labeling components. They can be used to add additional information to any content. Example usage:
+
+```html
+<h1>Example heading <span class="badge badge-secondary">New</span></h1>
+```
+
+You can also use badges within buttons:
+
+```html
+<button type="button" class="btn btn-primary">
+  Notifications <span class="badge badge-light">4</span>
+</button>
+```
+
+## 15. How can you create a responsive table using Bootstrap?
+
+**Answer:**
+To make a table responsive, wrap it in a `.table-responsive` div. Example:
+
+```html
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>John</td>
+        <td>Doe</td>
+        <td>@johndoe</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+```
+
+## 16. How do you use Bootstrap's flex utilities?
+
+**Answer:**
+Bootstrap provides flexbox utilities to control the layout and alignment of components. Examples include:
+
+- `.d-flex` to apply display: flex;
+- `.justify-content-center` to center items horizontally
+- `.align-items-center` to center items vertically
+- `.flex-column` to arrange items in a column
+  Example:
+
+```html
+<div
+  class="d-flex justify-content-center align-items-center"
+  style="height: 200px;"
+>
+  <p>Centered content</p>
+</div>
+```
+
+## 17. What are Bootstrap cards, and how do you use them?
+
+**Answer:**
+Cards are flexible content containers that include options for headers, footers, content, images, and various content types. Example:
+
+```html
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="..." alt="Card image cap" />
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+```
+
+## 18. Explain the purpose of the `.sr-only` class in Bootstrap.
+
+**Answer:**
+The `.sr-only` class is used to hide elements from the screen while still making them accessible to screen readers. This is useful for accessibility purposes, such as providing additional context or instructions that are only necessary for visually impaired users.
+
+Example:
+
+```html
+<label for="inputEmail" class="sr-only">Email address</label>
+<input
+  type="email"
+  id="inputEmail"
+  class="form-control"
+  placeholder="Email address"
+  required
+  autofocus
+/>
+```
+
+## 19. What is the use of the `.clearfix` class in Bootstrap?
+
+Answer:
+The `.clearfix` class is used to clear floats. It can be used to ensure that an element clears its floated children, preventing layout issues.
+Example:
+
+```html
+<div class="clearfix">
+  <div class="float-left">Left floated content</div>
+  <div class="float-right">Right floated content</div>
+</div>
+```
+
+## 20. How do you implement responsive images in Bootstrap?
+
+**Answer:**
+To make an image responsive, add the `.img-fluid` class to the `<img>` element. This class applies `max-width: 100%;` and `height: auto;` to ensure the image scales with the parent element.
+
+Example:
+
+```html
+<img src="..." class="img-fluid" alt="Responsive image" />
+```

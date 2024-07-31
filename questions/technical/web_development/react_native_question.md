@@ -457,3 +457,230 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 const MyComponent = () => <Icon name="rocket" size={30} color="#900" />;
 ```
+
+## 31. What is the difference between `useEffect` and `useLayoutEffect`?
+
+**Answer:**
+
+- **`useEffect`:** This hook runs after the DOM has been updated. It is useful for side effects that do not need to block the painting of the screen, such as data fetching, subscriptions, and manually modifying the DOM.
+
+```jsx
+useEffect(() => {
+  // Side effect code here
+}, [dependencies]);
+```
+
+- **`useLayoutEffect`:** This hook runs synchronously after all DOM mutations. It is useful for measuring the layout or making adjustments before the browser has a chance to paint.
+
+```jsx
+useLayoutEffect(() => {
+  // Layout effect code here
+}, [dependencies]);
+```
+
+## 32. What is the difference between `React Navigation` and `React Router`?
+
+**Answer:**
+
+- **React Navigation:** A navigation library specifically designed for React Native. It supports stack, tab, and drawer navigators, and is optimized for mobile navigation patterns.
+- **React Router:** A routing library for React used primarily in web applications. It provides route management and rendering based on URL paths and is not optimized for mobile-specific navigation patterns.
+
+## 33. How do you handle accessibility in React Native?
+
+**Answer:**
+React Native provides built-in support for accessibility features. You can handle accessibility by:
+
+- **Using `accessible` prop:** Marks a component as accessible.
+- **Using `accessibilityLabel`:** Provides a label for screen readers.
+- **Using `accessibilityHint`:** Gives additional information about the purpose of the element.
+- **Testing with Accessibility Inspector:** Tools like the Accessibility Inspector in Xcode or Android Studio can help test and improve accessibility.
+
+```jsx
+<Button
+  title="Submit"
+  onPress={handlePress}
+  accessibilityLabel="Submit button"
+  accessibilityHint="Press to submit the form"
+/>
+```
+
+## 34. What are `refs` in React Native and how do you use them?
+
+**Answer:**
+Refs provide a way to access and interact with DOM nodes or React elements directly. They are useful for managing focus, triggering animations, or integrating with third-party libraries.
+
+- **Creating a ref:** Use `React.createRef()` in class components or `useRef()` in functional components.
+- **Assigning a ref:** Attach the ref to a React element via the `ref` attribute.
+
+```jsx
+// Functional component with useRef
+const MyComponent = () => {
+  const inputRef = useRef(null);
+
+  const focusInput = () => {
+    inputRef.current.focus();
+  };
+
+  return <TextInput ref={inputRef} placeholder="Type here" />;
+};
+```
+
+## 35. How do you perform data fetching in React Native?
+
+**Answer:**
+Data fetching in React Native is similar to how it is done in React. Common methods include:
+
+- **Using `fetch`:** A built-in API for making network requests.
+
+```jsx
+useEffect(() => {
+  fetch("https://api.example.com/data")
+    .then((response) => response.json())
+    .then((data) => setData(data))
+    .catch((error) => console.error(error));
+}, []);
+```
+
+- **Using `axios`:** A popular HTTP client for making requests.
+
+```jsx
+import axios from "axios";
+
+useEffect(() => {
+  axios
+    .get("https://api.example.com/data")
+    .then((response) => setData(response.data))
+    .catch((error) => console.error(error));
+}, []);
+```
+
+## 36. What are `PropTypes` and how are they used in React Native?
+
+**Answer:**
+`PropTypes` is a library for type-checking props in React components. It helps to validate the types of props passed to components and can be useful for catching bugs related to incorrect prop types.
+
+```jsx
+import PropTypes from "prop-types";
+
+const MyComponent = ({ name, age }) => (
+  <Text>
+    {name} is {age} years old
+  </Text>
+);
+
+MyComponent.propTypes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired,
+};
+```
+
+## 37. What is the `StyleSheet` API in React Native?
+
+**Answer:**
+The `StyleSheet` API is used to create a style object in React Native. It helps to optimize styles by ensuring that style objects are created only once and are not recreated on every render.
+
+```jsx
+import { StyleSheet, View, Text } from "react-native";
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  text: {
+    fontSize: 20,
+  },
+});
+
+const MyComponent = () => (
+  <View style={styles.container}>
+    <Text style={styles.text}>Hello, World!</Text>
+  </View>
+);
+```
+
+## 38. How do you handle navigation state persistence in React Navigation?
+
+**Answer:**
+To persist navigation state in React Navigation:
+
+- **Use AsyncStorage:** Save and retrieve navigation state from AsyncStorage.
+
+```jsx
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+const persistNavigationState = async (state) => {
+  try {
+    await AsyncStorage.setItem("navigationState", JSON.stringify(state));
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getNavigationState = async () => {
+  try {
+    const state = await AsyncStorage.getItem("navigationState");
+    return state ? JSON.parse(state) : undefined;
+  } catch (error) {
+    console.error(error);
+  }
+};
+```
+
+- **Integrate with React Navigation:** Use `onStateChange` and `initialState` props of the navigation container to handle persistence.
+
+## 39. What are `NativeModules` and `NativeEventEmitter` in React Native?
+
+**Answer:**
+
+- **`NativeModules`:** A JavaScript object that provides access to native modules in React Native. It allows you to call native functions from JavaScript.
+
+```jsx
+import { NativeModules } from "react-native";
+
+const { CustomNativeModule } = NativeModules;
+CustomNativeModule.customFunction();
+```
+
+- **`NativeEventEmitter`:** A class that allows you to listen to events emitted from native modules. It helps in subscribing and unsubscribing from native events.
+
+```jsx
+import { NativeEventEmitter, NativeModules } from "react-native";
+
+const { CustomNativeModule } = NativeModules;
+const eventEmitter = new NativeEventEmitter(CustomNativeModule);
+
+const subscription = eventEmitter.addListener("EventName", (event) => {
+  console.log(event);
+});
+
+return () => subscription.remove();
+```
+
+## 40. How do you integrate Firebase with a React Native application?
+
+**Answer:**
+To integrate Firebase with a React Native application:
+
+1. **Install Firebase SDK:** Use `@react-native-firebase/app` and specific packages for the Firebase services you need.
+
+```bash
+npm install @react-native-firebase/app @react-native-firebase/auth @react-native-firebase/firestore
+```
+
+2. **Configure Firebase:** Follow the setup instructions in the Firebase console to configure your app for iOS and Android.
+
+3. **Use Firebase Services:** Import and use Firebase services in your React Native components.
+
+```jsx
+import auth from "@react-native-firebase/auth";
+
+const signIn = async () => {
+  try {
+    await auth().signInWithEmailAndPassword("email@example.com", "password");
+  } catch (error) {
+    console.error(error);
+  }
+};
+```

@@ -114,3 +114,152 @@ To debug a React Native app, you can use several approaches:
 - **Flipper:** A platform for debugging iOS and Android apps, with support for React Native.
 - **Console logs:** Use `console.log` to output information to the Metro bundler console or the debugging tools.
 - **Error boundaries:** Implement error boundaries to catch JavaScript errors in component trees.
+
+## 11. What is the role of `AppRegistry` in React Native?
+
+**Answer:**
+`AppRegistry` is the entry point for a React Native application. It is responsible for registering the root component of the app and starting the app’s lifecycle. The `AppRegistry.registerComponent` method takes two arguments: the name of the app and a function that returns the root component.
+
+```jsx
+import { AppRegistry } from "react-native";
+import App from "./App";
+import { name as appName } from "./app.json";
+
+AppRegistry.registerComponent(appName, () => App);
+```
+
+## 12. What is the significance of the `Context API` in React Native?
+
+**Answer:**
+The Context API in React is used to manage and share state globally within a React application without passing props manually through every level of the component tree. It provides a way to share values like themes, user data, or app settings between components without having to explicitly pass props down through multiple layers.
+
+```jsx
+const MyContext = React.createContext();
+
+const App = () => (
+  <MyContext.Provider value="someValue">
+    <MyComponent />
+  </MyContext.Provider>
+);
+
+const MyComponent = () => {
+  const value = React.useContext(MyContext);
+  return <Text>{value}</Text>;
+};
+```
+
+## 13. How do you handle deep linking in React Native?
+
+**Answer:**
+Deep linking allows users to open specific parts of your app from external links. To handle deep linking in React Native:
+
+1. **Configure URL Schemes:** For iOS, configure URL schemes in the Info.plist file. For Android, add intent filters in the AndroidManifest.xml file.
+2. **Use Linking API:** React Native provides the `Linking` module to handle deep links. You can use it to retrieve and process incoming URLs.
+
+```jsx
+import { Linking } from "react-native";
+
+Linking.addEventListener("url", handleOpenURL);
+
+const handleOpenURL = (event) => {
+  console.log(event.url);
+};
+
+// To open a URL programmatically
+Linking.openURL("myapp://path/to/screen");
+```
+
+## 14. What is the purpose of `React.memo`?
+
+**Answer:**
+`React.memo` is a higher-order component that optimizes performance by memoizing the result of a functional component. It prevents unnecessary re-renders of the component by only re-rendering when the props have changed. This can be particularly useful for components that render the same output given the same props.
+
+```jsx
+const MyComponent = React.memo(({ name }) => {
+  console.log("Rendering:", name);
+  return <Text>{name}</Text>;
+});
+```
+
+## 15. How do you manage state in React Native applications?
+
+**Answer:**
+State management in React Native can be handled using:
+
+- **Local State:** Using `useState` and `useReducer` hooks for managing component-specific state.
+- **Context API:** For sharing state across multiple components without prop drilling.
+- **State Management Libraries:** Libraries like `Redux`, `MobX`, or `Recoil` for more complex state management scenarios.
+- **React Query or SWR:** For managing and caching server-side data.
+
+## 16. What is `React Navigation` and how does it work?
+
+**Answer:**
+`React Navigation` is a library for managing navigation and routing in React Native applications. It provides a range of navigators such as stack navigators, tab navigators, and drawer navigators to handle different navigation patterns. The library relies on the concept of a navigation tree and enables navigating between screens using the `navigation` prop.
+
+```jsx
+import { createStackNavigator } from "@react-navigation/stack";
+import { NavigationContainer } from "@react-navigation/native";
+
+const Stack = createStackNavigator();
+
+const App = () => (
+  <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen name="Details" component={DetailsScreen} />
+    </Stack.Navigator>
+  </NavigationContainer>
+);
+```
+
+## 17. What is the difference between `Component` and `PureComponent` in React Native?
+
+**Answer:**
+
+- **`Component`:** The base class for creating a React component. It re-renders whenever its state or props change.
+- **`PureComponent`:** A subclass of `Component` that performs a shallow comparison of props and state to determine if the component should re-render. This can improve performance by avoiding unnecessary re-renders.
+
+```jsx
+class MyComponent extends React.PureComponent {
+  render() {
+    return <Text>{this.props.name}</Text>;
+  }
+}
+```
+
+## 18. How do you handle offline data in React Native?
+
+**Answer:**
+To handle offline data in React Native, you can use:
+
+- **Local Storage:** Libraries like `AsyncStorage` or `MMKVStorage` for storing key-value pairs.
+- **SQLite:** For relational data storage with the `react-native-sqlite-storage` library.
+- **PouchDB/CouchDB:** For more complex offline-first strategies and synchronization.
+
+## 19. How do you optimize images in a React Native application?
+
+**Answer:**
+To optimize images in React Native:
+
+- **Use the `Image` component properly:** Provide the `source` prop with appropriate image resolutions and sizes.
+- **Use `ImageBackground` for better performance:** For static images used as backgrounds.
+- **Leverage caching:** Use libraries like `react-native-fast-image` to handle image caching and performance.
+- **Optimize image sizes:** Use tools to compress and resize images before including them in your app.
+
+```jsx
+import FastImage from "react-native-fast-image";
+
+<FastImage
+  style={{ width: 200, height: 200 }}
+  source={{ uri: "https://example.com/image.jpg" }}
+  resizeMode={FastImage.resizeMode.contain}
+/>;
+```
+
+## 20. What is `Expo` and how does it relate to React Native?
+
+**Answer:**
+Expo is a framework and platform built around React Native that provides tools and services for developing, building, and deploying React Native applications. It includes a set of libraries and APIs that make it easier to work with React Native, especially for beginners. Expo also offers a managed workflow, allowing developers to use a set of pre-configured libraries without having to deal with native code directly.
+
+- **Managed Workflow:** Simplifies development with pre-built configurations and tools.
+- **Bare Workflow:** Provides more flexibility by allowing you to use custom native code.

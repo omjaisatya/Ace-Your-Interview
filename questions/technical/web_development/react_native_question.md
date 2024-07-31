@@ -263,3 +263,197 @@ Expo is a framework and platform built around React Native that provides tools a
 
 - **Managed Workflow:** Simplifies development with pre-built configurations and tools.
 - **Bare Workflow:** Provides more flexibility by allowing you to use custom native code.
+
+## 21. What is the difference between `componentDidMount` and `useEffect`?
+
+**Answer:**
+
+- **`componentDidMount`:** A lifecycle method in class components that is called once, immediately after the component is added to the DOM. It's used for initialization tasks like data fetching.
+- **`useEffect`:** A hook used in functional components that runs after the component renders. It can be used to perform side effects like data fetching, subscriptions, or manually changing the DOM. It can mimic the behavior of `componentDidMount` by providing an empty dependency array.
+
+```jsx
+// Using componentDidMount in a class component
+class MyComponent extends React.Component {
+  componentDidMount() {
+    // Perform actions after component mounts
+  }
+}
+
+// Using useEffect in a functional component
+const MyComponent = () => {
+  useEffect(() => {
+    // Perform actions after component mounts
+  }, []);
+};
+```
+
+## 22. What are some common performance pitfalls in React Native?
+
+**Answer:**
+
+- **Re-renders:** Unnecessary re-renders can be caused by improper use of state and props. Use `React.memo`, `PureComponent`, or `shouldComponentUpdate` to optimize.
+- **Large Lists:** Rendering large lists without optimization can impact performance. Use `FlatList` or `SectionList` with proper key props and memoization.
+- **Expensive Operations:** Expensive operations or computations within render methods can slow down the app. Use memoization with `useMemo` or `useCallback`.
+- **Unoptimized Images:** Large or unoptimized images can affect performance. Use `FastImage` or optimize images for different resolutions.
+
+## 23. What is the role of `useCallback` and `useMemo` hooks?
+
+**Answer:**
+
+- **`useCallback`:** A hook that returns a memoized version of a callback function, which helps prevent unnecessary re-creations of functions between renders. It is useful when passing functions as props to child components.
+
+```jsx
+const handleClick = useCallback(() => {
+  // Handle click
+}, []);
+```
+
+- **`useMemo`:** A hook that returns a memoized value of a computation. It helps to optimize performance by preventing expensive calculations from running on every render.
+
+```jsx
+const computedValue = useMemo(() => {
+  return expensiveComputation(input);
+}, [input]);
+```
+
+## 24. How do you handle animations in React Native?
+
+**Answer:**
+React Native provides several options for handling animations:
+
+- **`Animated` API:** A core module for creating smooth, interactive animations.
+- **`react-native-reanimated`:** A library for more advanced animations with improved performance and capabilities.
+- **`react-native-animatable`:** A library with pre-built animations and easier-to-use API.
+
+```jsx
+import { Animated } from "react-native";
+
+const fadeAnim = useRef(new Animated.Value(0)).current;
+
+useEffect(() => {
+  Animated.timing(fadeAnim, {
+    toValue: 1,
+    duration: 1000,
+    useNativeDriver: true,
+  }).start();
+}, []);
+
+return <Animated.View style={{ opacity: fadeAnim }} />;
+```
+
+## 25. What is the purpose of `useReducer` hook and how is it different from `useState`?
+
+**Answer:**
+
+- **`useReducer`:** A hook used for managing more complex state logic in functional components. It is an alternative to `useState` for managing state transitions based on actions. It’s ideal for scenarios where state depends on previous state or involves multiple sub-values.
+
+```jsx
+const [state, dispatch] = useReducer(reducer, initialState);
+```
+
+- **`useState`:** A simpler hook for managing state where the state is usually independent or doesn't require complex updates.
+
+```jsx
+const [count, setCount] = useState(0);
+```
+
+## 26. What is the role of `getDerivedStateFromProps`?
+
+**Answer:**
+`getDerivedStateFromProps` is a static lifecycle method in class components that is called before rendering, both on the initial mount and on subsequent updates. It is used to update the state in response to prop changes. It replaces `componentWillReceiveProps` in newer React versions.
+
+```jsx
+static getDerivedStateFromProps(nextProps, prevState) {
+  // Return an object to update state based on props
+  return { derivedState: nextProps.someValue };
+}
+```
+
+## 27. How do you handle error boundaries in React Native?
+
+**Answer:**
+Error boundaries are used to catch JavaScript errors in React component trees and display a fallback UI instead of crashing the entire app. Implementing error boundaries involves creating a class component with `componentDidCatch` and `static getDerivedStateFromError` methods.
+
+```jsx
+class ErrorBoundary extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { hasError: false };
+  }
+
+  static getDerivedStateFromError() {
+    return { hasError: true };
+  }
+
+  componentDidCatch(error, info) {
+    // Log error information
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return <Text>Something went wrong.</Text>;
+    }
+
+    return this.props.children;
+  }
+}
+```
+
+## 28. What are the different types of navigators in React Navigation?
+
+**Answer:**
+React Navigation provides several types of navigators:
+
+- **Stack Navigator:** Manages a stack of screens, allowing navigation through a stack-based approach (e.g., push and pop operations).
+- **Tab Navigator:** Manages a tab-based navigation where each tab represents a different screen.
+- **Drawer Navigator:** Manages navigation with a sliding drawer that reveals different sections of the app.
+- **Material Top Tabs Navigator:** Similar to Tab Navigator but styled according to Material Design principles.
+
+```jsx
+import { createStackNavigator } from "@react-navigation/stack";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+
+const Stack = createStackNavigator();
+const Tab = createBottomTabNavigator();
+```
+
+## 29. How do you use `react-native-gesture-handler`?
+
+**Answer:**
+`react-native-gesture-handler` is a library used to handle gestures in React Native applications. It provides a more flexible and performant way to handle touch events compared to the built-in gesture system.
+
+To use `react-native-gesture-handler`, you need to:
+
+1. Install the library.
+2. Import and use gesture handler components like `PanGestureHandler`, `TapGestureHandler`, etc.
+
+```bash
+npm install react-native-gesture-handler
+```
+
+```jsx
+import { PanGestureHandler } from "react-native-gesture-handler";
+
+const MyComponent = () => {
+  return (
+    <PanGestureHandler onGestureEvent={handleGesture}>
+      <View style={styles.box} />
+    </PanGestureHandler>
+  );
+};
+```
+
+## 30. What is the purpose of `react-native-vector-icons`?
+
+**Answer:**
+`react-native-vector-icons` is a library that provides a large collection of customizable icons that can be used in React Native applications. It supports multiple icon sets like FontAwesome, MaterialIcons, and Ionicons, and allows for easy customization and integration of icons in your app.
+
+```bash
+npm install react-native-vector-icons
+```
+
+```jsx
+import Icon from "react-native-vector-icons/FontAwesome";
+
+const MyComponent = () => <Icon name="rocket" size={30} color="#900" />;
+```

@@ -33,6 +33,7 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
    - [Typescript](questions/technical/web_development/typescript_interview_question.md)
    - [React Machine Test](questions/technical/web_development/react_machine_test.md)
    - [Node.js](questions/technical/web_development/nodejs.md)
+   - [Web Dev General Ques.](questions/technical/web_development/web_dev_general_interview_question.md)
 3. **Database Management**
    - [SQL](questions/technical/databases/sql.md)
    - [MongoDB](questions/technical/databases/mongodb.md)

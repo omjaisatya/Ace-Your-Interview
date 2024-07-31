@@ -93,7 +93,7 @@ JavaScript can be included in an HTML document in three ways:
 **Answer:**
 The `<meta>` tag provides metadata about the HTML document, such as character set, page description, keywords, author, and viewport settings. This information is used by browsers, search engines, and other web services.
 
-## 15. Explain the concept of the Document Object Model (DOM).
+### 15. Explain the concept of the Document Object Model (DOM).
 
 **Answer:**
 The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page as a structured tree of objects, allowing scripts to dynamically access and manipulate the content, structure, and styles of a document.
@@ -289,3 +289,147 @@ Global attributes can be used on any HTML element. They include:
 - `contenteditable`
 - `lang`
 - `dir`
+
+### 38. How do you create a drop-down list in HTML?
+
+**Answer:**
+A drop-down list is created using the `<select>` element, with `<option>` elements inside it. Example:
+
+```html
+<select>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+</select>
+```
+
+### 39. What is the purpose of the `<details>` and `<summary>` elements in HTML5?
+
+**Answer:**
+The `<details>` element is used to create a disclosure widget from which the user can retrieve additional information or controls. The `<summary>` element is used as a summary or caption for the `<details>` content. Example:
+
+```html
+<details>
+  <summary>More info</summary>
+  <p>Additional information...</p>
+</details>
+```
+
+### 40. What is the difference between `<b>` and `<strong>`, and between `<i>` and `<em>`?
+
+**Answer:**
+
+- **`<b>`:** Represents bold text without any extra importance.
+- **`<strong>`:** Represents important text, typically rendered in bold.
+- **`<i>`:** Represents italic text without any extra importance.
+- **`<em>`:** Represents emphasized text, typically rendered in italics.
+
+### 41. How do you embed a video in HTML5?
+
+**Answer:**
+You can embed a video using the `<video>` element with src, controls, autoplay, loop, and muted attributes. Example:
+
+```html
+<video src="video.mp4" controls>
+  Your browser does not support the video tag.
+</video>
+```
+
+### 42. What is the purpose of the download attribute in the `<a>` tag?
+
+**Answer:**
+The download attribute in the `<a>` tag specifies that the target should be downloaded when a user clicks on the hyperlink. Example:
+
+```html
+<a href="file.pdf" download>Download PDF</a>
+```
+
+### 43. How do you specify a default value for an input field in HTML?
+
+**Answer:**
+A default value for an input field is specified using the `value` attribute. Example:
+
+```html
+<input type="text" value="Default Value" />
+```
+
+### 44. Explain the use of the `defer` and `async` attributes in the `<script>` tag.
+
+**Answer:**
+
+- **`defer`**: Specifies that the script should be executed after the document has been parsed.
+- **`async`**: Specifies that the script should be executed asynchronously as soon as it is available.
+
+### 45. What is the purpose of the `<base>` tag in HTML?
+
+**Answer:**  
+The `<base>` tag specifies the base URL and/or target for all relative URLs in a document. It must be included inside the `<head>` element. Example:
+
+```html
+<base href="https://www.example.com/" target="_blank" />
+```
+
+### 46. How do you create an ordered list and an unordered list in HTML?
+
+**Answer:**
+
+- **`Ordered list`:** Created using the `<ol>` tag with list items inside `<li>` tags. Example:
+
+```html
+<ol>
+  <li>First item</li>
+  <li>Second item</li>
+  <li>Third item</li>
+</ol>
+```
+
+- **`Unordered list`:** Created using the `<ul>` tag with list items inside `<li>` tags. Example:
+
+```html
+<ul>
+  <li>Item one</li>
+  <li>Item two</li>
+  <li>Item three</li>
+</ul>
+```
+
+### 47. What is the `<address>` tag used for in HTML?
+
+**Answer:**
+The `<address>` tag defines contact information for the author/owner of a document or article. It is typically displayed in italics and can contain email addresses, URLs, physical addresses, etc. Example:
+
+```html
+<address>
+  Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br />
+  Visit us at:<br />
+  Example.com<br />
+  Box 564, Disneyland<br />
+  USA
+</address>
+```
+
+### 48. How do you embed an audio file in HTML5?
+
+**Answer:**
+You can embed an audio file using the `<audio>` element with `src`, `controls`, `autoplay`, and `loop` attributes. Example:
+
+```html
+<audio src="audio.mp3" controls>
+  Your browser does not support the audio element.
+</audio>
+```
+
+### 49. What is the use of the rel attribute in the `<link>` tag?
+
+**Answer:**
+The rel attribute specifies the relationship between the current document and the linked resource. Example:
+
+```html
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+```
+
+### 50. Explain the concept of progressive enhancement in web development.
+
+**Answer:**
+Progressive enhancement is a strategy for web design that emphasizes core webpage content first. It involves building the most basic features and content first, ensuring accessibility and functionality across all browsers and devices, and then adding advanced features and functionalities that enhance user experience in more capable browsers.

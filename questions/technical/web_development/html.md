@@ -987,3 +987,220 @@ The `<abbr>` tag represents an abbreviation or acronym and is used to provide th
 ```html
 <abbr title="HyperText Markup Language">HTML</abbr>
 ```
+
+### 101. What is the difference between the `<section>` and `<article>` tags in HTML5?
+
+**Answer:**
+
+- `<section>`: Represents a thematic grouping of content, typically with a heading. It is used to group related content together.
+- `<article>`: Represents a self-contained piece of content that can be independently distributed or reused, such as a blog post or news article.
+
+Example:
+
+```html
+<section>
+  <h1>News</h1>
+  <article>
+    <h2>Breaking News</h2>
+    <p>Details about the news...</p>
+  </article>
+</section>
+```
+
+### 102. What is the use of the `async` and `defer` attributes in the `<script>` tag?
+
+**Answer:**
+
+- `async`: The script is fetched asynchronously and executed as soon as it is available. It does not block the HTML parser.
+- `defer`: The script is fetched asynchronously but executed only after the HTML document has been fully parsed.
+
+Example:
+
+```html
+<script src="script.js" async></script>
+<script src="script.js" defer></script>
+```
+
+### 103. How do you include external CSS styles in an HTML document?
+
+**Answer:**  
+External CSS styles are included using the `<link>` tag within the `<head>` section of the HTML document. Example:
+
+```html
+<link rel="stylesheet" href="styles.css" />
+```
+
+### 104. Explain the use of the `target="_self"` attribute in the `<a>` tag.
+
+**Answer:**  
+The `target="_self"` attribute specifies that the linked document should open in the same frame or window as the link. It is the default behavior, so it is often omitted.
+
+Example:
+
+```html
+<a href="https://www.example.com" target="_self">Open in the same window</a>
+```
+
+### 105. How do you create a link that opens in a new window or tab?
+
+**Answer:**  
+You can create a link that opens in a new window or tab by using the `target="_blank"` attribute in the `<a>` tag. Example:
+
+```html
+<a href="https://www.example.com" target="_blank">Open in a new tab</a>
+```
+
+### 106. What is the purpose of the `<script>` tag in HTML?
+
+**Answer:**  
+The `<script>` tag is used to define client-side JavaScript code or include external JavaScript files in an HTML document. Example:
+
+```html
+<script>
+  console.log("Hello, world!");
+</script>
+<script src="script.js"></script>
+```
+
+### 107. How do you specify that a form should be submitted using a POST method?
+
+**Answer:**  
+You specify that a form should be submitted using the POST method by setting the `method` attribute of the `<form>` tag to `post`. Example:
+
+```html
+<form action="submit_form.php" method="post">
+  <input type="text" name="username" />
+  <button type="submit">Submit</button>
+</form>
+```
+
+### 108. What is the purpose of the `<meta>` tag in the `<head>` section of an HTML document?
+
+**Answer:**  
+The `<meta>` tag provides metadata about the HTML document, such as character encoding, viewport settings, and search engine information. Example:
+
+```html
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="A description of the page." />
+```
+
+### 109. How do you create a form input that accepts only numeric values?
+
+**Answer:**  
+You create a form input that accepts only numeric values by using the `type="number"` attribute in the `<input>` tag. Example:
+
+```html
+<input type="number" name="quantity" min="1" max="100" />
+```
+
+### 110. What is the purpose of the `<iframe>` element in HTML?
+
+**Answer:**  
+The `<iframe>` element is used to embed another HTML document within the current document. It can be used to display content from other sources or applications. Example:
+
+```html
+<iframe src="https://www.example.com" width="600" height="400"></iframe>
+```
+
+### 111. How do you specify the character encoding for an HTML document?
+
+**Answer:**  
+You specify the character encoding for an HTML document using the `<meta>` tag with the `charset` attribute. Example:
+
+```html
+<meta charset="UTF-8" />
+```
+
+### 112. What is the `placeholder` attribute used for in form inputs?
+
+**Answer:**  
+The `placeholder` attribute provides a hint or example of the expected input within a form field. It is displayed within the input field until the user types something. Example:
+
+```html
+<input type="text" name="username" placeholder="Enter your username" />
+```
+
+### 113. How do you create a multi-line text area in HTML?
+
+**Answer:**  
+A multi-line text area is created using the `<textarea>` element, with attributes for rows and columns specifying its size. Example:
+
+```html
+<textarea rows="5" cols="40">Default text...</textarea>
+```
+
+### 114. What is the `name` attribute used for in HTML forms?
+
+**Answer:**  
+The `name` attribute is used to identify form elements and their data when the form is submitted. It is used to reference the form field's data on the server-side.
+
+Example:
+
+```html
+<input type="text" name="email" />
+```
+
+### 115. Explain the `srcset` attribute in the `<img>` tag.
+
+**Answer:**  
+The `srcset` attribute provides a set of images to the browser, allowing it to choose the most appropriate image based on the device’s screen resolution or viewport size. Example:
+
+```html
+<img
+  src="small.jpg"
+  srcset="medium.jpg 768w, large.jpg 1200w"
+  alt="Responsive Image"
+/>
+```
+
+### 116. How do you create a hidden field in an HTML form?
+
+**Answer:**  
+A hidden field is created using the `<input>` element with `type="hidden"`. It is not visible to the user but can be used to store data sent with the form. Example:
+
+```html
+<input type="hidden" name="user_id" value="12345" />
+```
+
+### 117. What is the `rel` attribute used for in the `<link>` tag?
+
+**Answer:**  
+The `rel` attribute specifies the relationship between the current document and the linked resource. Common values include `stylesheet` for CSS files, `icon` for favicons, etc. Example:
+
+```html
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="favicon.ico" />
+```
+
+### 118. How do you create a link that opens a new email message?
+
+**Answer:**  
+A link that opens a new email message is created using the `mailto:` scheme in the `href` attribute of the `<a>` tag. Example:
+
+```html
+<a href="mailto:example@example.com">Email Us</a>
+```
+
+### 119. What is the `autocomplete` attribute used for in HTML forms?
+
+**Answer:**  
+The `autocomplete` attribute specifies whether the browser should automatically complete input fields based on previous entries. It can be set to `on` or `off`. Example:
+
+```html
+<form autocomplete="on">
+  <input type="text" name="username" />
+</form>
+```
+
+### 120. How do you define a key-value pair in a definition list?
+
+**Answer:**  
+In a definition list, key-value pairs are defined using `<dt>` for the term and `<dd>` for the definition. Example:
+
+```html
+<dl>
+  <dt>Term</dt>
+  <dd>Definition of the term.</dd>
+</dl>
+```

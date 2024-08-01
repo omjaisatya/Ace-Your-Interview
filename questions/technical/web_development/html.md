@@ -709,3 +709,281 @@ The `for` attribute in the `<label>` tag specifies which form element the label 
 ```html
 <label for="email">Email:</label> <input type="email" id="email" name="email" />
 ```
+
+### 76. What is the purpose of the `<output>` element in HTML5?
+
+**Answer:**  
+The `<output>` element represents the result of a calculation or user action. Example:
+
+```html
+<form oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+  <input type="range" id="a" value="50" /> +
+  <input type="number" id="b" value="50" />
+  = <output name="result" for="a b">100</output>
+</form>
+```
+
+### 77. How do you create a table in HTML?
+
+**Answer:**  
+A table is created using the `<table>` element, with rows defined by `<tr>`, headers by `<th>`, and data cells by `<td>`. Example:
+
+```html
+<table>
+  <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </tr>
+  <tr>
+    <td>Data 1</td>
+    <td>Data 2</td>
+  </tr>
+  <tr>
+    <td>Data 3</td>
+    <td>Data 4</td>
+  </tr>
+</table>
+```
+
+### 78. What is the purpose of the `cite` attribute in the `<blockquote>` and `<q>` tags?
+
+**Answer:**  
+The `cite` attribute provides a URL that designates the source of the quotation. Example:
+
+```html
+<blockquote cite="https://www.example.com/article">
+  This is a blockquote with a citation.
+</blockquote>
+<q cite="https://www.example.com/quote"
+  >This is an inline quote with a citation.</q
+>
+```
+
+### 79. How do you create a collapsible section in HTML5?
+
+**Answer:**  
+You can create a collapsible section using the `<details>` element, with a summary provided by the `<summary>` element. Example:
+
+```html
+<details>
+  <summary>Click to expand</summary>
+  <p>This is the content inside the collapsible section.</p>
+</details>
+```
+
+### 80. What is the `contenteditable` attribute in HTML5?
+
+**Answer:**  
+The `contenteditable` attribute specifies whether the content of an element is editable or not. Example:
+
+```html
+<div contenteditable="true">This text is editable.</div>
+```
+
+### 81. Explain the use of the `spellcheck` attribute in HTML5.
+
+**Answer:**  
+The `spellcheck` attribute specifies whether the element is to have its spelling and grammar checked. It can be set to `true` or `false`. Example:
+
+```html
+<textarea spellcheck="true">This textarea has spell check enabled.</textarea>
+```
+
+### 82. How do you include an SVG image in an HTML document?
+
+**Answer:**  
+You can include an SVG image using the `<img>` tag, `<object>` tag, `<embed>` tag, or inline SVG. Examples:
+
+```html
+<img src="image.svg" alt="SVG Image" />
+<object data="image.svg" type="image/svg+xml"></object>
+<embed src="image.svg" type="image/svg+xml" />
+<svg width="100" height="100">
+  <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" />
+</svg>
+```
+
+### 83. What is the purpose of the `accesskey` attribute in HTML5?
+
+**Answer:**  
+The `accesskey` attribute specifies a shortcut key to activate/focus an element. Example:
+
+```html
+<button accesskey="s">Press Alt + S to submit</button>
+```
+
+### 84. How do you create an email link in HTML?
+
+**Answer:**  
+An email link is created using the `<a>` tag with the `href` attribute set to `mailto:` followed by the email address. Example:
+
+```html
+<a href="mailto:example@example.com">Send Email</a>
+```
+
+### 85. What is the purpose of the `draggable` attribute in HTML5?
+
+**Answer:**  
+The `draggable` attribute specifies whether an element is draggable or not. Example:
+
+```html
+<p draggable="true">Drag this paragraph.</p>
+```
+
+### 86. Explain the use of the `sandbox` attribute in the `<iframe>` tag.
+
+**Answer:**  
+The `sandbox` attribute enables an extra set of restrictions for the content in the `<iframe>`. It can have various values like `allow-same-origin`, `allow-scripts`, `allow-forms`, etc. Example:
+
+```html
+<iframe src="example.html" sandbox="allow-scripts"></iframe>
+```
+
+### 87. How do you specify a custom icon for a website in HTML?
+
+**Answer:**  
+A custom icon for a website is specified using the `<link>` tag with `rel="icon"` and the `href` attribute pointing to the icon file. Example:
+
+```html
+<link rel="icon" href="favicon.ico" type="image/x-icon" />
+```
+
+### 88. What is the purpose of the `<noscript>` tag in HTML?
+
+**Answer:**  
+The `<noscript>` tag defines an alternate content to be displayed if a browser does not support scripting or if scripting is disabled. Example:
+
+```html
+<noscript>
+  <p>This content is displayed if JavaScript is disabled.</p>
+</noscript>
+```
+
+### 89. How do you create a multiline text input field in HTML?
+
+**Answer:**  
+A multiline text input field is created using the `<textarea>` element. Example:
+
+```html
+<textarea rows="4" cols="50">Enter your text here...</textarea>
+```
+
+### 90. Explain the use of the `pre` tag in HTML.
+
+**Answer:**  
+The `<pre>` tag is used to define preformatted text. Text inside this element is displayed in a fixed-width font, and whitespace is preserved. Example:
+
+```html
+<pre>
+  This is
+    preformatted
+  text.
+</pre>
+```
+
+### 91. What is the purpose of the `download` attribute in the `<a>` tag?
+
+**Answer:**  
+The `download` attribute specifies that the target will be downloaded when a user clicks on the hyperlink. Example:
+
+```html
+<a href="file.pdf" download>Download PDF</a>
+```
+
+### 92. How do you create a table with a caption in HTML?
+
+**Answer:**  
+A table with a caption is created using the `<table>` element with a `<caption>` element inside it. Example:
+
+```html
+<table>
+  <caption>
+    Table Caption
+  </caption>
+  <tr>
+    <th>Header 1</th>
+    <th>Header 2</th>
+  </tr>
+  <tr>
+    <td>Data 1</td>
+    <td>Data 2</td>
+  </tr>
+</table>
+```
+
+### 93. What is the purpose of the `data-*` attributes in HTML5?
+
+**Answer:**  
+The `data-*` attributes are used to store custom data private to the page or application. They can be used to store data that can be accessed by JavaScript. Example:
+
+```html
+<div data-user-id="12345">User Data</div>
+```
+
+### 94. How do you create a radio button group in HTML?
+
+**Answer:**  
+A radio button group is created using multiple `<input>` elements with `type="radio"` and the same `name` attribute. Example:
+
+```html
+<form>
+  <input type="radio" name="gender" value="male" /> Male
+  <input type="radio" name="gender" value="female" /> Female
+</form>
+```
+
+### 95. What is the purpose of the `aria-*` attributes in HTML?
+
+**Answer:**  
+The `aria-*` attributes are part of the Accessible Rich Internet Applications (ARIA) specification and are used to increase the accessibility of web content by providing additional information to screen readers. Examples include `aria-label`, `aria-hidden`, and `aria-live`.
+
+### 96. How do you create a dropdown menu in HTML?
+
+**Answer:**  
+A dropdown menu is created using the `<select>` element with `<option>` elements inside it. Example:
+
+```html
+<select>
+  <option value="option1">Option 1</option>
+  <option value="option2">Option 2</option>
+  <option value="option3">Option 3</option>
+</select>
+```
+
+### 97. What is the `formaction` attribute in HTML5?
+
+**Answer:**  
+The `formaction` attribute specifies the URL to send the form data to when the form is submitted. It can be used with `<button>` and `<input>` elements of type `submit` or `image`. Example:
+
+```html
+<form>
+  <button type="submit" formaction="submit_page.php">Submit</button>
+</form>
+```
+
+### 98. Explain the use of the `<bdo>` tag in HTML.
+
+**Answer:**  
+The `<bdo>` (bidirectional override) tag is used to override the current text direction. Example:
+
+```html
+<p><bdo dir="rtl">This text will be displayed right-to-left.</bdo></p>
+```
+
+### 99. How do you create a number input field in HTML5?
+
+**Answer:**  
+A number input field is created using the `<input>` element with `type="number"`. Example:
+
+```html
+<input type="number" name="quantity" min="1" max="10" />
+```
+
+### 100. What is the purpose of the `<abbr>` tag in HTML?
+
+**Answer:**  
+The `<abbr>` tag represents an abbreviation or acronym and is used to provide the full form of the abbreviation via the `title` attribute. Example:
+
+```html
+<abbr title="HyperText Markup Language">HTML</abbr>
+```

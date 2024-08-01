@@ -433,3 +433,279 @@ The rel attribute specifies the relationship between the current document and th
 
 **Answer:**
 Progressive enhancement is a strategy for web design that emphasizes core webpage content first. It involves building the most basic features and content first, ensuring accessibility and functionality across all browsers and devices, and then adding advanced features and functionalities that enhance user experience in more capable browsers.
+
+### 51. What is the `autocomplete` attribute in form elements?
+
+**Answer:**  
+The `autocomplete` attribute specifies whether a form or input field should have autocomplete enabled. It can have values `on` or `off`. Example:
+
+```html
+<form autocomplete="off">
+  <input type="text" name="username" autocomplete="on" />
+</form>
+```
+
+### 52. How do you specify a language for an element's content?
+
+**Answer:**  
+You can specify a language for an element's content using the `lang` attribute. Example:
+
+```html
+<p lang="fr">Bonjour le monde!</p>
+```
+
+### 53. What is the difference between `<progress>` and `<meter>` elements?
+
+**Answer:**
+
+- `<progress>`: Represents the completion progress of a task. Example:
+
+```html
+<progress value="70" max="100"></progress>
+```
+
+- `<meter>`: Represents a scalar measurement within a known range, such as disk usage. Example:
+
+```html
+<meter value="2" min="0" max="10">2 out of 10</meter>
+```
+
+### 54. How do you create a tooltip in HTML?
+
+**Answer:**  
+You can create a tooltip using the `title` attribute on an HTML element. Example:
+
+```html
+<button title="Click to submit">Submit</button>
+```
+
+### 55. What is the `required` attribute in form elements?
+
+**Answer:**  
+The `required` attribute specifies that an input field must be filled out before submitting the form. Example:
+
+```html
+<input type="text" name="username" required />
+```
+
+### 56. Explain the `hidden` attribute in HTML5.
+
+**Answer:**  
+The `hidden` attribute is used to hide an element from the user. It does not display the element, but the element is still available in the DOM. Example:
+
+```html
+<p hidden>This paragraph is hidden.</p>
+```
+
+### 57. What is the purpose of the `step` attribute in input elements?
+
+**Answer:**  
+The `step` attribute specifies the legal number intervals for an `<input>` element. Example:
+
+```html
+<input type="number" name="quantity" step="1" min="1" max="10" />
+```
+
+### 58. How do you make an image a clickable link in HTML?
+
+**Answer:**  
+You can make an image a clickable link by wrapping the `<img>` element inside an `<a>` element. Example:
+
+```html
+<a href="https://www.example.com">
+  <img src="image.jpg" alt="Example Image" />
+</a>
+```
+
+### 59. What is the purpose of the `<wbr>` tag in HTML5?
+
+**Answer:**  
+The `<wbr>` (Word Break Opportunity) tag specifies a point in text where a line break may occur. It helps control text wrapping. Example:
+
+```html
+<p>This is a verylongword<wbr />that should break here.</p>
+```
+
+### 60. How do you create a checkbox in HTML?
+
+**Answer:**  
+A checkbox is created using the `<input>` element with `type="checkbox"`. Example:
+
+```html
+<input type="checkbox" name="subscribe" value="newsletter" /> Subscribe to
+newsletter
+```
+
+### 61. What is the `pattern` attribute in form elements?
+
+**Answer:**  
+The `pattern` attribute specifies a regular expression that the input field's value must match for the form to be submitted. Example:
+
+```html
+<input
+  type="text"
+  name="zipcode"
+  pattern="[0-9]{5}"
+  title="Five digit zip code"
+/>
+```
+
+### 62. How do you create a radio button group in HTML?
+
+**Answer:**  
+A radio button group is created using multiple `<input>` elements with `type="radio"` and the same `name` attribute. Example:
+
+```html
+<form>
+  <input type="radio" name="gender" value="male" /> Male
+  <input type="radio" name="gender" value="female" /> Female
+</form>
+```
+
+### 63. What is the purpose of the `<kbd>` tag in HTML?
+
+**Answer:**  
+The `<kbd>` tag represents user input, typically from a keyboard. Example:
+
+```html
+<p>Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.</p>
+```
+
+### 64. How do you create a line break in HTML?
+
+**Answer:**  
+A line break is created using the `<br>` tag. Example:
+
+```html
+<p>This is the first line.<br />This is the second line.</p>
+```
+
+### 65. Explain the purpose of the `<mark>` tag in HTML5.
+
+**Answer:**  
+The `<mark>` tag is used to highlight text for reference or notation. Example:
+
+```html
+<p>This is <mark>highlighted</mark> text.</p>
+```
+
+### 66. How do you specify that an input field should be in focus when the page loads?
+
+**Answer:**  
+You can specify that an input field should be in focus when the page loads using the `autofocus` attribute. Example:
+
+```html
+<input type="text" name="name" autofocus />
+```
+
+### 67. What is the `target` attribute in the `<a>` tag?
+
+**Answer:**  
+The `target` attribute specifies where to open the linked document. Common values include:
+
+- `_self`: Default. Opens in the same frame.
+- `_blank`: Opens in a new tab or window.
+- `_parent`: Opens in the parent frame.
+- `_top`: Opens in the full body of the window.
+  Example:
+
+```html
+<a href="https://www.example.com" target="_blank">Visit Example</a>
+```
+
+### 68. How do you create a text area in HTML?
+
+**Answer:**  
+A text area is created using the `<textarea>` element. Example:
+
+```html
+<textarea name="comments" rows="4" cols="50">
+Enter your comments here...</textarea
+>
+```
+
+### 69. What is the purpose of the `novalidate` attribute in a form element?
+
+**Answer:**  
+The `novalidate` attribute specifies that the form should not be validated when submitted. Example:
+
+```html
+<form novalidate>
+  <input type="text" name="name" required />
+  <button type="submit">Submit</button>
+</form>
+```
+
+### 70. Explain the difference between `width` and `max-width` in CSS.
+
+**Answer:**
+
+- `width`: Sets a fixed width for an element.
+- `max-width`: Sets a maximum width for an element. If the content is smaller, it will take its natural width. If the content is larger, it will shrink to fit within the `max-width`.
+
+### 71. How do you create a nested list in HTML?
+
+**Answer:**  
+A nested list is created by placing one list inside another. Example:
+
+```html
+<ul>
+  <li>Item 1
+    <
+
+ul>
+      <li>Sub-item 1</li>
+      <li>Sub-item 2</li>
+    </ul>
+  </li>
+  <li>Item 2</li>
+</ul>
+```
+
+### 72. What is the purpose of the `<samp>` tag in HTML?
+
+**Answer:**  
+The `<samp>` tag is used to define sample output from a computer program. Example:
+
+```html
+<p>The output was: <samp>Error: Not found.</samp></p>
+```
+
+### 73. How do you create a definition list in HTML?
+
+**Answer:**  
+A definition list is created using the `<dl>` tag, with terms inside `<dt>` tags and descriptions inside `<dd>` tags. Example:
+
+```html
+<dl>
+  <dt>HTML</dt>
+  <dd>HyperText Markup Language</dd>
+  <dt>CSS</dt>
+  <dd>Cascading Style Sheets</dd>
+</dl>
+```
+
+### 74. What is the purpose of the `<fieldset>` and `<legend>` tags in HTML?
+
+**Answer:**
+
+- `<fieldset>`: Groups related elements in a form.
+- `<legend>`: Provides a caption for the `<fieldset>`.
+  Example:
+
+```html
+<fieldset>
+  <legend>Personal Information</legend>
+  <label for="name">Name:</label>
+  <input type="text" id="name" name="name" />
+</fieldset>
+```
+
+### 75. Explain the use of the `for` attribute in the `<label>` tag.
+
+**Answer:**  
+The `for` attribute in the `<label>` tag specifies which form element the label is bound to. It should match the `id` of the associated input element. Example:
+
+```html
+<label for="email">Email:</label> <input type="email" id="email" name="email" />
+```

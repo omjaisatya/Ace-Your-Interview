@@ -10,6 +10,6 @@
 
 **Author:**
 
-[Your GitHub](https://github.com/omjaisatya)
+[Satya Prakash](https://github.com/omjaisatya)
 
 ---

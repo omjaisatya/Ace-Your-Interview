@@ -218,3 +218,13 @@ document.getElementById('child').addEventListener('click', () => {
 });
 ```
 
+### 16. What are `setTimeout` and `setInterval`? How do they differ?
+**Answer:**
+
+- **`setTimeout`(callback, delay)**: Executes the `callback` function once after a specified delay (in milliseconds).
+- **`setInterval`(callback, interval)**: Executes the callback function repeatedly at specified intervals (in milliseconds) until `clearInterval` is called.
+
+```javascript
+setTimeout(() => console.log('Executed once'), 1000);
+setInterval(() => console.log('Executed repeatedly'), 1000);
+```

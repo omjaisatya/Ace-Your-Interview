@@ -203,3 +203,18 @@ function sum(a, b) {
 
 console.log(sum.apply(null, [1, 2])); // Output: 3
 ```
+
+### 15. Explain the concept of event bubbling in JavaScript.
+**Answer:**
+Event bubbling is a type of event propagation in the DOM where the event starts from the target element and bubbles up to the root of the DOM tree. This means that events on child elements will propagate up to parent elements.
+
+```javascript
+document.getElementById('parent').addEventListener('click', () => {
+  console.log('Parent clicked');
+});
+
+document.getElementById('child').addEventListener('click', () => {
+  console.log('Child clicked');
+});
+```
+

@@ -689,3 +689,275 @@ const source = { b: 2 };
 Object.assign(target, source);
 console.log(target); // { a: 1, b: 2 }
 ```
+
+## 41. What are JavaScript Data Types?
+
+**Answer:**
+JavaScript has the following data types:
+
+- **Primitive Types**:
+
+  - **String**: Represents a sequence of characters.
+  - **Number**: Represents both integer and floating-point numbers.
+  - **BigInt**: Represents large integers.
+  - **Boolean**: Represents `true` or `false`.
+  - **Undefined**: Represents a variable that has been declared but not assigned a value.
+  - **Symbol**: Represents a unique and immutable value, often used as object property keys.
+  - **Null**: Represents the intentional absence of any object value.
+
+- **Non-Primitive Type**:
+  - **Object**: Represents a collection of properties, including arrays, functions, and other objects.
+
+```javascript
+let str = "Hello"; // String
+let num = 42; // Number
+let bigInt = 9007199254740991n; // BigInt
+let isTrue = true; // Boolean
+let notDefined; // Undefined
+let uniqueSymbol = Symbol("unique"); // Symbol
+let nothing = null; // Null
+```
+
+## 42. What is a JavaScript Promise and how is it used?
+
+**Answer:**
+A JavaScript Promise is an object representing the eventual completion (or failure) of an asynchronous operation and its resulting value. It allows you to handle asynchronous operations more easily compared to using callbacks.
+
+- **States of a Promise**:
+  - **Pending**: Initial state, neither fulfilled nor rejected.
+  - **Fulfilled**: The operation completed successfully.
+  - **Rejected**: The operation failed.
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Success"), 1000);
+});
+
+promise
+  .then((result) => console.log(result)) // Output: 'Success'
+  .catch((error) => console.error(error));
+```
+
+## 43. What is event delegation and why is it used?
+
+**Answer:**
+Event delegation is a technique where you use a single event listener on a parent element to manage events for its child elements. It works by taking advantage of event bubbling, which allows you to handle events at a higher level in the DOM tree.
+
+**Advantages**:
+
+- Reduces the number of event listeners in the application.
+- Efficiently handles events for dynamically added elements.
+
+```javascript
+document.getElementById("parent").addEventListener("click", function (event) {
+  if (event.target && event.target.matches("button")) {
+    console.log("Button clicked:", event.target.textContent);
+  }
+});
+```
+
+## 44. How does JavaScript handle asynchronous code?
+
+**Answer:**
+JavaScript handles asynchronous code using several mechanisms:
+
+- **Callbacks**: Functions passed as arguments to be executed later.
+
+  ```javascript
+  function fetchData(callback) {
+    setTimeout(() => callback("Data fetched"), 1000);
+  }
+
+  fetchData((data) => console.log(data));
+  ```
+
+- **Promises**: Objects representing the eventual completion or failure of an asynchronous operation.
+
+  ```javascript
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("Data fetched"), 1000);
+  });
+
+  promise.then((data) => console.log(data));
+  ```
+
+- **Async/Await**: Syntactic sugar for handling Promises, making asynchronous code look synchronous.
+
+  ```javascript
+  async function fetchData() {
+    let response = await new Promise((resolve) =>
+      setTimeout(() => resolve("Data fetched"), 1000)
+    );
+    console.log(response);
+  }
+
+  fetchData();
+  ```
+
+## 45. What are higher-order functions in JavaScript?
+
+**Answer:**
+Higher-order functions are functions that either take other functions as arguments or return a function as a result. They enable more abstract and reusable code.
+
+**Examples**:
+
+- **Function that takes another function as an argument**:
+
+  ```javascript
+  function applyOperation(arr, operation) {
+    return arr.map(operation);
+  }
+
+  const result = applyOperation([1, 2, 3], (x) => x * 2);
+  console.log(result); // [2, 4, 6]
+  ```
+
+- **Function that returns another function**:
+
+  ```javascript
+  function multiplier(factor) {
+    return function (x) {
+      return x * factor;
+    };
+  }
+
+  const double = multiplier(2);
+  console.log(double(5)); // 10
+  ```
+
+## 46. Explain the concept of 'this' in JavaScript with examples.
+
+**Answer:**
+The `this` keyword refers to the context in which a function is executed. Its value varies depending on how the function is called:
+
+- **Global Context**: Refers to the global object (`window` in browsers).
+
+  ```javascript
+  console.log(this); // Window object
+  ```
+
+- **Object Method**: Refers to the object the method is called on.
+
+  ```javascript
+  const obj = {
+    name: "Alice",
+    greet() {
+      console.log(this.name);
+    },
+  };
+
+  obj.greet(); // 'Alice'
+  ```
+
+- **Constructor Function**: Refers to the new instance being created.
+
+  ```javascript
+  function Person(name) {
+    this.name = name;
+  }
+
+  const alice = new Person("Alice");
+  console.log(alice.name); // 'Alice'
+  ```
+
+- **Event Handler**: Refers to the element that triggered the event.
+
+  ```javascript
+  document.getElementById("button").addEventListener("click", function () {
+    console.log(this); // Button element
+  });
+  ```
+
+- **Arrow Functions**: Do not have their own `this`; they inherit `this` from their lexical scope.
+
+  ```javascript
+  const obj = {
+    name: "Alice",
+    greet: () => {
+      console.log(this.name); // 'this' refers to the enclosing scope, not `obj`
+    },
+  };
+
+  obj.greet(); // undefined
+  ```
+
+## 47. What are `async` and `await` keywords in JavaScript?
+
+**Answer:**
+
+- **`async`**: Declares a function as asynchronous, which implicitly returns a Promise.
+
+  ```javascript
+  async function fetchData() {
+    return "Data fetched";
+  }
+
+  fetchData().then(console.log); // 'Data fetched'
+  ```
+
+- **`await`**: Pauses the execution of an `async` function until a Promise is resolved. It can only be used inside `async` functions.
+
+  ```javascript
+  async function fetchData() {
+    let result = await new Promise((resolve) =>
+      setTimeout(() => resolve("Data fetched"), 1000)
+    );
+    console.log(result);
+  }
+
+  fetchData(); // 'Data fetched'
+  ```
+
+## 48. How does JavaScript's prototypal inheritance work?
+
+**Answer:**
+JavaScript uses prototypal inheritance to allow objects to inherit properties and methods from other objects. Each object has a prototype object that it inherits from, and it can also inherit from the prototype of its prototype, forming a prototype chain.
+
+- **Example**:
+
+  ```javascript
+  const animal = {
+    eat() {
+      console.log("Eating");
+    },
+  };
+
+  const dog = Object.create(animal);
+  dog.bark = function () {
+    console.log("Barking");
+  };
+
+  dog.eat(); // 'Eating'
+  dog.bark(); // 'Barking'
+  ```
+
+## 49. What is the purpose of `Object.freeze()` in JavaScript?
+
+**Answer:**
+`Object.freeze()` prevents modifications to an object. Once an object is frozen, new properties cannot be added, existing properties cannot be removed or modified, and the object’s prototype cannot be changed.
+
+- **Example**:
+
+  ```javascript
+  const obj = { name: "Alice" };
+  Object.freeze(obj);
+
+  obj.name = "Bob"; // No effect
+  console.log(obj.name); // 'Alice'
+  ```
+
+## 50. What is the difference between `==` and `===` in JavaScript?
+
+**Answer:**
+
+- **`==` (Equality Operator)**: Compares values for equality after type conversion (type coercion).
+
+  ```javascript
+  console.log(0 == "0"); // true
+  ```
+
+- **`===` (Strict Equality Operator)**: Compares values for equality without type conversion. Both value and type must be the same.
+
+  ```javascript
+  console.log(0 === "0"); // false
+  ```

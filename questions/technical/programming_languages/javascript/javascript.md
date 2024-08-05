@@ -218,3 +218,30 @@ document.getElementById("child").addEventListener("click", () => {
   console.log("Child clicked");
 });
 ```
+
+### 16. What are `setTimeout` and `setInterval`? How do they differ?
+
+**Answer:**
+
+- **`setTimeout`(callback, delay)**: Executes the `callback` function once after a specified delay (in milliseconds).
+- **`setInterval`(callback, interval)**: Executes the callback function repeatedly at specified intervals (in milliseconds) until `clearInterval` is called.
+
+```javascript
+setTimeout(() => console.log("Executed once"), 1000);
+setInterval(() => console.log("Executed repeatedly"), 1000);
+```
+
+### 15. Explain the concept of event bubbling in JavaScript.
+
+**Answer:**
+Event bubbling is a type of event propagation in the DOM where the event starts from the target element and bubbles up to the root of the DOM tree. This means that events on child elements will propagate up to parent elements.
+
+```javascript
+document.getElementById("parent").addEventListener("click", () => {
+  console.log("Parent clicked");
+});
+
+document.getElementById("child").addEventListener("click", () => {
+  console.log("Child clicked");
+});
+```

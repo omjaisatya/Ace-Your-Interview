@@ -230,3 +230,21 @@ document.getElementById("child").addEventListener("click", () => {
 setTimeout(() => console.log("Executed once"), 1000);
 setInterval(() => console.log("Executed repeatedly"), 1000);
 ```
+
+### 17. What is the `debounce` function and why is it used?
+
+**Answer:**
+The `debounce` function is used to limit the rate at which a function is executed. It ensures that a function is not called continuously but rather only after a specified period of inactivity. It is useful for performance optimization in scenarios like handling user input or resizing events.
+
+```javascript
+function debounce(fn, delay) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
+const debouncedFunction = debounce(() => console.log("Debounced!"), 300);
+window.addEventListener("resize", debouncedFunction);
+```

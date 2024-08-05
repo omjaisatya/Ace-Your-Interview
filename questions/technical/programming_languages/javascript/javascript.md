@@ -1382,3 +1382,231 @@ promise
   .then((result) => console.log(result)) //  Success
   .catch((error) => console.error(error));
 ```
+
+## 71. What is the `this` keyword in JavaScript, and how is its value determined?
+
+**Answer:**
+The `this` keyword refers to the context in which a function is executed. Its value depends on how the function is called:
+
+- **Global Context**: In the global execution context, `this` refers to the global object (`window` in browsers).
+
+  ```javascript
+  console.log(this); // Window object
+  ```
+
+- **Object Method**: When a function is called as a method of an object, `this` refers to the object itself.
+
+  ```javascript
+  const obj = {
+    name: "Alice",
+    greet() {
+      console.log(this.name);
+    },
+  };
+  obj.greet(); // Alice
+  ```
+
+- **Constructor Function**: When a function is called with the `new` keyword, `this` refers to the newly created instance.
+
+  ```javascript
+  function Person(name) {
+    this.name = name;
+  }
+
+  const alice = new Person("Alice");
+  console.log(alice.name); // Alice
+  ```
+
+- **Event Handler**: In event handlers, `this` refers to the element that triggered the event.
+
+  ```javascript
+  document.getElementById("button").addEventListener("click", function () {
+    console.log(this); // Button element
+  });
+  ```
+
+- **Arrow Functions**: Arrow functions do not have their own `this`; they inherit `this` from their enclosing scope.
+
+  ```javascript
+  const obj = {
+    name: "Alice",
+    greet: () => {
+      console.log(this.name); // 'this' refers to the enclosing scope, not 'obj'
+    },
+  };
+  obj.greet(); // undefined
+  ```
+
+## 72. What is `Object.create()` and how is it used?
+
+**Answer:**
+`Object.create()` creates a new object with the specified prototype object and properties. It allows for the creation of an object with a specific prototype without using a constructor function.
+
+**Example:**
+
+```javascript
+const proto = {
+  greet() {
+    console.log("Hello");
+  },
+};
+
+const obj = Object.create(proto);
+obj.greet(); // Hello
+```
+
+## 73. Explain the concept of "hoisting" in JavaScript.
+
+**Answer:**
+Hoisting is a JavaScript mechanism where variable and function declarations are moved to the top of their containing scope during the compilation phase. This means that variables and functions can be used before they are declared in the code.
+
+**Examples:**
+
+- **Variable Hoisting**:
+
+  ```javascript
+  console.log(x); // undefined
+  var x = 5;
+  ```
+
+- **Function Hoisting**:
+
+  ```javascript
+  greet(); // Hello
+  function greet() {
+    console.log("Hello");
+  }
+  ```
+
+## 74. What is the `Array.prototype.reduce()` method and how is it used?
+
+**Answer:**
+The `reduce()` method executes a reducer function (that you provide) on each element of the array, resulting in a single output value. It can be used to accumulate or transform array values.
+
+**Example:**
+
+```javascript
+const numbers = [1, 2, 3, 4];
+const sum = numbers.reduce(
+  (accumulator, currentValue) => accumulator + currentValue,
+  0
+);
+console.log(sum); // 10
+```
+
+## 75. What is "debouncing" in JavaScript, and how is it implemented?
+
+**Answer:**
+Debouncing is a technique used to limit the rate at which a function is executed. It is often used to ensure that a function is not called too frequently, such as during window resizing or keypress events.
+
+**Example:**
+
+```javascript
+function debounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+
+const debouncedFunction = debounce(() => console.log("Debounced!"), 1000);
+window.addEventListener("resize", debouncedFunction);
+```
+
+## 76. What is the difference between `for...in` and `for...of` loops in JavaScript?
+
+**Answer:**
+
+- **`for...in`**: Iterates over the enumerable properties of an object, including inherited properties. It is used for objects.
+
+  **Example:**
+
+  ```javascript
+  const obj = { a: 1, b: 2 };
+  for (let key in obj) {
+    console.log(key, obj[key]); // a 1, b 2
+  }
+  ```
+
+- **`for...of`**: Iterates over the values of iterable objects like arrays, strings, or collections. It is used for arrays and other iterable objects.
+
+  **Example:**
+
+  ```javascript
+  const arr = [1, 2, 3];
+  for (let value of arr) {
+    console.log(value); // 1, 2, 3
+  }
+  ```
+
+## 77. What is a JavaScript "generator function"?
+
+**Answer:**
+A generator function is a special type of function that can be paused and resumed. It is defined using the `function*` syntax and returns an iterator called a generator. The `yield` keyword is used to pause the function and return a value.
+
+**Example:**
+
+```javascript
+function* generatorFunction() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const gen = generatorFunction();
+console.log(gen.next().value); // 1
+console.log(gen.next().value); // 2
+console.log(gen.next().value); // 3
+console.log(gen.next().value); // undefined
+```
+
+## 78. What is the `fetch` API and how is it used to make HTTP requests?
+
+**Answer:**
+The `fetch` API provides a modern and flexible way to make HTTP requests in JavaScript. It returns a Promise that resolves to the Response object representing the response to the request.
+
+**Example:**
+
+```javascript
+fetch("https://api.example.com/data")
+  .then((response) => response.json())
+  .then((data) => console.log(data))
+  .catch((error) => console.error("Error:", error));
+```
+
+## 79. What are JavaScript "template literals" and how do they differ from regular strings?
+
+**Answer:**
+Template literals are string literals that allow embedded expressions and multi-line strings. They are enclosed by backticks (`` ` ``) instead of single or double quotes.
+
+**Features:**
+
+- **Expression Interpolation**: Embed expressions within `${}`.
+
+  ```javascript
+  const name = "Alice";
+  const greeting = `Hello, ${name}!`;
+  console.log(greeting); // Hello, Alice!
+  ```
+
+- **Multi-line Strings**: Include line breaks without using escape characters.
+
+  ```javascript
+  const multiLine = `This is a
+  multi-line string.`;
+  console.log(multiLine);
+  ```
+
+## 80. What is the `Array.prototype.find()` method and how is it used?
+
+**Answer:**
+The `find()` method returns the first element in an array that satisfies a provided testing function. It returns `undefined` if no elements pass the test.
+
+**Example:**
+
+```javascript
+const numbers = [4, 9, 16];
+const firstSquare = numbers.find((num) => Math.sqrt(num) % 1 === 0);
+console.log(firstSquare); // 4
+```

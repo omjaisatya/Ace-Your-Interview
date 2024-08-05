@@ -464,3 +464,228 @@ console.log(true + 1); // 2 (boolean to number conversion)
   ```javascript
   console.log(5 === "5"); // false
   ```
+
+## 31. What are the different ways to create objects in JavaScript?
+
+**Answer:**
+
+1. **Object Literals**: Create an object using curly braces.
+
+   ```javascript
+   const obj = {
+     name: "Alice",
+     age: 25,
+   };
+   ```
+
+2. **Constructor Functions**: Define a function and use the `new` keyword to create instances.
+
+   ```javascript
+   function Person(name, age) {
+     this.name = name;
+     this.age = age;
+   }
+
+   const alice = new Person("Alice", 25);
+   ```
+
+3. **Object.create()**: Create an object with a specified prototype object.
+
+   ```javascript
+   const proto = {
+     greet: function () {
+       console.log("Hello");
+     },
+   };
+   const obj = Object.create(proto);
+   obj.greet(); // 'Hello'
+   ```
+
+4. **Class Syntax**: ES6 syntax for creating objects and constructors.
+
+   ```javascript
+   class Person {
+     constructor(name, age) {
+       this.name = name;
+       this.age = age;
+     }
+   }
+
+   const alice = new Person("Alice", 25);
+   ```
+
+## 32. How does the `Array.prototype.reduce()` method work?
+
+**Answer:**
+`Array.prototype.reduce()` executes a reducer function (that you provide) on each element of the array, resulting in a single output value. The reducer function takes four arguments: accumulator, currentValue, currentIndex, and array.
+
+```javascript
+const numbers = [1, 2, 3, 4];
+
+const sum = numbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+}, 0);
+
+console.log(sum); // 10
+```
+
+## 33. What is the difference between `undefined` and `not defined`?
+
+**Answer:**
+
+- **`undefined`**: A variable that has been declared but not assigned a value is `undefined`. It is a built-in global property.
+
+  ```javascript
+  let a;
+  console.log(a); // undefined
+  ```
+
+- **`not defined`**: Refers to a variable that has not been declared at all. Accessing it will throw a `ReferenceError`.
+
+  ```javascript
+  console.log(b); // ReferenceError: b is not defined
+  ```
+
+## 34. What are the different methods to iterate over arrays in JavaScript?
+
+**Answer:**
+
+1. **`for` Loop**: Traditional way to loop through array elements.
+
+   ```javascript
+   const arr = [1, 2, 3];
+   for (let i = 0; i < arr.length; i++) {
+     console.log(arr[i]);
+   }
+   ```
+
+2. **`forEach()`**: Executes a provided function once for each array element.
+
+   ```javascript
+   arr.forEach((item) => console.log(item));
+   ```
+
+3. **`map()`**: Creates a new array populated with the results of calling a provided function on every element.
+
+   ```javascript
+   const doubled = arr.map((x) => x * 2);
+   console.log(doubled); // [2, 4, 6]
+   ```
+
+4. **`filter()`**: Creates a new array with all elements that pass the test implemented by the provided function.
+
+   ```javascript
+   const evens = arr.filter((x) => x % 2 === 0);
+   console.log(evens); // [2]
+   ```
+
+5. **`for...of`**: ES6 loop that iterates over iterable objects.
+
+   ```javascript
+   for (const item of arr) {
+     console.log(item);
+   }
+   ```
+
+## 35. What is the purpose of the `Symbol` type in JavaScript?
+
+**Answer:**
+`Symbol` is a primitive data type that is used to create unique identifiers for object properties. Symbols are often used to avoid name clashes between properties, as each symbol is guaranteed to be unique.
+
+```javascript
+const sym = Symbol("description");
+const obj = {
+  [sym]: "value",
+};
+
+console.log(obj[sym]); // 'value'
+```
+
+## 36. What are template literals and how are they used in JavaScript?
+
+**Answer:**
+Template literals are a way to work with strings in JavaScript using backticks (`` ` ``). They allow for multi-line strings and string interpolation.
+
+- **Interpolation**: Embed expressions within strings using `${}`.
+
+  ```javascript
+  const name = "Alice";
+  const greeting = `Hello, ${name}!`;
+  console.log(greeting); // 'Hello, Alice!'
+  ```
+
+- **Multi-line Strings**: Write strings across multiple lines.
+
+  ```javascript
+  const multiLine = `This is a
+  multi-line string.`;
+  console.log(multiLine);
+  ```
+
+## 37. What is the difference between `call` and `apply` methods in JavaScript?
+
+**Answer:**
+
+- **`call()`**: Calls a function with a given `this` value and arguments provided individually.
+
+  ```javascript
+  function greet(greeting, name) {
+    console.log(`${greeting}, ${name}`);
+  }
+
+  greet.call(null, "Hello", "Alice"); // 'Hello, Alice'
+  ```
+
+- **`apply()`**: Calls a function with a given `this` value and arguments provided as an array.
+
+  ```javascript
+  greet.apply(null, ["Hello", "Alice"]); // 'Hello, Alice'
+  ```
+
+## 38. What is the purpose of the `new` keyword in JavaScript?
+
+**Answer:**
+The `new` keyword is used to create instances of constructor functions or classes. It initializes a new object, sets the prototype of the new object to the prototype of the constructor, and returns the new object.
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+const alice = new Person("Alice");
+console.log(alice.name); // 'Alice'
+```
+
+## 39. What is the difference between `let` and `const`?
+
+**Answer:**
+
+- **`let`**: Allows you to declare a variable that can be reassigned. It is block-scoped.
+
+  ```javascript
+  let x = 10;
+  x = 20; // Valid
+  ```
+
+- **`const`**: Declares a variable that cannot be reassigned. It is also block-scoped. However, objects and arrays declared with `const` can still be modified.
+
+  ```javascript
+  const y = 10;
+  y = 20; // Error: Assignment to constant variable
+
+  const obj = { a: 1 };
+  obj.a = 2; // Valid
+  ```
+
+## 40. How does JavaScript's `Object.assign()` method work?
+
+**Answer:**
+`Object.assign()` copies the values of all enumerable own properties from one or more source objects to a target object. It returns the target object. It is often used to merge objects or create a shallow copy of an object.
+
+```javascript
+const target = { a: 1 };
+const source = { b: 2 };
+
+Object.assign(target, source);
+console.log(target); // { a: 1, b: 2 }
+```

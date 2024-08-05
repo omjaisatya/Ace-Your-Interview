@@ -1790,37 +1790,40 @@ fetchData();
 
 **Example:**
 
-````javascript
+```javascript
 // Store data
-localStorage.setItem('name', 'Alice');
+localStorage.setItem("name", "Alice");
 
 // Retrieve data
-const name = localStorage.getItem('name');
+const name = localStorage.getItem("name");
 console.log(name); // Alice
 
 // Remove data
-localStorage.removeItem('name');
+localStorage.removeItem("name");
 
 // Clear all data
 localStorage.clear();
-`0. What are JavaScript "template literals" and how are they used?
+```
+
+## 90. What are JavaScript "template literals" and how are they used?
 
 **Answer:**
-Template literals are string literals that allow embedded expressions and multi-line strings. They are enclosed by backticks (`` ` ``) instead of single or double quotes.
+Template literals are string literals that allow embedded expressions and multi-line strings. They are enclosed by backticks ( `  `) instead of single or double quotes.
 
 **Features:**
+
 - **Expression Interpolation**: Embed expressions within `${}`.
 
-  ```javascript
-  const name = 'Alice';
-  const greeting = `Hello, ${name}!`;
-  console.log(greeting); // Hello, Alice!
-````
+```javascript
+const name = "Alice";
+const greeting = `Hello, ${name}!`;
+console.log(greeting); // Hello, Alice!
+```
 
 - **Multi-line Strings**: Include line breaks without using escape characters.
 
-  ```javascript
-  const multiLine = `This is a
+```javascript
+const multiLine = `This is a
   multi-line string.`;
-  console.log(multiLine);
-  ```
+console.log(multiLine);
+```

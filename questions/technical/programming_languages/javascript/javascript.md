@@ -248,3 +248,44 @@ function debounce(fn, delay) {
 const debouncedFunction = debounce(() => console.log("Debounced!"), 300);
 window.addEventListener("resize", debouncedFunction);
 ```
+
+### 18. What are JavaScript templates literals?
+
+Answer:
+Template literals are a way to include expressions within strings using backticks (``). They allow for multi-line strings and interpolation of variables and expressions using ${}.
+
+```javascript
+let name = "Alice";
+let greeting = `Hello, ${name}!`;
+console.log(greeting); // Output: 'Hello, Alice!'
+```
+
+### 19. What is the difference between `call` and `apply` methods in JavaScript?
+
+**Answer:**
+Both `call` and `apply` methods are used to invoke a function with a specific `this` value. The main difference is how arguments are passed:
+
+- **`call(thisArg, arg1, arg2, ...)`**: Arguments are passed individually.
+- **`apply(thisArg, [arg1, arg2, ...])`**: Arguments are passed as an array.
+
+```javascript
+function show(a, b) {
+  console.log(a, b);
+}
+
+show.call(null, 1, 2); // Output: 1 2
+show.apply(null, [1, 2]); // Output: 1 2
+```
+
+### 20. What is the purpose of the `Object.assign()` method?
+
+**Answer:**
+The `Object.assign()` method copies the values of all enumerable own properties from one or more source objects to a target object. It returns the target object. It is often used for object cloning or merging objects.
+
+```javascript
+const target = { a: 1 };
+const source = { b: 2 };
+
+Object.assign(target, source);
+console.log(target); // Output: { a: 1, b: 2 }
+```

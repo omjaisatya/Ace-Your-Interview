@@ -1192,5 +1192,193 @@ class Person {
 }
 
 const alice = new Person("Alice", 25);
-alice.greet(); // Output: Hello, my name is Alice
+alice.greet(); //  Hello, my name is Alice
+```
+
+## 61. What is the difference between `null` and `undefined` in JavaScript?
+
+**Answer:**
+
+- **`null`**: Represents the intentional absence of any object value. It is a value that you explicitly assign to a variable to indicate "no value."
+
+  ```javascript
+  let value = null;
+  console.log(value); //  null
+  ```
+
+- **`undefined`**: Represents a variable that has been declared but not yet assigned a value. It is the default value for uninitialized variables.
+
+  ```javascript
+  let value;
+  console.log(value); //  undefined
+  ```
+
+## 62. What is the difference between `==` and `===` operators in JavaScript?
+
+**Answer:**
+
+- **`==` (Equality Operator)**: Compares values for equality after performing type coercion (i.e., it converts the values to the same type before comparison).
+
+  ```javascript
+  console.log(5 == "5"); //  true
+  ```
+
+- **`===` (Strict Equality Operator)**: Compares values for equality without performing type coercion (i.e., both value and type must be the same).
+
+  ```javascript
+  console.log(5 === "5"); //  false
+  ```
+
+## 63. What is a "callback" in JavaScript, and why are they used?
+
+**Answer:**
+A callback is a function passed as an argument to another function, which is then invoked inside the outer function to complete some kind of routine or action.
+
+**Usage**:
+
+- To handle asynchronous operations like reading files or making HTTP requests.
+- To customize behavior in higher-order functions.
+
+**Example:**
+
+```javascript
+function fetchData(callback) {
+  setTimeout(() => {
+    callback("Data fetched");
+  }, 1000);
+}
+
+fetchData((data) => {
+  console.log(data); //  'Data fetched'
+});
+```
+
+## 64. What are JavaScript's primitive data types?
+
+**Answer:**
+JavaScript has the following primitive data types:
+
+- **String**: Represents text.
+- **Number**: Represents numeric values (both integers and floating-point numbers).
+- **BigInt**: Represents whole numbers larger than `Number.MAX_SAFE_INTEGER`.
+- **Boolean**: Represents `true` or `false`.
+- **Undefined**: Represents a variable that has been declared but not assigned a value.
+- **Symbol**: Represents a unique identifier.
+- **Null**: Represents the intentional absence of any object value.
+
+## 65. What is the `typeof` operator, and what are its possible return values?
+
+**Answer:**
+The `typeof` operator returns a string indicating the type of the operand. Possible return values include:
+
+- `"undefined"`
+- `"boolean"`
+- `"number"`
+- `"string"`
+- `"symbol"`
+- `"object"` (for objects and `null`)
+- `"function"` (for functions)
+
+**Example:**
+
+```javascript
+console.log(typeof 'Hello'); //  'string'
+console.log(typeof 42); //  'number'
+console.log(typeof true); //  'boolean'
+console.log(typeof {}; //  'object'
+console.log(typeof null); //  'object'
+console.log(typeof function(){}); //  'function'
+```
+
+## 66. What are JavaScript's "truthy" and "falsy" values?
+
+**Answer:**
+
+- **Falsy Values**: Values that coerce to `false` in a boolean context. Common falsy values include:
+
+  - `0`
+  - `""` (empty string)
+  - `null`
+  - `undefined`
+  - `NaN`
+  - `false`
+
+  ```javascript
+  console.log(Boolean(0)); //  false
+  console.log(Boolean("")); //  false
+  ```
+
+- **Truthy Values**: Values that coerce to `true` in a boolean context. All values are truthy except for falsy values.
+
+  ```javascript
+  console.log(Boolean(1)); //  true
+  console.log(Boolean("hello")); //  true
+  ```
+
+## 67. What is the `bind()` method, and how is it used?
+
+**Answer:**
+The `bind()` method creates a new function that, when called, has its `this` keyword set to a specific value, with a given sequence of arguments preceding any provided when the new function is called.
+
+**Example:**
+
+```javascript
+function greet(greeting, name) {
+  console.log(`${greeting}, ${name}`);
+}
+
+const greetHello = greet.bind(null, "Hello");
+greetHello("Alice"); //  Hello, Alice
+```
+
+## 68. What is the difference between `var`, `let`, and `const`?
+
+**Answer:**
+
+- **`var`**: Function-scoped or globally-scoped, and can be re-declared and updated. It is hoisted to the top of its scope.
+
+  ```javascript
+  var x = 10;
+  ```
+
+- **`let`**: Block-scoped, can be updated but not re-declared within the same scope.
+
+  ```javascript
+  let y = 20;
+  ```
+
+- **`const`**: Block-scoped, cannot be updated or re-declared. It must be initialized at the time of declaration.
+
+  ```javascript
+  const z = 30;
+  ```
+
+## 69. What is the purpose of `Array.prototype.map()`?
+
+**Answer:**
+The `map()` method creates a new array populated with the results of calling a provided function on every element in the calling array. It does not modify the original array.
+
+**Example:**
+
+```javascript
+const numbers = [1, 2, 3];
+const doubled = numbers.map((x) => x * 2);
+console.log(doubled); //  [2, 4, 6]
+```
+
+## 70. What is a JavaScript "Promise" and how is it used?
+
+**Answer:**
+A JavaScript Promise is an object that represents the eventual completion or failure of an asynchronous operation and its resulting value. Promises have three states: pending, fulfilled, and rejected.
+
+**Usage Example:**
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Success"), 1000);
+});
+
+promise
+  .then((result) => console.log(result)) //  Success
+  .catch((error) => console.error(error));
 ```

@@ -1610,3 +1610,217 @@ const numbers = [4, 9, 16];
 const firstSquare = numbers.find((num) => Math.sqrt(num) % 1 === 0);
 console.log(firstSquare); // 4
 ```
+
+## 81. What are JavaScript Promises and how do they work?
+
+**Answer:**
+JavaScript Promises are objects representing the eventual completion (or failure) of an asynchronous operation and its resulting value. A promise can be in one of three states: pending, fulfilled, or rejected.
+
+- **Pending**: Initial state; neither fulfilled nor rejected.
+- **Fulfilled**: The operation completed successfully.
+- **Rejected**: The operation failed.
+
+**Example:**
+
+```javascript
+const promise = new Promise((resolve, reject) => {
+  setTimeout(() => resolve("Success"), 1000);
+});
+
+promise
+  .then((result) => console.log(result)) // Success
+  .catch((error) => console.error(error));
+```
+
+## 82. Explain the concept of "currying" in JavaScript.
+
+**Answer:**
+Currying is a functional programming technique where a function with multiple arguments is transformed into a sequence of functions, each taking a single argument. It allows for partial application of functions.
+
+**Example:**
+
+```javascript
+function multiply(a) {
+  return function (b) {
+    return a * b;
+  };
+}
+
+const double = multiply(2);
+console.log(double(5)); // 10
+```
+
+## 83. What is the difference between `call()`, `apply()`, and `bind()` methods?
+
+**Answer:**
+
+- **`call()`**: Invokes a function with a specified `this` value and individual arguments.
+
+  ```javascript
+  function greet(greeting, name) {
+    console.log(`${greeting}, ${name}`);
+  }
+
+  greet.call(null, "Hello", "Alice"); // Hello, Alice
+  ```
+
+- **`apply()`**: Similar to `call()`, but arguments are passed as an array.
+
+  ```javascript
+  function greet(greeting, name) {
+    console.log(`${greeting}, ${name}`);
+  }
+
+  greet.apply(null, ["Hello", "Alice"]); // Hello, Alice
+  ```
+
+- **`bind()`**: Creates a new function with a specified `this` value and optional initial arguments. The bound function can be called later.
+
+  ```javascript
+  function greet(greeting, name) {
+    console.log(`${greeting}, ${name}`);
+  }
+
+  const greetHello = greet.bind(null, "Hello");
+  greetHello("Alice"); // Hello, Alice
+  ```
+
+## 84. What is the `Event Loop` in JavaScript?
+
+**Answer:**
+The event loop is a core part of JavaScript's concurrency model. It manages the execution of code, events, and messages in the JavaScript runtime. It continuously checks the call stack and message queue, executing code from the stack and processing events from the queue.
+
+**Example:**
+
+```javascript
+console.log("Start");
+
+setTimeout(() => {
+  console.log("Timeout");
+}, 0);
+
+console.log("End");
+```
+
+**Output:**
+
+```
+Start
+End
+Timeout
+```
+
+## 85. What is the `prototype` chain in JavaScript?
+
+**Answer:**
+The prototype chain is a mechanism by which objects inherit properties and methods from other objects. Each object in JavaScript has an internal link to another object called its prototype. This prototype chain allows for property and method inheritance.
+
+**Example:**
+
+```javascript
+function Person(name) {
+  this.name = name;
+}
+
+Person.prototype.greet = function () {
+  console.log(`Hello, my name is ${this.name}`);
+};
+
+const alice = new Person("Alice");
+alice.greet(); // Hello, my name is Alice
+```
+
+## 86. What is the `Object.assign()` method and how is it used?
+
+**Answer:**
+The `Object.assign()` method copies the values of all enumerable own properties from one or more source objects to a target object. It returns the target object.
+
+**Example:**
+
+```javascript
+const target = { a: 1 };
+const source = { b: 2, c: 3 };
+
+Object.assign(target, source);
+console.log(target); // { a: 1, b: 2, c: 3 }
+```
+
+## 87. Explain the concept of "async/await" in JavaScript.
+
+**Answer:**
+`async` and `await` are syntactic sugar over promises, making asynchronous code look and behave like synchronous code. An `async` function always returns a promise, and `await` can be used inside `async` functions to pause execution until the promise resolves.
+
+**Example:**
+
+```javascript
+async function fetchData() {
+  const response = await fetch("https://api.example.com/data");
+  const data = await response.json();
+  console.log(data);
+}
+
+fetchData();
+```
+
+## 88. What is the difference between `slice()` and `splice()` methods in JavaScript arrays?
+
+**Answer:**
+
+- **`slice()`**: Returns a shallow copy of a portion of an array into a new array object. It does not modify the original array.
+
+  ```javascript
+  const arr = [1, 2, 3, 4];
+  const sliced = arr.slice(1, 3);
+  console.log(sliced); // [2, 3]
+  console.log(arr); // [1, 2, 3, 4]
+  ```
+
+- **`splice()`**: Changes the contents of an array by removing or replacing existing elements and/or adding new elements. It modifies the original array.
+
+  ```javascript
+  const arr = [1, 2, 3, 4];
+  arr.splice(1, 2, "a", "b");
+  console.log(arr); // [1, 'a', 'b', 4]
+  ```
+
+## 89. What is `localStorage` and how is it used?
+
+**Answer:**
+`localStorage` is a Web Storage API that allows you to store key-value pairs in a web browser with no expiration time. The data persists even after the browser is closed.
+
+**Example:**
+
+````javascript
+// Store data
+localStorage.setItem('name', 'Alice');
+
+// Retrieve data
+const name = localStorage.getItem('name');
+console.log(name); // Alice
+
+// Remove data
+localStorage.removeItem('name');
+
+// Clear all data
+localStorage.clear();
+`0. What are JavaScript "template literals" and how are they used?
+
+**Answer:**
+Template literals are string literals that allow embedded expressions and multi-line strings. They are enclosed by backticks (`` ` ``) instead of single or double quotes.
+
+**Features:**
+- **Expression Interpolation**: Embed expressions within `${}`.
+
+  ```javascript
+  const name = 'Alice';
+  const greeting = `Hello, ${name}!`;
+  console.log(greeting); // Hello, Alice!
+````
+
+- **Multi-line Strings**: Include line breaks without using escape characters.
+
+  ```javascript
+  const multiLine = `This is a
+  multi-line string.`;
+  console.log(multiLine);
+  ```

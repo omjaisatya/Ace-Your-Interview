@@ -1,3 +1,19 @@
+# Ace Your Interview
+
+**Ace Your Interview - JAVASCRIPT**
+
+---
+
+© 2024 Satya Prakash
+
+---
+
+**Author:**
+
+[Satya Prakash](https://github.com/omjaisatya)
+
+---
+
 # JavaScript Interview Questions and Answers
 
 ## 1. What is the difference between `var`, `let`, and `const`?

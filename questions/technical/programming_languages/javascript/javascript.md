@@ -975,3 +975,222 @@ JavaScript uses prototypal inheritance to allow objects to inherit properties an
   ```javascript
   console.log(0 === "0"); // false
   ```
+
+## 51. What is a closure in JavaScript?
+
+**Answer:**
+A closure is a function that retains access to its lexical scope even when the function is executed outside that scope. This means a function defined inside another function can access variables from the outer function even after the outer function has finished executing.
+
+**Example:**
+
+```javascript
+function outerFunction(outerVariable) {
+  return function innerFunction(innerVariable) {
+    console.log(`Outer: ${outerVariable}, Inner: ${innerVariable}`);
+  };
+}
+
+const closureFunction = outerFunction("outer");
+closureFunction("inner"); // Output: Outer: outer, Inner: inner
+```
+
+## 52. What is event bubbling and event capturing in JavaScript?
+
+**Answer:**
+
+- **Event Bubbling**: The event starts from the target element and bubbles up to the root of the DOM tree. This is the default behavior in most browsers.
+
+  **Example:**
+
+  ```javascript
+  document.getElementById("child").addEventListener("click", () => {
+    console.log("Child clicked");
+  });
+
+  document.getElementById("parent").addEventListener("click", () => {
+    console.log("Parent clicked");
+  });
+  ```
+
+  Clicking the child element will log "Child clicked" followed by "Parent clicked".
+
+- **Event Capturing**: The event starts from the root and travels down to the target element. It can be enabled by setting the `capture` option to `true` in `addEventListener`.
+
+  **Example:**
+
+  ```javascript
+  document.getElementById("parent").addEventListener(
+    "click",
+    () => {
+      console.log("Parent clicked");
+    },
+    true
+  ); // 'true' enables capturing
+
+  document.getElementById("child").addEventListener("click", () => {
+    console.log("Child clicked");
+  });
+  ```
+
+  Clicking the child element will log "Parent clicked" followed by "Child clicked".
+
+## 53. What is the `bind()` method in JavaScript?
+
+**Answer:**
+The `bind()` method creates a new function that, when called, has its `this` keyword set to a specific value, with a given sequence of arguments preceding any provided when the new function is called.
+
+**Example:**
+
+```javascript
+function greet(greeting, name) {
+  console.log(`${greeting}, ${name}`);
+}
+
+const greetHello = greet.bind(null, "Hello");
+greetHello("Alice"); //  Hello, Alice
+```
+
+## 54. Explain the `Array.prototype.flat()` method and provide an example.
+
+**Answer:**
+The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth. By default, it flattens arrays to a depth of 1.
+
+**Example:**
+
+```javascript
+const arr = [1, [2, [3, [4]]]];
+const flattened = arr.flat(2);
+console.log(flattened); //  [1, 2, 3, [4]]
+```
+
+## 55. What is the difference between `null` and `undefined` in JavaScript?
+
+**Answer:**
+
+- **`null`**: A deliberate assignment value that represents the intentional absence of any object value. It is an object type.
+
+  ```javascript
+  let value = null;
+  console.log(value); //  null
+  ```
+
+- **`undefined`**: A variable that has been declared but not assigned a value. It is a primitive type.
+
+  ```javascript
+  let value;
+  console.log(value); //  undefined
+  ```
+
+## 56. How does JavaScript handle type conversion?
+
+**Answer:**
+JavaScript performs type conversion (type coercion) automatically when performing operations between different types. Type conversion can be implicit or explicit:
+
+- **Implicit Conversion**: Automatically performed by JavaScript.
+
+  ```javascript
+  console.log("5" + 1); // '51' (string concatenation)
+  console.log("5" - 1); // 4 (string to number conversion)
+  ```
+
+- **Explicit Conversion**: Manually performed using functions like `Number()`, `String()`, `Boolean()`.
+
+  ```javascript
+  console.log(Number("5")); // 5
+  console.log(String(5)); // '5'
+  ```
+
+## 57. What are `setTimeout` and `setInterval` functions, and how do they differ?
+
+**Answer:**
+
+- **`setTimeout(callback, delay)`**: Executes a function after a specified delay (in milliseconds). It is executed once.
+
+  ```javascript
+  setTimeout(() => {
+    console.log("Executed after 1 second");
+  }, 1000);
+  ```
+
+- **`setInterval(callback, interval)`**: Repeatedly executes a function with a fixed time delay between each call. It continues until stopped by `clearInterval()`.
+
+  ```javascript
+  const intervalId = setInterval(() => {
+    console.log("Executed every 1 second");
+  }, 1000);
+
+  // To stop the interval
+  clearInterval(intervalId);
+  ```
+
+## 58. What is the `spread` operator in JavaScript and how is it used?
+
+**Answer:**
+The `spread` operator (`...`) allows an iterable (like an array) to be expanded into individual elements. It can be used in function calls, array literals, and object literals.
+
+**Examples:**
+
+- **In Function Calls:**
+
+  ```javascript
+  const numbers = [1, 2, 3];
+  console.log(Math.max(...numbers)); //  3
+  ```
+
+- **In Array Literals:**
+
+  ```javascript
+  const arr1 = [1, 2, 3];
+  const arr2 = [4, 5, 6];
+  const combined = [...arr1, ...arr2];
+  console.log(combined); // [1, 2, 3, 4, 5, 6]
+  ```
+
+- **In Object Literals:**
+
+  ```javascript
+  const obj1 = { a: 1, b: 2 };
+  const obj2 = { c: 3 };
+  const merged = { ...obj1, ...obj2 };
+  console.log(merged); //  { a: 1, b: 2, c: 3 }
+  ```
+
+## 59. What is the `typeof` operator in JavaScript?
+
+**Answer:**
+The `typeof` operator returns a string indicating the type of the unevaluated operand. It is used to determine the type of a variable or expression.
+
+**Examples:**
+
+```javascript
+console.log(typeof "Hello"); // 'string'
+console.log(typeof 42); // 'number'
+console.log(typeof true); // 'boolean'
+console.log(typeof undefined); // 'undefined'
+console.log(typeof Symbol("symbol")); // 'symbol'
+console.log(typeof {}); // 'object'
+console.log(typeof function () {}); // 'function'
+```
+
+## 60. How do you create a new instance of a class in JavaScript?
+
+**Answer:**
+You can create a new instance of a class using the `new` keyword followed by the class name and any required arguments for the constructor.
+
+**Example:**
+
+```javascript
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.name}`);
+  }
+}
+
+const alice = new Person("Alice", 25);
+alice.greet(); // Output: Hello, my name is Alice
+```

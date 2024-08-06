@@ -184,3 +184,79 @@ public class Dog {
 
 ## 40. What is the CompletableFuture class in Java?
 **Answer:** `CompletableFuture` is a class in the `java.util.concurrent` package that represents a future result of an asynchronous computation. It provides a comprehensive API for asynchronous programming, allowing the composition of multiple tasks and handling their results.
+
+
+## 41. What is a lambda expression in Java?
+**Answer:** Lambda expressions are a feature introduced in Java 8 that allows you to write concise code for functional interfaces (interfaces with a single abstract method). They provide a clear and concise way to represent one method interface using an expression. Lambda expressions are used primarily to define the inline implementation of a functional interface.
+
+## 42. What is the difference between `Runnable` and `Callable` in Java?
+**Answer:**
+- **Runnable:** It is an interface representing a task that can be executed by a thread. It has a single `run()` method that does not return any result and cannot throw checked exceptions.
+- **Callable:** It is an interface introduced in Java 5 that represents a task that can be executed by a thread. It has a single `call()` method that returns a result and can throw checked exceptions.
+
+## 43. What is the difference between `wait()` and `sleep()` in Java?
+**Answer:**
+- **wait():** It is a method of the `Object` class that causes the current thread to wait until another thread invokes the `notify()` or `notifyAll()` method on the same object. It releases the lock on the object.
+- **sleep():** It is a method of the `Thread` class that causes the current thread to sleep for a specified number of milliseconds. It does not release the lock on the object.
+
+## 44. What is a thread pool in Java?
+**Answer:** A thread pool is a group of pre-instantiated reusable threads that are available for performing tasks. Using a thread pool helps in reducing the overhead of creating and destroying threads for each task. The `java.util.concurrent` package provides the `Executor` framework for managing thread pools.
+
+## 45. What is the `synchronized` keyword in Java?
+**Answer:** The `synchronized` keyword is used to control the access of multiple threads to a shared resource. It can be applied to methods or blocks of code to ensure that only one thread can execute the synchronized code at a time. It helps in preventing thread interference and maintaining data consistency.
+
+## 46. What are generics in Java?
+**Answer:** Generics enable types (classes and interfaces) to be parameters when defining classes, interfaces, and methods. They provide type safety by allowing you to define a class or a method with a placeholder for a data type. Generics eliminate the need for type casting and prevent runtime errors by catching type-related issues at compile-time.
+
+## 47. What is the `enum` keyword in Java?
+**Answer:** The `enum` keyword is used to define a set of named constants. An enum is a special class that represents a group of constants (unchangeable variables, like final variables). Enums are useful for representing a fixed set of constants, such as days of the week, directions, etc.
+
+## 48. What is a nested class in Java?
+**Answer:** A nested class is a class defined within another class. There are four types of nested classes in Java:
+- **Static nested class:** A static nested class is a static member of the outer class. It can access static members of the outer class.
+- **Inner class (non-static nested class):** It is a non-static member of the outer class and can access all members of the outer class.
+- **Local class:** It is a class defined within a method or a block of code.
+- **Anonymous class:** It is a class without a name, used for instantiating objects with certain modifications, usually defined within a method.
+
+## 49. What is the diamond operator in Java?
+**Answer:** The diamond operator (`<>`) is a feature introduced in Java 7 that allows you to avoid specifying the type parameters on the right side of the variable declaration. It simplifies the code by inferring the type from the context, reducing redundancy. Example:
+```java
+List<String> list = new ArrayList<>();
+```
+
+## 50. What is the purpose of the `default` keyword in interfaces?
+**Answer:** The `default` keyword, introduced in Java 8, allows you to define default methods in interfaces. Default methods are methods with a body that can be overridden by implementing classes. They provide a way to add new methods to interfaces without breaking existing implementations.
+
+## 51. What is the `Optional` class in Java?
+**Answer:** The `Optional` class, introduced in Java 8, is a container object used to represent the presence or absence of a value. It helps in avoiding null checks and NullPointerExceptions by providing methods to deal with optional values in a functional style.
+
+## 52. What is the `Stream` API in Java?
+**Answer:** The `Stream` API, introduced in Java 8, provides a functional programming approach to process sequences of elements. It allows operations such as filtering, mapping, and reducing collections of data in a declarative manner. Streams enable efficient and expressive data processing.
+
+## 53. What is method overloading in Java?
+**Answer:** Method overloading is a feature in Java that allows you to define multiple methods with the same name but different parameters (different type, number, or both). It is a form of compile-time polymorphism that allows methods to be differentiated based on their signature.
+
+## 54. What is method overriding in Java?
+**Answer:** Method overriding is a feature in Java that allows a subclass to provide a specific implementation of a method that is already defined in its superclass. The overridden method must have the same name, return type, and parameters as the method in the superclass. It is a form of runtime polymorphism.
+
+## 55. What is the purpose of the `transient` keyword in Java?
+**Answer:** The `transient` keyword in Java is used to indicate that a field should not be serialized. When an object is serialized, transient fields are ignored and not included in the serialized representation. It is useful for fields that should not be persisted, such as temporary data or sensitive information.
+
+## 56. What is the `volatile` keyword in Java?
+**Answer:** The `volatile` keyword in Java is used to indicate that a variable's value will be modified by different threads. It ensures that the value of the volatile variable is always read from the main memory, and not from the thread's local cache, ensuring visibility of changes across threads.
+
+## 57. What is the `finalize()` method in Java?
+**Answer:** The `finalize()` method is a method of the `Object` class that is called by the garbage collector before an object is removed from memory. It provides an opportunity to clean up resources or perform other cleanup operations. However, it is not recommended to rely on `finalize()` for resource management, as it is unpredictable and can lead to performance issues.
+
+## 58. What is the difference between `ArrayList` and `LinkedList` in Java?
+**Answer:**
+- **ArrayList:** It is a resizable array implementation of the `List` interface. It provides fast random access to elements but slow insertion and deletion operations as it requires shifting elements.
+- **LinkedList:** It is a doubly linked list implementation of the `List` interface. It provides fast insertion and deletion operations but slower random access to elements as it requires traversal of the list.
+
+## 59. What is the `Comparator` interface in Java?
+**Answer:** The `Comparator` interface is used to define a custom comparison logic for sorting objects. It has a single method `compare()` that compares two objects and returns an integer indicating their relative order. It can be used to sort collections of objects with custom criteria.
+
+## 60. What is the difference between `abstract class` and `interface` in Java?
+**Answer:**
+- **Abstract Class:** It can have both abstract and concrete methods. It can have state (fields) and constructors. A class can extend only one abstract class.
+- **Interface:** It can only have abstract methods (until Java 8, which introduced default and static methods). It cannot have state (fields). A class can implement multiple interfaces.

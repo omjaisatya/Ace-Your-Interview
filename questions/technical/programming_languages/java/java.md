@@ -260,3 +260,97 @@ List<String> list = new ArrayList<>();
 **Answer:**
 - **Abstract Class:** It can have both abstract and concrete methods. It can have state (fields) and constructors. A class can extend only one abstract class.
 - **Interface:** It can only have abstract methods (until Java 8, which introduced default and static methods). It cannot have state (fields). A class can implement multiple interfaces.
+
+
+## 61. What is the difference between `HashSet` and `TreeSet` in Java?
+**Answer:**
+- **HashSet:** It is an implementation of the `Set` interface that uses a hash table for storage. It does not guarantee any order of elements and allows `null` values.
+- **TreeSet:** It is an implementation of the `NavigableSet` interface that uses a red-black tree. It stores elements in a sorted order and does not allow `null` values.
+
+## 62. What is an exception in Java?
+**Answer:** An exception in Java is an event that disrupts the normal flow of the program. It is an object that represents an error or an unexpected condition that occurs during the execution of a program. Exceptions can be caught and handled using try-catch blocks to maintain the program's normal flow.
+
+## 63. What is the difference between `throw` and `throws` in Java?
+**Answer:**
+- **throw:** It is used to explicitly throw an exception in the code. It is followed by an instance of the `Throwable` class.
+- **throws:** It is used in the method signature to declare that a method can throw exceptions. It is followed by a list of exception types that the method can throw.
+
+## 64. What is the `try-with-resources` statement in Java?
+**Answer:** The `try-with-resources` statement is a feature introduced in Java 7 that allows you to declare resources that are automatically closed at the end of the statement. It ensures that each resource is closed at the end of the statement, eliminating the need for explicit `finally` blocks. Resources must implement the `AutoCloseable` interface.
+
+## 65. What is the `static` keyword in Java?
+**Answer:** The `static` keyword is used to indicate that a member belongs to the class rather than an instance of the class. It can be applied to variables, methods, blocks, and nested classes. Static members can be accessed without creating an instance of the class.
+
+## 66. What is the `final` keyword in Java?
+**Answer:** The `final` keyword is used to define constants, prevent method overriding, and prevent inheritance. It can be applied to variables, methods, and classes.
+- **final variable:** Its value cannot be changed once initialized.
+- **final method:** It cannot be overridden by subclasses.
+- **final class:** It cannot be subclassed.
+
+## 67. What is the purpose of the `transient` keyword in Java?
+**Answer:** The `transient` keyword in Java is used to indicate that a field should not be serialized. When an object is serialized, transient fields are ignored and not included in the serialized representation. It is useful for fields that should not be persisted, such as temporary data or sensitive information.
+
+## 68. What is the `volatile` keyword in Java?
+**Answer:** The `volatile` keyword in Java is used to indicate that a variable's value will be modified by different threads. It ensures that the value of the volatile variable is always read from the main memory, and not from the thread's local cache, ensuring visibility of changes across threads.
+
+## 69. What is the `finalize()` method in Java?
+**Answer:** The `finalize()` method is a method of the `Object` class that is called by the garbage collector before an object is removed from memory. It provides an opportunity to clean up resources or perform other cleanup operations. However, it is not recommended to rely on `finalize()` for resource management, as it is unpredictable and can lead to performance issues.
+
+## 70. What is the difference between `ArrayList` and `LinkedList` in Java?
+**Answer:**
+- **ArrayList:** It is a resizable array implementation of the `List` interface. It provides fast random access to elements but slow insertion and deletion operations as it requires shifting elements.
+- **LinkedList:** It is a doubly linked list implementation of the `List` interface. It provides fast insertion and deletion operations but slower random access to elements as it requires traversal of the list.
+
+## 71. What is the `Comparator` interface in Java?
+**Answer:** The `Comparator` interface is used to define a custom comparison logic for sorting objects. It has a single method `compare()` that compares two objects and returns an integer indicating their relative order. It can be used to sort collections of objects with custom criteria.
+
+## 72. What is the difference between `abstract class` and `interface` in Java?
+**Answer:**
+- **Abstract Class:** It can have both abstract and concrete methods. It can have state (fields) and constructors. A class can extend only one abstract class.
+- **Interface:** It can only have abstract methods (until Java 8, which introduced default and static methods). It cannot have state (fields). A class can implement multiple interfaces.
+
+## 73. What is method overloading in Java?
+**Answer:** Method overloading is a feature in Java that allows you to define multiple methods with the same name but different parameters (different type, number, or both). It is a form of compile-time polymorphism that allows methods to be differentiated based on their signature.
+
+## 74. What is method overriding in Java?
+**Answer:** Method overriding is a feature in Java that allows a subclass to provide a specific implementation of a method that is already defined in its superclass. The overridden method must have the same name, return type, and parameters as the method in the superclass. It is a form of runtime polymorphism.
+
+## 75. What is the `super` keyword in Java?
+**Answer:** The `super` keyword in Java is used to refer to the immediate parent class object. It can be used to access parent class methods, constructors, and variables. It is commonly used in the following scenarios:
+- To call the parent class constructor.
+- To access the parent class variables.
+- To access the parent class methods.
+
+## 76. What is the purpose of the `default` keyword in interfaces?
+**Answer:** The `default` keyword, introduced in Java 8, allows you to define default methods in interfaces. Default methods are methods with a body that can be overridden by implementing classes. They provide a way to add new methods to interfaces without breaking existing implementations.
+
+## 77. What is the `Optional` class in Java?
+**Answer:** The `Optional` class, introduced in Java 8, is a container object used to represent the presence or absence of a value. It helps in avoiding null checks and NullPointerExceptions by providing methods to deal with optional values in a functional style.
+
+## 78. What is the `Stream` API in Java?
+**Answer:** The `Stream` API, introduced in Java 8, provides a functional programming approach to process sequences of elements. It allows operations such as filtering, mapping, and reducing collections of data in a declarative manner. Streams enable efficient and expressive data processing.
+
+## 79. What are functional interfaces in Java?
+**Answer:** Functional interfaces are interfaces with a single abstract method, used as the basis for lambda expressions and method references. Examples include `Runnable`, `Callable`, `Comparator`, and the interfaces in the `java.util.function` package.
+
+## 80. What is method reference in Java?
+**Answer:** Method reference is a shorthand notation of a lambda expression to call a method. It uses the `::` operator and can refer to static methods, instance methods, or constructors.
+
+## 81. What is the CompletableFuture class in Java?
+**Answer:** `CompletableFuture` is a class in the `java.util.concurrent` package that represents a future result of an asynchronous computation. It provides a comprehensive API for asynchronous programming, allowing the composition of multiple tasks and handling their results.
+
+## 82. What is a lambda expression in Java?
+**Answer:** Lambda expressions are a feature introduced in Java 8 that allows you to write concise code for functional interfaces (interfaces with a single abstract method). They provide a clear and concise way to represent one method interface using an expression. Lambda expressions are used primarily to define the inline implementation of a functional interface.
+
+## 83. What is the difference between `Runnable` and `Callable` in Java?
+**Answer:**
+- **Runnable:** It is an interface representing a task that can be executed by a thread. It has a single `run()` method that does not return any result and cannot throw checked exceptions.
+- **Callable:** It is an interface introduced in Java 5 that represents a task that can be executed by a thread. It has a single `call()` method that returns a result and can throw checked exceptions.
+
+## 84. What is the difference between `wait()` and `sleep()` in Java?
+**Answer:**
+- **wait():** It is a method of the `Object` class that causes the current thread to wait until another thread invokes the `notify()` or `notifyAll()` method on the same object. It releases the lock on the object.
+- **sleep():** It is a method of the `Thread` class that causes the current thread to sleep for a specified number of milliseconds. It does not release the lock on the object.
+
+## 85. What is a thread pool in Java?
+**Answer:** A thread pool is a group of pre-instantiated reusable threads that are available for performing tasks. Using a thread pool helps in reducing the overhead of creating and destroying threads for each task. The `java.util.concurrent` package provides the `Executor` framework for managing thread pools.

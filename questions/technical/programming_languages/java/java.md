@@ -1,3 +1,5 @@
+### Java Interview Questions and Answers 
+
 
 ## 1. What is Java?
 **Answer:** Java is a high-level, class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let application developers write once, run anywhere (WORA), meaning that compiled Java code can run on all platforms that support Java without the need for recompilation.
@@ -106,3 +108,79 @@ public class Dog {
 **Answer:**
 - **ArrayList:** It is a resizable array implementation of the `List` interface. It provides fast random access to elements but slow insertion and deletion operations as it requires shifting elements.
 - **LinkedList:** It is a doubly linked list implementation of the `List` interface. It provides fast insertion and deletion operations but slower random access to elements as it requires traversal of the list.
+
+## 21. What is the difference between `String`, `StringBuilder`, and `StringBuffer` in Java?
+**Answer:**
+- **String:** It is immutable, meaning once created, its value cannot be changed. Any modification creates a new `String` object.
+- **StringBuilder:** It is mutable and not synchronized, making it faster than `StringBuffer`. It is used in a single-threaded environment.
+- **StringBuffer:** It is mutable and synchronized, making it thread-safe but slower than `StringBuilder`.
+
+## 22. What is the use of the `super` keyword in Java?
+**Answer:** The `super` keyword in Java is used to refer to the immediate parent class object. It can be used to access parent class methods, constructors, and variables. It is commonly used in the following scenarios:
+- To call the parent class constructor.
+- To access the parent class variables.
+- To access the parent class methods.
+
+## 23. What is the difference between `abstract class` and `interface` in Java?
+**Answer:**
+- **Abstract Class:** It can have both abstract and concrete methods. It can have state (fields) and constructors. A class can extend only one abstract class.
+- **Interface:** It can only have abstract methods (until Java 8, which introduced default and static methods). It cannot have state (fields). A class can implement multiple interfaces.
+
+## 24. What is the difference between `HashMap` and `Hashtable` in Java?
+**Answer:**
+- **HashMap:** It is not synchronized, meaning it is not thread-safe. It allows one null key and multiple null values. It is faster than `Hashtable`.
+- **Hashtable:** It is synchronized, meaning it is thread-safe. It does not allow any null keys or values.
+
+## 25. What is the Java Collections Framework?
+**Answer:** The Java Collections Framework is a set of classes and interfaces that implement commonly reusable collection data structures. It includes interfaces such as `List`, `Set`, and `Map`, and classes like `ArrayList`, `HashSet`, `HashMap`, and `LinkedList`.
+
+## 26. What is the `Iterator` in Java?
+**Answer:** An `Iterator` is an interface in the Java Collections Framework that provides methods to traverse a collection. It provides methods such as `hasNext()`, `next()`, and `remove()`. The `Iterator` allows the caller to remove elements from the underlying collection during the iteration.
+
+## 27. What is the purpose of the `transient` keyword in Java?
+**Answer:** The `transient` keyword in Java is used to indicate that a field should not be serialized. When an object is serialized, transient fields are ignored and not included in the serialized representation.
+
+## 28. What is the `volatile` keyword in Java?
+**Answer:** The `volatile` keyword in Java is used to indicate that a variable's value will be modified by different threads. It ensures that the value of the volatile variable is always read from the main memory, and not from the thread's local cache, ensuring visibility of changes across threads.
+
+## 29. What is reflection in Java?
+**Answer:** Reflection in Java is a feature that allows the inspection and manipulation of classes, methods, and fields at runtime. It is provided through the `java.lang.reflect` package. Reflection is used for various purposes, such as inspecting class properties, invoking methods, and accessing fields dynamically.
+
+## 30. What is the difference between `public`, `protected`, `private`, and default access modifiers in Java?
+**Answer:**
+- **public:** The member is accessible from any other class.
+- **protected:** The member is accessible within the same package and by subclasses in other packages.
+- **private:** The member is accessible only within the same class.
+- **default (no modifier):** The member is accessible only within the same package.
+
+## 31. What is the Singleton design pattern?
+**Answer:** The Singleton design pattern ensures that a class has only one instance and provides a global point of access to it. It is commonly implemented using a private constructor and a static method that returns the single instance.
+
+## 32. What is dependency injection?
+**Answer:** Dependency injection is a design pattern used to implement inversion of control, allowing an object's dependencies to be injected rather than hard-coded. It promotes loose coupling and enhances testability and maintainability of code.
+
+## 33. What is the difference between `==` and `equals()` in Java?
+**Answer:**
+- `==` compares the references of two objects to check if they point to the same memory location.
+- `equals()` compares the contents of two objects for logical equality. The `equals()` method can be overridden to provide custom equality logic.
+
+## 34. What is the use of the `this` keyword in Java?
+**Answer:** The `this` keyword in Java is a reference to the current object. It can be used to refer to the current instance's variables, methods, and constructors. It is often used to resolve naming conflicts and to pass the current object as a parameter.
+
+## 35. What are lambda expressions in Java?
+**Answer:** Lambda expressions, introduced in Java 8, provide a clear and concise way to represent one method interface using an expression. They are used primarily to define inline implementations of functional interfaces, enabling functional programming features in Java.
+
+## 36. What is the Stream API in Java?
+**Answer:** The Stream API, introduced in Java 8, provides a functional programming approach to processing sequences of elements. It supports operations such as map, filter, and reduce, enabling efficient and expressive data manipulation.
+
+## 37. What is the Optional class in Java?
+**Answer:** The `Optional` class, introduced in Java 8, is a container object used to represent the presence or absence of a value. It provides methods to deal with values that may or may not be present, reducing the need for explicit null checks.
+
+## 38. What are functional interfaces in Java?
+**Answer:** Functional interfaces are interfaces with a single abstract method, used as the basis for lambda expressions and method references. Examples include `Runnable`, `Callable`, `Comparator`, and the interfaces in the `java.util.function` package.
+
+## 39. What is method reference in Java?
+**Answer:** Method reference is a shorthand notation of a lambda expression to call a method. It uses the `::` operator and can refer to static methods, instance methods, or constructors.
+
+## 40. What is the CompletableFuture class in Java?
+**Answer:** `CompletableFuture` is a class in the `java.util.concurrent` package that represents a future result of an asynchronous computation. It provides a comprehensive API for asynchronous programming, allowing the composition of multiple tasks and handling their results.

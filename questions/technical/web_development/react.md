@@ -616,4 +616,160 @@ The `combineReducers` function is a utility function to combine multiple reducer
 Redux is connected to a React component using the `connect` function from `react-redux`. This function takes two arguments:
 1. `mapStateToProps`: a function that maps the state to component props.
 2. `mapDispatchToProps`: a function or object that maps dispatch to component props.
+
+
+# React Hooks Interview Questions and Answers
+
+## 1. What are React Hooks?
+
+**Answer:**
+React Hooks are functions that let you use state and other React features without writing a class. They were introduced in React 16.8 to enable stateful logic in functional components.
+
+## 2. What is the useState hook?
+
+**Answer:**
+The `useState` hook is a function that allows you to add state to a functional component. It returns an array with two elements: the current state value and a function that allows you to update that state.
+
+Example:
+```javascript
+const [count, setCount] = useState(0);
 ```
+
+## 3. What is the useEffect hook?
+
+**Answer:**
+The `useEffect` hook lets you perform side effects in function components. It serves the same purpose as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in class components.
+
+Example:
+```javascript
+useEffect(() => {
+  // Code to run on component mount and update
+
+  return () => {
+    // Cleanup code (componentWillUnmount)
+  };
+}, [dependencies]);
+```
+
+## 4. What are the rules of hooks?
+
+**Answer:**
+There are two main rules of hooks:
+1. Only call hooks at the top level. Do not call hooks inside loops, conditions, or nested functions.
+2. Only call hooks from React function components or custom hooks. Do not call them from regular JavaScript functions.
+
+## 5. What is the useContext hook?
+
+**Answer:**
+The `useContext` hook allows you to access the value of a context directly without using a context consumer. It makes context usage simpler and more readable.
+
+Example:
+```javascript
+const value = useContext(MyContext);
+```
+
+## 6. What is the useReducer hook?
+
+**Answer:**
+The `useReducer` hook is an alternative to `useState` for managing complex state logic. It is particularly useful when the state depends on the previous state or when the state logic involves multiple sub-values.
+
+Example:
+```javascript
+const [state, dispatch] = useReducer(reducer, initialState);
+```
+
+## 7. What is the useMemo hook?
+
+**Answer:**
+The `useMemo` hook memoizes a value so that it is only recalculated when its dependencies change. It helps optimize performance by preventing expensive calculations on every render.
+
+Example:
+```javascript
+const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
+```
+
+## 8. What is the useCallback hook?
+
+**Answer:**
+The `useCallback` hook returns a memoized callback function that only changes if one of its dependencies has changed. It is useful for optimizing performance, especially when passing callbacks to child components.
+
+Example:
+```javascript
+const memoizedCallback = useCallback(() => {
+  doSomething(a, b);
+}, [a, b]);
+```
+
+## 9. What is the useRef hook?
+
+**Answer:**
+The `useRef` hook returns a mutable ref object that persists for the lifetime of the component. It can be used to access DOM elements directly or to store any mutable value.
+
+Example:
+```javascript
+const myRef = useRef(null);
+```
+
+## 10. What is a custom hook?
+
+**Answer:**
+A custom hook is a JavaScript function whose name starts with "use" and that can call other hooks. Custom hooks allow you to extract and reuse stateful logic across multiple components.
+
+Example:
+```javascript
+function useCustomHook() {
+  const [value, setValue] = useState(0);
+  // Additional logic
+  return [value, setValue];
+}
+```
+
+## 11. How do you implement a custom hook for fetching data?
+
+**Answer:**
+You can create a custom hook to fetch data as follows:
+
+Example:
+```javascript
+import { useState, useEffect } from 'react';
+
+function useFetch(url) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        const result = await response.json();
+        setData(result);
+      } catch (err) {
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [url]);
+
+  return { data, loading, error };
+}
+```
+
+## 12. How do you handle side effects in functional components?
+
+**Answer:**
+Side effects in functional components are handled using the `useEffect` hook. This hook allows you to perform tasks such as data fetching, subscriptions, and manual DOM manipulations.
+
+Example:
+```javascript
+useEffect(() => {
+  // Side effect code
+
+  return () => {
+    // Cleanup code
+  };
+}, [dependencies]);
+```
+

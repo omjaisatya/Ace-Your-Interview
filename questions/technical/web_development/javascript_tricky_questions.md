@@ -388,3 +388,37 @@ The output of the code will be:
    - `console.log(a);` prints `1` because the original primitive `a` is unchanged.
    - `console.log(b.a);` prints `3` because `b.a` was modified via `c`.
    - `console.log(c.a);` prints `3` because `c` refers to the same object as `b`.
+
+
+## Question 16
+
+What will be the output of the following JavaScript code?
+
+```javascript
+function sayHello() {
+  return 
+  {
+    message: "Hello, world!"
+  };
+}
+
+console.log(sayHello());
+```
+
+## Answer
+
+The output of the code will be:
+
+```
+undefined
+```
+
+### Correcting the Code:
+   - If you remove the line break between `return` and the object, or wrap the object in parentheses, the code will work as expected:
+   ```javascript
+   function sayHello() {
+     return {
+       message: "Hello, world!"
+     };
+   }
+   ```

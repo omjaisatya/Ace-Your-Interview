@@ -448,3 +448,33 @@ The output of the code will be:
 undefined
 2
 ```
+
+
+## Question 18
+
+What will be the output of the following JavaScript code?
+
+```javascript
+let x = 10;
+
+function outer() {
+  let x = 20;
+  function inner() {
+    x++;
+    let x = 30;
+    console.log(x);
+  }
+  inner();
+}
+
+outer();
+```
+
+### Answer
+The output of the code will be:
+
+```javascript
+Uncaught ReferenceError: Cannot access 'x' before initialization
+```
+
+

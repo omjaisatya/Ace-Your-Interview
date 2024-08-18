@@ -329,3 +329,20 @@ With `let`, `i` is block-scoped, so each iteration of the loop gets its own copy
 1
 2
 ```
+
+## Question 14
+
+What will be the output of the following JavaScript code?
+
+```javascript
+console.log(typeof null);
+console.log(null instanceof Object);
+```
+
+### Answer
+The output of the code will be:
+
+```bash
+object
+false
+```

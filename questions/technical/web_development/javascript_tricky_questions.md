@@ -279,3 +279,53 @@ console.log(Object.keys(obj)); // What will this print?
 undefined;
 [("a", "b", "c")];
 ```
+
+## Question 13
+
+What will be the output of the following JavaScript code?
+
+```javascript
+for (var i = 0; i < 3; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+```
+
+## Answer
+
+The output of the code will be:
+
+```
+3
+3
+3
+```
+
+### Explanation
+
+1. **`var` and Function Scope**: The `var` keyword is function-scoped, not block-scoped. This means that the variable `i` is shared across all iterations of the loop. When the loop completes, the value of `i` is `3`.
+
+2. **`setTimeout` and Closures**: The `setTimeout` function is asynchronous and runs after the loop has finished executing. By the time each `setTimeout` callback runs, the loop has already completed, and `i` is `3`.
+
+3. **Output**: Since all three `setTimeout` callbacks share the same `i`, and by the time they execute `i` is `3`, the output is `3` printed three times.
+
+### How to Fix It
+
+If the intention is to print `0`, `1`, and `2`, you can use `let` instead of `var`:
+
+```javascript
+for (let i = 0; i < 3; i++) {
+  setTimeout(function() {
+    console.log(i);
+  }, 1000);
+}
+```
+
+With `let`, `i` is block-scoped, so each iteration of the loop gets its own copy of `i`. The output will be:
+
+```
+0
+1
+2
+```

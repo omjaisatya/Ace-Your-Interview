@@ -346,3 +346,45 @@ The output of the code will be:
 object
 false
 ```
+
+
+## Question 15
+
+What will be the output of the following JavaScript code?
+
+```javascript
+let a = 1;
+let b = { a: 2 };
+let c = b;
+
+c.a = 3;
+
+console.log(a);  // What will this print?
+console.log(b.a); // What will this print?
+console.log(c.a); // What will this print?
+```
+
+## Answer
+
+The output of the code will be:
+
+```
+1
+3
+3
+```
+
+### Explanation
+
+1. **Primitive vs. Object Reference**:
+   - `let a = 1;` creates a primitive variable `a` holding the value `1`.
+   - `let b = { a: 2 };` creates an object `b` with a property `a` holding the value `2`.
+   - `let c = b;` assigns the reference of object `b` to `c`. Now both `b` and `c` refer to the same object.
+
+2. **Modification via Reference**:
+   - `c.a = 3;` modifies the `a` property of the object referenced by `c`. Since `c` and `b` point to the same object, `b.a` is also affected.
+
+3. **Output**:
+   - `console.log(a);` prints `1` because the original primitive `a` is unchanged.
+   - `console.log(b.a);` prints `3` because `b.a` was modified via `c`.
+   - `console.log(c.a);` prints `3` because `c` refers to the same object as `b`.

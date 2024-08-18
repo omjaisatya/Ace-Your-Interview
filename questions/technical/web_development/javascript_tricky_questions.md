@@ -493,3 +493,28 @@ The output of the code will be:
 ```javascript
 [10, 20, [10, 20, [Circular]]]
 ```
+
+## Question 20
+
+What will be the output of the following JavaScript code?
+
+```javascript
+console.log(1 + "2" + "2");
+console.log(1 + +"2" + "2");
+console.log(1 + -"1" + "2");
+console.log(+"1" + "1" + "2");
+console.log("A" - "B" + "2");
+console.log("A" - "B" + 2);
+```
+
+### Answer
+The output of the code will be:
+
+```javascript
+"122"
+"32"
+"02"
+"112"
+"NaN2"
+NaN
+```

@@ -422,3 +422,29 @@ undefined
      };
    }
    ```
+
+## Question 17
+
+What will be the output of the following JavaScript code?
+
+```javascript
+function test() {
+  console.log(a);
+  console.log(foo());
+
+  var a = 1;
+  function foo() {
+    return 2;
+  }
+}
+
+test();
+```
+
+### Answer
+The output of the code will be:
+
+```javascript
+undefined
+2
+```

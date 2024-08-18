@@ -477,4 +477,19 @@ The output of the code will be:
 Uncaught ReferenceError: Cannot access 'x' before initialization
 ```
 
+## Question 19
 
+What will be the output of the following JavaScript code?
+
+```javascript
+let arr = [10, 20, 30];
+arr[2] = arr;
+console.log(arr);
+```
+
+### Answer
+The output of the code will be:
+
+```javascript
+[10, 20, [10, 20, [Circular]]]
+```

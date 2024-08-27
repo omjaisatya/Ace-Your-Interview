@@ -665,3 +665,31 @@ The output of the code will be:
 ```
 false
 ```
+
+## Question 26
+
+What will be the output of the following JavaScript code?
+
+```javascript
+let person = {
+  name: "John",
+  age: 30
+};
+
+const name = person.name;
+delete person.name;
+
+console.log(person.name);
+console.log(name);
+```
+
+The output of the code will be:
+
+```javascript
+undefined
+John
+```
+
+
+
+

@@ -651,3 +651,17 @@ The output of the code will be:
 ```
 10 20
 ```
+
+## Question 25
+
+What will be the output of the following JavaScript code?
+
+```javascript
+console.log(0.1 + 0.2 == 0.3);
+```
+
+The output of the code will be:
+
+```
+false
+```

@@ -548,3 +548,46 @@ The output of the code will be:
 { bar: "hello" }
 undefined
 ```
+
+---
+
+## Question 22
+
+What will be the output of the following JavaScript code?
+
+```javascript
+let x = 100;
+
+function changeX(obj) {
+  obj.x = 200;
+  obj = { x: 300 };
+}
+
+let obj = { x };
+changeX(obj);
+
+console.log(obj.x);
+```
+
+### Answer
+
+The output of the code will be:
+
+```
+200
+```
+
+### Explanation
+
+1. **Pass by Value (Object Reference)**:
+   - In JavaScript, objects are passed by reference, meaning the `obj` parameter inside the `changeX` function points to the same memory location as the `obj` variable outside the function.
+
+2. **Mutation of the Original Object**:
+   - The line `obj.x = 200;` changes the `x` property of the original object that `obj` points to. Therefore, after this line, the original `obj.x` is now `200`.
+
+3. **Reassigning `obj` Inside the Function**:
+   - The line `obj = { x: 300 };` creates a new object `{ x: 300 }` and assigns it to the local `obj` parameter. However, this reassignment does not affect the original object outside the function. The local `obj` inside the function now points to a different object, but the original object remains unchanged.
+
+4. **Final Output**:
+   - After the function call, the original `obj` still refers to the object `{ x: 200 }`. Thus, `console.log(obj.x);` outputs `200`.
+

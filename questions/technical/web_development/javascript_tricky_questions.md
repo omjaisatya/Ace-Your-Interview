@@ -518,3 +518,33 @@ The output of the code will be:
 "NaN2"
 NaN
 ```
+
+## Question 21
+
+What will be the output of the following JavaScript code?
+
+```javascript
+function foo() {
+  return {
+    bar: "hello"
+  };
+}
+
+function baz() {
+  return
+  {
+    bar: "hello"
+  };
+}
+
+console.log(foo());
+console.log(baz());
+```
+
+### Answer
+The output of the code will be:
+
+```javascript
+{ bar: "hello" }
+undefined
+```

@@ -628,4 +628,26 @@ The output of the code will be:
 4. **`{} + {}` (Object Addition)**:
    - This one is tricky. The first `{}` is treated as an empty block, and the second `{}` is treated as an object. The result of adding two objects converted to strings is the concatenation of their string representations, which is `"[object Object][object Object]"`.
 
+---
+## Question 24
 
+What will be the output of the following JavaScript code?
+
+```javascript
+let a = 10;
+let b = 20;
+
+(function swap(a, b) {
+  let temp = a;
+  a = b;
+  b = temp;
+})(a, b);
+
+console.log(a, b);
+```
+
+The output of the code will be:
+
+```
+10 20
+```

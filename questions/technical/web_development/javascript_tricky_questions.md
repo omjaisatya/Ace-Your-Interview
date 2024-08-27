@@ -591,3 +591,41 @@ The output of the code will be:
 4. **Final Output**:
    - After the function call, the original `obj` still refers to the object `{ x: 200 }`. Thus, `console.log(obj.x);` outputs `200`.
 
+---
+## Question 23
+
+What will be the output of the following JavaScript code?
+
+```javascript
+console.log([] + []);
+console.log({} + []);
+console.log([] + {});
+console.log({} + {});
+```
+
+### Answer
+
+The output of the code will be:
+
+```
+""
+0
+"[object Object]"
+"[object Object][object Object]"
+```
+
+### Explanation
+
+1. **`[] + []` (Empty Arrays Addition)**:
+   - When two empty arrays are added together, JavaScript converts them to strings before concatenating them. Since an empty array converted to a string is `""`, the result is an empty string `""`.
+
+2. **`{} + []` (Object and Array Addition)**:
+   - Here, `{}` is treated as an empty block of code, and `+[]` is evaluated as a numeric operation. The `+[]` converts the empty array to `0`, so the output is `0`.
+
+3. **`[] + {}` (Array and Object Addition)**:
+   - When an array is added to an object, both are converted to strings. The empty array becomes `""`, and the object becomes `"[object Object]"`. Therefore, the result is `"[object Object]"`.
+
+4. **`{} + {}` (Object Addition)**:
+   - This one is tricky. The first `{}` is treated as an empty block, and the second `{}` is treated as an object. The result of adding two objects converted to strings is the concatenation of their string representations, which is `"[object Object][object Object]"`.
+
+

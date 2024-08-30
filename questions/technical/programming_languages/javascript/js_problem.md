@@ -398,3 +398,210 @@ function getRandomInt(min, max) {
 console.log(getRandomInt(1, 10)); // Output: A random integer between 1 and 10
 ```
 
+
+## 21. Find the Intersection of Two Arrays
+
+**Question:**
+
+Write a function that returns an array containing the elements that are present in both of the given arrays.
+
+**Solution:**
+
+```javascript
+function intersectArrays(arr1, arr2) {
+  return arr1.filter(value => arr2.includes(value));
+}
+
+// Example usage:
+console.log(intersectArrays([1, 2, 3], [2, 3, 4])); // Output: [2, 3]
+```
+
+## 22. Remove All Falsey Values from an Array
+
+**Question:**
+
+Write a function that removes all falsey values (false, null, 0, "", undefined, and NaN) from an array.
+
+**Solution:**
+
+```javascript
+function removeFalseyValues(arr) {
+  return arr.filter(Boolean);
+}
+
+// Example usage:
+console.log(removeFalseyValues([0, 1, false, 2, '', 3])); // Output: [1, 2, 3]
+```
+
+## 23. Convert an Array to an Object
+
+**Question:**
+
+Write a function that converts an array of key-value pairs into an object.
+
+**Solution:**
+
+```javascript
+function arrayToObject(arr) {
+  return arr.reduce((obj, [key, value]) => {
+    obj[key] = value;
+    return obj;
+  }, {});
+}
+
+// Example usage:
+console.log(arrayToObject([['name', 'Alice'], ['age', 25]])); // Output: { name: 'Alice', age: 25 }
+```
+
+## 24. Find the Second Largest Number in an Array
+
+**Question:**
+
+Write a function that finds the second largest number in an array of numbers.
+
+**Solution:**
+
+```javascript
+function findSecondLargest(arr) {
+  let first = -Infinity;
+  let second = -Infinity;
+
+  for (let num of arr) {
+    if (num > first) {
+      second = first;
+      first = num;
+    } else if (num > second && num < first) {
+      second = num;
+    }
+  }
+
+  return second;
+}
+
+// Example usage:
+console.log(findSecondLargest([10, 5, 20, 15])); // Output: 15
+```
+
+## 25. Check if a Number is Prime
+
+**Question:**
+
+Write a function that checks if a given number is a prime number.
+
+**Solution:**
+
+```javascript
+function isPrime(num) {
+  if (num <= 1) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+// Example usage:
+console.log(isPrime(7)); // Output: true
+console.log(isPrime(10)); // Output: false
+```
+
+## 26. Find the Longest Substring Without Repeating Characters
+
+**Question:**
+
+Write a function that finds the length of the longest substring without repeating characters in a given string.
+
+**Solution:**
+
+```javascript
+function longestUniqueSubstring(str) {
+  let longest = 0;
+  let currentSubstring = '';
+  
+  for (let char of str) {
+    const index = currentSubstring.indexOf(char);
+    if (index !== -1) {
+      currentSubstring = currentSubstring.slice(index + 1);
+    }
+    currentSubstring += char;
+    longest = Math.max(longest, currentSubstring.length);
+  }
+  
+  return longest;
+}
+
+// Example usage:
+console.log(longestUniqueSubstring("abcabcbb")); // Output: 3
+```
+
+## 27. Sum of All Positive Numbers in an Array
+
+**Question:**
+
+Write a function that calculates the sum of all positive numbers in an array.
+
+**Solution:**
+
+```javascript
+function sumPositiveNumbers(arr) {
+  return arr.filter(num => num > 0).reduce((sum, num) => sum + num, 0);
+}
+
+// Example usage:
+console.log(sumPositiveNumbers([1, -2, 3, -4, 5])); // Output: 9
+```
+
+## 28. Count the Number of Words in a String
+
+**Question:**
+
+Write a function that counts the number of words in a given string.
+
+**Solution:**
+
+```javascript
+function countWords(str) {
+  return str.trim().split(/\s+/).length;
+}
+
+// Example usage:
+console.log(countWords("The quick brown fox jumps over the lazy dog")); // Output: 9
+```
+
+## 29. Sort an Array of Objects by a Property
+
+**Question:**
+
+Write a function that sorts an array of objects by a given property.
+
+**Solution:**
+
+```javascript
+function sortByProperty(arr, prop) {
+  return arr.slice().sort((a, b) => (a[prop] > b[prop]) ? 1 : (a[prop] < b[prop]) ? -1 : 0);
+}
+
+// Example usage:
+console.log(sortByProperty([{ name: 'Alice', age: 30 }, { name: 'Bob', age: 25 }], 'age')); 
+// Output: [{ name: 'Bob', age: 25 }, { name: 'Alice', age: 30 }]
+```
+
+## 30. Generate a UUID
+
+**Question:**
+
+Write a function that generates a random UUID (Universally Unique Identifier).
+
+**Solution:**
+
+```javascript
+function generateUUID() {
+  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+    const r = Math.random() * 16 | 0;
+    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+    return v.toString(16);
+  });
+}
+
+// Example usage:
+console.log(generateUUID()); // Output: A random UUID, e.g., "e8a14a1d-98f4-4a0f-b007-7765699b0a5b"
+```

@@ -1030,3 +1030,188 @@ console.log(getRandomHexColor()); // Output: A random hex color code, e.g., "#a3
 ```
 
 
+## 51. Convert an Object to a Query String
+
+**Question:**
+
+Write a function that converts an object into a query string.
+
+**Solution:**
+
+```javascript
+function objectToQueryString(obj) {
+  return Object.keys(obj).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`).join('&');
+}
+
+// Example usage:
+console.log(objectToQueryString({ name: 'Alice', age: 30 })); // Output: "name=Alice&age=30"
+```
+
+## 52. Count Vowels in a String
+
+**Question:**
+
+Write a function that counts the number of vowels in a given string.
+
+**Solution:**
+
+```javascript
+function countVowels(str) {
+  return (str.match(/[aeiou]/gi) || []).length;
+}
+
+// Example usage:
+console.log(countVowels("Hello World")); // Output: 3
+```
+
+## 53. Remove Duplicates from an Array
+
+**Question:**
+
+Write a function that removes duplicate values from an array.
+
+**Solution:**
+
+```javascript
+function removeDuplicates(arr) {
+  return [...new Set(arr)];
+}
+
+// Example usage:
+console.log(removeDuplicates([1, 2, 3, 2, 4, 1])); // Output: [1, 2, 3, 4]
+```
+
+## 54. Find the Difference Between Two Arrays
+
+**Question:**
+
+Write a function that finds the difference between two arrays (elements that are in the first array but not in the second).
+
+**Solution:**
+
+```javascript
+function difference(arr1, arr2) {
+  return arr1.filter(item => !arr2.includes(item));
+}
+
+// Example usage:
+console.log(difference([1, 2, 3, 4], [2, 4])); // Output: [1, 3]
+```
+
+## 55. Reverse a String
+
+**Question:**
+
+Write a function that reverses a given string.
+
+**Solution:**
+
+```javascript
+function reverseString(str) {
+  return str.split('').reverse().join('');
+}
+
+// Example usage:
+console.log(reverseString("hello")); // Output: "olleh"
+```
+
+## 56. Check if a Number is Palindrome
+
+**Question:**
+
+Write a function that checks if a number is a palindrome (reads the same backward as forward).
+
+**Solution:**
+
+```javascript
+function isPalindromeNumber(num) {
+  const str = num.toString();
+  return str === str.split('').reverse().join('');
+}
+
+// Example usage:
+console.log(isPalindromeNumber(121)); // Output: true
+console.log(isPalindromeNumber(123)); // Output: false
+```
+
+## 57. Merge Two Arrays Alternately
+
+**Question:**
+
+Write a function that merges two arrays by alternating elements from each array.
+
+**Solution:**
+
+```javascript
+function mergeAlternately(arr1, arr2) {
+  const result = [];
+  const len = Math.max(arr1.length, arr2.length);
+
+  for (let i = 0; i < len; i++) {
+    if (i < arr1.length) result.push(arr1[i]);
+    if (i < arr2.length) result.push(arr2[i]);
+  }
+
+  return result;
+}
+
+// Example usage:
+console.log(mergeAlternately([1, 2, 3], ['a', 'b', 'c', 'd'])); // Output: [1, 'a', 2, 'b', 3, 'c', 'd']
+```
+
+## 58. Count the Number of Occurrences of a Character in a String
+
+**Question:**
+
+Write a function that counts the number of times a specific character appears in a string.
+
+**Solution:**
+
+```javascript
+function countCharacter(str, char) {
+  return (str.split(char).length - 1);
+}
+
+// Example usage:
+console.log(countCharacter("hello world", 'o')); // Output: 2
+```
+
+## 59. Find the Greatest Common Divisor (GCD) of Two Numbers
+
+**Question:**
+
+Write a function that finds the greatest common divisor (GCD) of two numbers using the Euclidean algorithm.
+
+**Solution:**
+
+```javascript
+function gcd(a, b) {
+  while (b !== 0) {
+    [a, b] = [b, a % b];
+  }
+  return a;
+}
+
+// Example usage:
+console.log(gcd(48, 18)); // Output: 6
+```
+
+## 60. Validate a Palindrome String
+
+**Question:**
+
+Write a function that checks if a given string is a palindrome (reads the same backward as forward), considering only alphanumeric characters and ignoring cases.
+
+**Solution:**
+
+```javascript
+function isValidPalindrome(str) {
+  const cleaned = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+  return cleaned === cleaned.split('').reverse().join('');
+}
+
+// Example usage:
+console.log(isValidPalindrome("A man, a plan, a canal: Panama")); // Output: true
+console.log(isValidPalindrome("race a car")); // Output: false
+```
+

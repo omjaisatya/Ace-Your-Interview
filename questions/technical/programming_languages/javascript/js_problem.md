@@ -605,3 +605,215 @@ function generateUUID() {
 // Example usage:
 console.log(generateUUID()); // Output: A random UUID, e.g., "e8a14a1d-98f4-4a0f-b007-7765699b0a5b"
 ```
+
+## 31. Rotate Array Elements
+
+**Question:**
+
+Write a function that rotates the elements of an array to the right by a given number of positions.
+
+**Solution:**
+
+```javascript
+function rotateArray(arr, positions) {
+  const len = arr.length;
+  positions = positions % len; // Handle cases where positions > len
+  return arr.slice(-positions).concat(arr.slice(0, -positions));
+}
+
+// Example usage:
+console.log(rotateArray([1, 2, 3, 4, 5], 2)); // Output: [4, 5, 1, 2, 3]
+```
+
+## 32. Find Duplicates in an Array
+
+**Question:**
+
+Write a function that finds all duplicate values in an array.
+
+**Solution:**
+
+```javascript
+function findDuplicates(arr) {
+  const seen = new Set();
+  const duplicates = new Set();
+  
+  arr.forEach(item => {
+    if (seen.has(item)) {
+      duplicates.add(item);
+    } else {
+      seen.add(item);
+    }
+  });
+  
+  return Array.from(duplicates);
+}
+
+// Example usage:
+console.log(findDuplicates([1, 2, 3, 2, 4, 5, 1])); // Output: [1, 2]
+```
+
+## 33. Generate a Range of Numbers
+
+**Question:**
+
+Write a function that generates an array containing a range of numbers between two given values (inclusive).
+
+**Solution:**
+
+```javascript
+function generateRange(start, end) {
+  const range = [];
+  for (let i = start; i <= end; i++) {
+    range.push(i);
+  }
+  return range;
+}
+
+// Example usage:
+console.log(generateRange(1, 5)); // Output: [1, 2, 3, 4, 5]
+```
+
+## 34. Merge Two Objects
+
+**Question:**
+
+Write a function that merges two objects into one, with the second object’s properties overwriting the first object’s properties in case of conflicts.
+
+**Solution:**
+
+```javascript
+function mergeObjects(obj1, obj2) {
+  return { ...obj1, ...obj2 };
+}
+
+// Example usage:
+console.log(mergeObjects({ a: 1, b: 2 }, { b: 3, c: 4 })); // Output: { a: 1, b: 3, c: 4 }
+```
+
+## 35. Check if a String is a Valid Email Address
+
+**Question:**
+
+Write a function that checks if a given string is a valid email address.
+
+**Solution:**
+
+```javascript
+function isValidEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return re.test(email);
+}
+
+// Example usage:
+console.log(isValidEmail("test@example.com")); // Output: true
+console.log(isValidEmail("invalid-email")); // Output: false
+```
+
+## 36. Calculate the Factorial of a Number Iteratively
+
+**Question:**
+
+Write a function that calculates the factorial of a given number using an iterative approach.
+
+**Solution:**
+
+```javascript
+function factorialIterative(num) {
+  let result = 1;
+  for (let i = 1; i <= num; i++) {
+    result *= i;
+  }
+  return result;
+}
+
+// Example usage:
+console.log(factorialIterative(5)); // Output: 120
+```
+
+## 37. Remove a Specific Element from an Array
+
+**Question:**
+
+Write a function that removes all instances of a specific value from an array.
+
+**Solution:**
+
+```javascript
+function removeElement(arr, value) {
+  return arr.filter(item => item !== value);
+}
+
+// Example usage:
+console.log(removeElement([1, 2, 3, 4, 2, 5], 2)); // Output: [1, 3, 4, 5]
+```
+
+## 38. Convert a Query String to an Object
+
+**Question:**
+
+Write a function that converts a query string into an object.
+
+**Solution:**
+
+```javascript
+function queryStringToObject(query) {
+  return query
+    .slice(1) // Remove the leading "?"
+    .split('&')
+    .reduce((obj, pair) => {
+      const [key, value] = pair.split('=');
+      obj[decodeURIComponent(key)] = decodeURIComponent(value);
+      return obj;
+    }, {});
+}
+
+// Example usage:
+console.log(queryStringToObject("?name=John&Doe&age=30")); // Output: { name: 'John', age: '30' }
+```
+
+## 39. Find the Median of an Array
+
+**Question:**
+
+Write a function that finds the median of an array of numbers.
+
+**Solution:**
+
+```javascript
+function findMedian(arr) {
+  const sorted = arr.slice().sort((a, b) => a - b);
+  const middle = Math.floor(sorted.length / 2);
+  
+  if (sorted.length % 2 === 0) {
+    return (sorted[middle - 1] + sorted[middle]) / 2;
+  } else {
+    return sorted[middle];
+  }
+}
+
+// Example usage:
+console.log(findMedian([1, 3, 2, 4])); // Output: 2.5
+console.log(findMedian([1, 2, 3])); // Output: 2
+```
+
+## 40. Create a Deep Copy of an Object
+
+**Question:**
+
+Write a function that creates a deep copy of an object.
+
+**Solution:**
+
+```javascript
+function deepCopy(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+// Example usage:
+const original = { a: 1, b: { c: 2 } };
+const copy = deepCopy(original);
+console.log(copy); // Output: { a: 1, b: { c: 2 } }
+console.log(copy !== original); // Output: true
+console.log(copy.b !== original.b); // Output: true
+```

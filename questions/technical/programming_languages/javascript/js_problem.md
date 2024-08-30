@@ -817,3 +817,216 @@ console.log(copy); // Output: { a: 1, b: { c: 2 } }
 console.log(copy !== original); // Output: true
 console.log(copy.b !== original.b); // Output: true
 ```
+
+
+## 41. Find the Most Frequent Element in an Array
+
+**Question:**
+
+Write a function that finds the most frequent element in an array.
+
+**Solution:**
+
+```javascript
+function mostFrequentElement(arr) {
+  const frequency = {};
+  let maxCount = 0;
+  let mostFrequent;
+
+  arr.forEach(item => {
+    frequency[item] = (frequency[item] || 0) + 1;
+    if (frequency[item] > maxCount) {
+      maxCount = frequency[item];
+      mostFrequent = item;
+    }
+  });
+
+  return mostFrequent;
+}
+
+// Example usage:
+console.log(mostFrequentElement([1, 2, 3, 2, 2, 3, 4])); // Output: 2
+```
+
+## 42. Convert a Date to a String in "YYYY-MM-DD" Format
+
+**Question:**
+
+Write a function that converts a JavaScript `Date` object to a string in the "YYYY-MM-DD" format.
+
+**Solution:**
+
+```javascript
+function formatDate(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  
+  return `${year}-${month}-${day}`;
+}
+
+// Example usage:
+console.log(formatDate(new Date())); // Output: "2024-08-27" (or current date)
+```
+
+## 43. Check if a Number is Even or Odd
+
+**Question:**
+
+Write a function that checks if a number is even or odd.
+
+**Solution:**
+
+```javascript
+function isEven(num) {
+  return num % 2 === 0;
+}
+
+function isOdd(num) {
+  return num % 2 !== 0;
+}
+
+// Example usage:
+console.log(isEven(4)); // Output: true
+console.log(isOdd(5)); // Output: true
+```
+
+## 44. Calculate the Sum of Digits of a Number
+
+**Question:**
+
+Write a function that calculates the sum of the digits of a given number.
+
+**Solution:**
+
+```javascript
+function sumOfDigits(num) {
+  return String(num).split('').reduce((sum, digit) => sum + Number(digit), 0);
+}
+
+// Example usage:
+console.log(sumOfDigits(1234)); // Output: 10
+```
+
+## 45. Flatten an Array of Objects
+
+**Question:**
+
+Write a function that flattens an array of objects into a single object.
+
+**Solution:**
+
+```javascript
+function flattenObjects(arr) {
+  return arr.reduce((acc, obj) => ({ ...acc, ...obj }), {});
+}
+
+// Example usage:
+console.log(flattenObjects([{ a: 1 }, { b: 2 }, { c: 3 }])); // Output: { a: 1, b: 2, c: 3 }
+```
+
+## 46. Check if Two Strings are Anagrams
+
+**Question:**
+
+Write a function that checks if two given strings are anagrams of each other.
+
+**Solution:**
+
+```javascript
+function areAnagrams(str1, str2) {
+  const normalize = str => str.replace(/\s+/g, '').toLowerCase().split('').sort().join('');
+  return normalize(str1) === normalize(str2);
+}
+
+// Example usage:
+console.log(areAnagrams("listen", "silent")); // Output: true
+console.log(areAnagrams("hello", "world"));   // Output: false
+```
+
+## 47. Create a Debounce Function
+
+**Question:**
+
+Write a function that creates a debounce function to limit how often a function can be executed.
+
+**Solution:**
+
+```javascript
+function debounce(func, wait) {
+  let timeout;
+  return function(...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+
+// Example usage:
+const debouncedLog = debounce(() => console.log('Debounced!'), 1000);
+debouncedLog();
+```
+
+## 48. Remove All Occurrences of a Value from an Object
+
+**Question:**
+
+Write a function that removes all occurrences of a specific value from an object (including nested objects).
+
+**Solution:**
+
+```javascript
+function removeValue(obj, valueToRemove) {
+  const remove = obj => {
+    for (const key in obj) {
+      if (obj[key] === valueToRemove) {
+        delete obj[key];
+      } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+        remove(obj[key]);
+      }
+    }
+  };
+
+  remove(obj);
+  return obj;
+}
+
+// Example usage:
+const data = { a: 1, b: { c: 1, d: 2 }, e: 1 };
+console.log(removeValue(data, 1)); // Output: { b: { d: 2 } }
+```
+
+## 49. Find the Intersection of Multiple Arrays
+
+**Question:**
+
+Write a function that finds the common elements across multiple arrays.
+
+**Solution:**
+
+```javascript
+function intersectionOfArrays(...arrays) {
+  return arrays.reduce((acc, arr) => acc.filter(item => arr.includes(item)));
+}
+
+// Example usage:
+console.log(intersectionOfArrays([1, 2, 3], [2, 3, 4], [3, 4, 5])); // Output: [3]
+```
+
+## 50. Generate a Random Hex Color
+
+**Question:**
+
+Write a function that generates a random hexadecimal color code.
+
+**Solution:**
+
+```javascript
+function getRandomHexColor() {
+  return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, '0');
+}
+
+// Example usage:
+console.log(getRandomHexColor()); // Output: A random hex color code, e.g., "#a3c2f7"
+```
+
+

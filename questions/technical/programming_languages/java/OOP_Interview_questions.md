@@ -65,7 +65,8 @@ Method overriding occurs when a subclass provides a specific implementation of a
 
 ## 10. What is the difference between an Abstract Class and an Interface?
 
-**Answer:**  
+**Answer:**
+
 - **Abstract Class:** Can have both abstract methods (without implementation) and concrete methods (with implementation). A class can inherit only one abstract class.
 - **Interface:** Can only have abstract methods (before Java 8) and default methods (from Java 8 onwards). A class can implement multiple interfaces. Interfaces are used to achieve complete abstraction and multiple inheritance.
 
@@ -80,7 +81,8 @@ A constructor is a special method that is called when an object is instantiated.
 
 ## 12. What is the difference between a Constructor and a Method?
 
-**Answer:**  
+**Answer:**
+
 - **Constructor:** Initializes an object when it is created. It has the same name as the class and no return type.
 - **Method:** A function defined within a class that performs a specific task. Methods can have a return type and can be called multiple times.
 
@@ -102,7 +104,8 @@ The `super` keyword in Java is used to refer to the immediate parent class objec
 
 ## 15. What is the difference between `==` and `equals()` in Java?
 
-**Answer:**  
+**Answer:**
+
 - `==`: Compares the reference or memory address of objects. It checks whether both objects point to the same memory location.
 - `equals()`: Compares the actual content of objects. It is used to compare the values of two objects for equality.
 

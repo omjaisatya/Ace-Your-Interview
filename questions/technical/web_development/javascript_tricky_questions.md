@@ -286,7 +286,7 @@ What will be the output of the following JavaScript code?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(i);
   }, 1000);
 }
@@ -316,7 +316,7 @@ If the intention is to print `0`, `1`, and `2`, you can use `let` instead of `va
 
 ```javascript
 for (let i = 0; i < 3; i++) {
-  setTimeout(function() {
+  setTimeout(function () {
     console.log(i);
   }, 1000);
 }
@@ -340,13 +340,13 @@ console.log(null instanceof Object);
 ```
 
 ### Answer
+
 The output of the code will be:
 
 ```bash
 object
 false
 ```
-
 
 ## Question 15
 
@@ -359,7 +359,7 @@ let c = b;
 
 c.a = 3;
 
-console.log(a);  // What will this print?
+console.log(a); // What will this print?
 console.log(b.a); // What will this print?
 console.log(c.a); // What will this print?
 ```
@@ -377,11 +377,13 @@ The output of the code will be:
 ### Explanation
 
 1. **Primitive vs. Object Reference**:
+
    - `let a = 1;` creates a primitive variable `a` holding the value `1`.
    - `let b = { a: 2 };` creates an object `b` with a property `a` holding the value `2`.
    - `let c = b;` assigns the reference of object `b` to `c`. Now both `b` and `c` refer to the same object.
 
 2. **Modification via Reference**:
+
    - `c.a = 3;` modifies the `a` property of the object referenced by `c`. Since `c` and `b` point to the same object, `b.a` is also affected.
 
 3. **Output**:
@@ -389,17 +391,16 @@ The output of the code will be:
    - `console.log(b.a);` prints `3` because `b.a` was modified via `c`.
    - `console.log(c.a);` prints `3` because `c` refers to the same object as `b`.
 
-
 ## Question 16
 
 What will be the output of the following JavaScript code?
 
 ```javascript
 function sayHello() {
-  return 
+  return;
   {
-    message: "Hello, world!"
-  };
+    message: "Hello, world!";
+  }
 }
 
 console.log(sayHello());
@@ -414,14 +415,16 @@ undefined
 ```
 
 ### Correcting the Code:
-   - If you remove the line break between `return` and the object, or wrap the object in parentheses, the code will work as expected:
-   ```javascript
-   function sayHello() {
-     return {
-       message: "Hello, world!"
-     };
-   }
-   ```
+
+- If you remove the line break between `return` and the object, or wrap the object in parentheses, the code will work as expected:
+
+```javascript
+function sayHello() {
+  return {
+    message: "Hello, world!",
+  };
+}
+```
 
 ## Question 17
 
@@ -442,13 +445,13 @@ test();
 ```
 
 ### Answer
+
 The output of the code will be:
 
 ```javascript
-undefined
-2
+undefined;
+2;
 ```
-
 
 ## Question 18
 
@@ -471,6 +474,7 @@ outer();
 ```
 
 ### Answer
+
 The output of the code will be:
 
 ```javascript
@@ -488,10 +492,11 @@ console.log(arr);
 ```
 
 ### Answer
+
 The output of the code will be:
 
 ```javascript
-[10, 20, [10, 20, [Circular]]]
+[10, 20, [10, 20, [Circular]]];
 ```
 
 ## Question 20
@@ -508,15 +513,16 @@ console.log("A" - "B" + 2);
 ```
 
 ### Answer
+
 The output of the code will be:
 
 ```javascript
-"122"
-"32"
-"02"
-"112"
-"NaN2"
-NaN
+"122";
+"32";
+"02";
+"112";
+"NaN2";
+NaN;
 ```
 
 ## Question 21
@@ -526,15 +532,15 @@ What will be the output of the following JavaScript code?
 ```javascript
 function foo() {
   return {
-    bar: "hello"
+    bar: "hello",
   };
 }
 
 function baz() {
-  return
+  return;
   {
-    bar: "hello"
-  };
+    bar: "hello";
+  }
 }
 
 console.log(foo());
@@ -542,11 +548,14 @@ console.log(baz());
 ```
 
 ### Answer
+
 The output of the code will be:
 
 ```javascript
-{ bar: "hello" }
-undefined
+{
+  bar: "hello";
+}
+undefined;
 ```
 
 ---
@@ -580,18 +589,22 @@ The output of the code will be:
 ### Explanation
 
 1. **Pass by Value (Object Reference)**:
+
    - In JavaScript, objects are passed by reference, meaning the `obj` parameter inside the `changeX` function points to the same memory location as the `obj` variable outside the function.
 
 2. **Mutation of the Original Object**:
+
    - The line `obj.x = 200;` changes the `x` property of the original object that `obj` points to. Therefore, after this line, the original `obj.x` is now `200`.
 
 3. **Reassigning `obj` Inside the Function**:
+
    - The line `obj = { x: 300 };` creates a new object `{ x: 300 }` and assigns it to the local `obj` parameter. However, this reassignment does not affect the original object outside the function. The local `obj` inside the function now points to a different object, but the original object remains unchanged.
 
 4. **Final Output**:
    - After the function call, the original `obj` still refers to the object `{ x: 200 }`. Thus, `console.log(obj.x);` outputs `200`.
 
 ---
+
 ## Question 23
 
 What will be the output of the following JavaScript code?
@@ -617,18 +630,22 @@ The output of the code will be:
 ### Explanation
 
 1. **`[] + []` (Empty Arrays Addition)**:
+
    - When two empty arrays are added together, JavaScript converts them to strings before concatenating them. Since an empty array converted to a string is `""`, the result is an empty string `""`.
 
 2. **`{} + []` (Object and Array Addition)**:
+
    - Here, `{}` is treated as an empty block of code, and `+[]` is evaluated as a numeric operation. The `+[]` converts the empty array to `0`, so the output is `0`.
 
 3. **`[] + {}` (Array and Object Addition)**:
+
    - When an array is added to an object, both are converted to strings. The empty array becomes `""`, and the object becomes `"[object Object]"`. Therefore, the result is `"[object Object]"`.
 
 4. **`{} + {}` (Object Addition)**:
    - This one is tricky. The first `{}` is treated as an empty block, and the second `{}` is treated as an object. The result of adding two objects converted to strings is the concatenation of their string representations, which is `"[object Object][object Object]"`.
 
 ---
+
 ## Question 24
 
 What will be the output of the following JavaScript code?
@@ -673,7 +690,7 @@ What will be the output of the following JavaScript code?
 ```javascript
 let person = {
   name: "John",
-  age: 30
+  age: 30,
 };
 
 const name = person.name;
@@ -686,10 +703,6 @@ console.log(name);
 The output of the code will be:
 
 ```javascript
-undefined
-John
+undefined;
+John;
 ```
-
-
-
-

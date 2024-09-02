@@ -557,6 +557,7 @@ Redux is a predictable state container for JavaScript apps. It helps you write a
 
 **Answer:**
 Redux follows three core principles:
+
 1. **Single source of truth:** The state of the entire application is stored in an object tree within a single store.
 2. **State is read-only:** The only way to change the state is to emit an action, an object describing what happened.
 3. **Changes are made with pure functions:** To specify how the state tree is transformed by actions, you write pure reducers.
@@ -589,6 +590,7 @@ Asynchronous actions in Redux can be handled using middleware such as `redux-thu
 ## 8. What are the differences between Redux and Context API?
 
 **Answer:**
+
 - **Purpose:** Redux is a state management library providing a predictable way to manage state, whereas Context API is a React feature to pass data through the component tree without having to pass props down manually.
 - **Complexity:** Redux is more complex and provides a more structured way to manage state with strict rules and middleware support, while Context API is simpler and best suited for less complex state management.
 
@@ -601,6 +603,7 @@ Selectors are functions that extract and derive pieces of state. They can help i
 
 **Answer:**
 Error handling in Redux can be implemented by:
+
 - Dispatching specific error actions when an error occurs.
 - Including error states in your reducers and updating them when an error action is dispatched.
 - Using middleware to catch errors and dispatch error actions.
@@ -614,9 +617,9 @@ The `combineReducers` function is a utility function to combine multiple reducer
 
 **Answer:**
 Redux is connected to a React component using the `connect` function from `react-redux`. This function takes two arguments:
+
 1. `mapStateToProps`: a function that maps the state to component props.
 2. `mapDispatchToProps`: a function or object that maps dispatch to component props.
-
 
 # React Hooks Interview Questions and Answers
 
@@ -631,6 +634,7 @@ React Hooks are functions that let you use state and other React features withou
 The `useState` hook is a function that allows you to add state to a functional component. It returns an array with two elements: the current state value and a function that allows you to update that state.
 
 Example:
+
 ```javascript
 const [count, setCount] = useState(0);
 ```
@@ -641,6 +645,7 @@ const [count, setCount] = useState(0);
 The `useEffect` hook lets you perform side effects in function components. It serves the same purpose as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` in class components.
 
 Example:
+
 ```javascript
 useEffect(() => {
   // Code to run on component mount and update
@@ -655,6 +660,7 @@ useEffect(() => {
 
 **Answer:**
 There are two main rules of hooks:
+
 1. Only call hooks at the top level. Do not call hooks inside loops, conditions, or nested functions.
 2. Only call hooks from React function components or custom hooks. Do not call them from regular JavaScript functions.
 
@@ -664,6 +670,7 @@ There are two main rules of hooks:
 The `useContext` hook allows you to access the value of a context directly without using a context consumer. It makes context usage simpler and more readable.
 
 Example:
+
 ```javascript
 const value = useContext(MyContext);
 ```
@@ -674,6 +681,7 @@ const value = useContext(MyContext);
 The `useReducer` hook is an alternative to `useState` for managing complex state logic. It is particularly useful when the state depends on the previous state or when the state logic involves multiple sub-values.
 
 Example:
+
 ```javascript
 const [state, dispatch] = useReducer(reducer, initialState);
 ```
@@ -684,6 +692,7 @@ const [state, dispatch] = useReducer(reducer, initialState);
 The `useMemo` hook memoizes a value so that it is only recalculated when its dependencies change. It helps optimize performance by preventing expensive calculations on every render.
 
 Example:
+
 ```javascript
 const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 ```
@@ -694,6 +703,7 @@ const memoizedValue = useMemo(() => computeExpensiveValue(a, b), [a, b]);
 The `useCallback` hook returns a memoized callback function that only changes if one of its dependencies has changed. It is useful for optimizing performance, especially when passing callbacks to child components.
 
 Example:
+
 ```javascript
 const memoizedCallback = useCallback(() => {
   doSomething(a, b);
@@ -706,6 +716,7 @@ const memoizedCallback = useCallback(() => {
 The `useRef` hook returns a mutable ref object that persists for the lifetime of the component. It can be used to access DOM elements directly or to store any mutable value.
 
 Example:
+
 ```javascript
 const myRef = useRef(null);
 ```
@@ -716,6 +727,7 @@ const myRef = useRef(null);
 A custom hook is a JavaScript function whose name starts with "use" and that can call other hooks. Custom hooks allow you to extract and reuse stateful logic across multiple components.
 
 Example:
+
 ```javascript
 function useCustomHook() {
   const [value, setValue] = useState(0);
@@ -730,8 +742,9 @@ function useCustomHook() {
 You can create a custom hook to fetch data as follows:
 
 Example:
+
 ```javascript
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 function useFetch(url) {
   const [data, setData] = useState(null);
@@ -763,6 +776,7 @@ function useFetch(url) {
 Side effects in functional components are handled using the `useEffect` hook. This hook allows you to perform tasks such as data fetching, subscriptions, and manual DOM manipulations.
 
 Example:
+
 ```javascript
 useEffect(() => {
   // Side effect code
@@ -772,4 +786,3 @@ useEffect(() => {
   };
 }, [dependencies]);
 ```
-

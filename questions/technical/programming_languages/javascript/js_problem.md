@@ -1,4 +1,3 @@
-
 ## 1. Reverse a String
 
 **Question:**
@@ -9,7 +8,7 @@ Write a function that takes a string as input and returns the string reversed.
 
 ```javascript
 function reverseString(str) {
-  return str.split('').reverse().join('');
+  return str.split("").reverse().join("");
 }
 
 // Example usage:
@@ -70,13 +69,13 @@ Write a function that checks if a given string is a palindrome (a word, phrase, 
 
 ```javascript
 function isPalindrome(str) {
-  const reversedStr = str.split('').reverse().join('');
+  const reversedStr = str.split("").reverse().join("");
   return str === reversedStr;
 }
 
 // Example usage:
 console.log(isPalindrome("racecar")); // Output: true
-console.log(isPalindrome("hello"));   // Output: false
+console.log(isPalindrome("hello")); // Output: false
 ```
 
 ## 5. Remove Duplicates from an Array
@@ -106,7 +105,7 @@ Write a function that counts the number of vowels in a given string.
 
 ```javascript
 function countVowels(str) {
-  const vowels = 'aeiouAEIOU';
+  const vowels = "aeiouAEIOU";
   let count = 0;
 
   for (let char of str) {
@@ -211,7 +210,6 @@ function fibonacci(n) {
 console.log(fibonacci(10)); // Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
 ```
 
-
 ## 11. Flatten an Array
 
 **Question:**
@@ -240,7 +238,8 @@ Write a function that merges two sorted arrays into one sorted array.
 ```javascript
 function mergeSortedArrays(arr1, arr2) {
   let merged = [];
-  let i = 0, j = 0;
+  let i = 0,
+    j = 0;
 
   while (i < arr1.length && j < arr2.length) {
     if (arr1[i] < arr2[j]) {
@@ -288,7 +287,7 @@ Write a function that finds the common elements between two arrays.
 
 ```javascript
 function findCommonElements(arr1, arr2) {
-  return arr1.filter(value => arr2.includes(value));
+  return arr1.filter((value) => arr2.includes(value));
 }
 
 // Example usage:
@@ -305,7 +304,10 @@ Write a function that capitalizes the first letter of each word in a given strin
 
 ```javascript
 function capitalizeWords(str) {
-  return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(" ");
 }
 
 // Example usage:
@@ -322,7 +324,12 @@ Write a function that finds the longest word in a given string.
 
 ```javascript
 function findLongestWord(str) {
-  return str.split(' ').reduce((longest, word) => word.length > longest.length ? word : longest, '');
+  return str
+    .split(" ")
+    .reduce(
+      (longest, word) => (word.length > longest.length ? word : longest),
+      ""
+    );
 }
 
 // Example usage:
@@ -339,7 +346,10 @@ Write a function that converts a string to title case, where the first and last 
 
 ```javascript
 function toTitleCase(str) {
-  return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
+  return str
+    .split(" ")
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+    .join(" ");
 }
 
 // Example usage:
@@ -398,7 +408,6 @@ function getRandomInt(min, max) {
 console.log(getRandomInt(1, 10)); // Output: A random integer between 1 and 10
 ```
 
-
 ## 21. Find the Intersection of Two Arrays
 
 **Question:**
@@ -409,7 +418,7 @@ Write a function that returns an array containing the elements that are present 
 
 ```javascript
 function intersectArrays(arr1, arr2) {
-  return arr1.filter(value => arr2.includes(value));
+  return arr1.filter((value) => arr2.includes(value));
 }
 
 // Example usage:
@@ -430,7 +439,7 @@ function removeFalseyValues(arr) {
 }
 
 // Example usage:
-console.log(removeFalseyValues([0, 1, false, 2, '', 3])); // Output: [1, 2, 3]
+console.log(removeFalseyValues([0, 1, false, 2, "", 3])); // Output: [1, 2, 3]
 ```
 
 ## 23. Convert an Array to an Object
@@ -450,7 +459,12 @@ function arrayToObject(arr) {
 }
 
 // Example usage:
-console.log(arrayToObject([['name', 'Alice'], ['age', 25]])); // Output: { name: 'Alice', age: 25 }
+console.log(
+  arrayToObject([
+    ["name", "Alice"],
+    ["age", 25],
+  ])
+); // Output: { name: 'Alice', age: 25 }
 ```
 
 ## 24. Find the Second Largest Number in an Array
@@ -515,8 +529,8 @@ Write a function that finds the length of the longest substring without repeatin
 ```javascript
 function longestUniqueSubstring(str) {
   let longest = 0;
-  let currentSubstring = '';
-  
+  let currentSubstring = "";
+
   for (let char of str) {
     const index = currentSubstring.indexOf(char);
     if (index !== -1) {
@@ -525,7 +539,7 @@ function longestUniqueSubstring(str) {
     currentSubstring += char;
     longest = Math.max(longest, currentSubstring.length);
   }
-  
+
   return longest;
 }
 
@@ -543,7 +557,7 @@ Write a function that calculates the sum of all positive numbers in an array.
 
 ```javascript
 function sumPositiveNumbers(arr) {
-  return arr.filter(num => num > 0).reduce((sum, num) => sum + num, 0);
+  return arr.filter((num) => num > 0).reduce((sum, num) => sum + num, 0);
 }
 
 // Example usage:
@@ -577,11 +591,21 @@ Write a function that sorts an array of objects by a given property.
 
 ```javascript
 function sortByProperty(arr, prop) {
-  return arr.slice().sort((a, b) => (a[prop] > b[prop]) ? 1 : (a[prop] < b[prop]) ? -1 : 0);
+  return arr
+    .slice()
+    .sort((a, b) => (a[prop] > b[prop] ? 1 : a[prop] < b[prop] ? -1 : 0));
 }
 
 // Example usage:
-console.log(sortByProperty([{ name: 'Alice', age: 30 }, { name: 'Bob', age: 25 }], 'age')); 
+console.log(
+  sortByProperty(
+    [
+      { name: "Alice", age: 30 },
+      { name: "Bob", age: 25 },
+    ],
+    "age"
+  )
+);
 // Output: [{ name: 'Bob', age: 25 }, { name: 'Alice', age: 30 }]
 ```
 
@@ -595,9 +619,9 @@ Write a function that generates a random UUID (Universally Unique Identifier).
 
 ```javascript
 function generateUUID() {
-  return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-    const r = Math.random() * 16 | 0;
-    const v = c === 'x' ? r : (r & 0x3 | 0x8);
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    const r = (Math.random() * 16) | 0;
+    const v = c === "x" ? r : (r & 0x3) | 0x8;
     return v.toString(16);
   });
 }
@@ -637,15 +661,15 @@ Write a function that finds all duplicate values in an array.
 function findDuplicates(arr) {
   const seen = new Set();
   const duplicates = new Set();
-  
-  arr.forEach(item => {
+
+  arr.forEach((item) => {
     if (seen.has(item)) {
       duplicates.add(item);
     } else {
       seen.add(item);
     }
   });
-  
+
   return Array.from(duplicates);
 }
 
@@ -741,7 +765,7 @@ Write a function that removes all instances of a specific value from an array.
 
 ```javascript
 function removeElement(arr, value) {
-  return arr.filter(item => item !== value);
+  return arr.filter((item) => item !== value);
 }
 
 // Example usage:
@@ -760,9 +784,9 @@ Write a function that converts a query string into an object.
 function queryStringToObject(query) {
   return query
     .slice(1) // Remove the leading "?"
-    .split('&')
+    .split("&")
     .reduce((obj, pair) => {
-      const [key, value] = pair.split('=');
+      const [key, value] = pair.split("=");
       obj[decodeURIComponent(key)] = decodeURIComponent(value);
       return obj;
     }, {});
@@ -784,7 +808,7 @@ Write a function that finds the median of an array of numbers.
 function findMedian(arr) {
   const sorted = arr.slice().sort((a, b) => a - b);
   const middle = Math.floor(sorted.length / 2);
-  
+
   if (sorted.length % 2 === 0) {
     return (sorted[middle - 1] + sorted[middle]) / 2;
   } else {
@@ -818,7 +842,6 @@ console.log(copy !== original); // Output: true
 console.log(copy.b !== original.b); // Output: true
 ```
 
-
 ## 41. Find the Most Frequent Element in an Array
 
 **Question:**
@@ -833,7 +856,7 @@ function mostFrequentElement(arr) {
   let maxCount = 0;
   let mostFrequent;
 
-  arr.forEach(item => {
+  arr.forEach((item) => {
     frequency[item] = (frequency[item] || 0) + 1;
     if (frequency[item] > maxCount) {
       maxCount = frequency[item];
@@ -859,9 +882,9 @@ Write a function that converts a JavaScript `Date` object to a string in the "YY
 ```javascript
 function formatDate(date) {
   const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+
   return `${year}-${month}-${day}`;
 }
 
@@ -901,7 +924,9 @@ Write a function that calculates the sum of the digits of a given number.
 
 ```javascript
 function sumOfDigits(num) {
-  return String(num).split('').reduce((sum, digit) => sum + Number(digit), 0);
+  return String(num)
+    .split("")
+    .reduce((sum, digit) => sum + Number(digit), 0);
 }
 
 // Example usage:
@@ -935,13 +960,14 @@ Write a function that checks if two given strings are anagrams of each other.
 
 ```javascript
 function areAnagrams(str1, str2) {
-  const normalize = str => str.replace(/\s+/g, '').toLowerCase().split('').sort().join('');
+  const normalize = (str) =>
+    str.replace(/\s+/g, "").toLowerCase().split("").sort().join("");
   return normalize(str1) === normalize(str2);
 }
 
 // Example usage:
 console.log(areAnagrams("listen", "silent")); // Output: true
-console.log(areAnagrams("hello", "world"));   // Output: false
+console.log(areAnagrams("hello", "world")); // Output: false
 ```
 
 ## 47. Create a Debounce Function
@@ -955,14 +981,14 @@ Write a function that creates a debounce function to limit how often a function 
 ```javascript
 function debounce(func, wait) {
   let timeout;
-  return function(...args) {
+  return function (...args) {
     clearTimeout(timeout);
     timeout = setTimeout(() => func.apply(this, args), wait);
   };
 }
 
 // Example usage:
-const debouncedLog = debounce(() => console.log('Debounced!'), 1000);
+const debouncedLog = debounce(() => console.log("Debounced!"), 1000);
 debouncedLog();
 ```
 
@@ -976,11 +1002,11 @@ Write a function that removes all occurrences of a specific value from an object
 
 ```javascript
 function removeValue(obj, valueToRemove) {
-  const remove = obj => {
+  const remove = (obj) => {
     for (const key in obj) {
       if (obj[key] === valueToRemove) {
         delete obj[key];
-      } else if (typeof obj[key] === 'object' && obj[key] !== null) {
+      } else if (typeof obj[key] === "object" && obj[key] !== null) {
         remove(obj[key]);
       }
     }
@@ -1005,7 +1031,7 @@ Write a function that finds the common elements across multiple arrays.
 
 ```javascript
 function intersectionOfArrays(...arrays) {
-  return arrays.reduce((acc, arr) => acc.filter(item => arr.includes(item)));
+  return arrays.reduce((acc, arr) => acc.filter((item) => arr.includes(item)));
 }
 
 // Example usage:
@@ -1022,13 +1048,17 @@ Write a function that generates a random hexadecimal color code.
 
 ```javascript
 function getRandomHexColor() {
-  return '#' + Math.floor(Math.random() * 0xFFFFFF).toString(16).padStart(6, '0');
+  return (
+    "#" +
+    Math.floor(Math.random() * 0xffffff)
+      .toString(16)
+      .padStart(6, "0")
+  );
 }
 
 // Example usage:
 console.log(getRandomHexColor()); // Output: A random hex color code, e.g., "#a3c2f7"
 ```
-
 
 ## 51. Convert an Object to a Query String
 
@@ -1040,11 +1070,13 @@ Write a function that converts an object into a query string.
 
 ```javascript
 function objectToQueryString(obj) {
-  return Object.keys(obj).map(key => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`).join('&');
+  return Object.keys(obj)
+    .map((key) => `${encodeURIComponent(key)}=${encodeURIComponent(obj[key])}`)
+    .join("&");
 }
 
 // Example usage:
-console.log(objectToQueryString({ name: 'Alice', age: 30 })); // Output: "name=Alice&age=30"
+console.log(objectToQueryString({ name: "Alice", age: 30 })); // Output: "name=Alice&age=30"
 ```
 
 ## 52. Count Vowels in a String
@@ -1091,7 +1123,7 @@ Write a function that finds the difference between two arrays (elements that are
 
 ```javascript
 function difference(arr1, arr2) {
-  return arr1.filter(item => !arr2.includes(item));
+  return arr1.filter((item) => !arr2.includes(item));
 }
 
 // Example usage:
@@ -1108,7 +1140,7 @@ Write a function that reverses a given string.
 
 ```javascript
 function reverseString(str) {
-  return str.split('').reverse().join('');
+  return str.split("").reverse().join("");
 }
 
 // Example usage:
@@ -1126,7 +1158,7 @@ Write a function that checks if a number is a palindrome (reads the same backwar
 ```javascript
 function isPalindromeNumber(num) {
   const str = num.toString();
-  return str === str.split('').reverse().join('');
+  return str === str.split("").reverse().join("");
 }
 
 // Example usage:
@@ -1156,7 +1188,7 @@ function mergeAlternately(arr1, arr2) {
 }
 
 // Example usage:
-console.log(mergeAlternately([1, 2, 3], ['a', 'b', 'c', 'd'])); // Output: [1, 'a', 2, 'b', 3, 'c', 'd']
+console.log(mergeAlternately([1, 2, 3], ["a", "b", "c", "d"])); // Output: [1, 'a', 2, 'b', 3, 'c', 'd']
 ```
 
 ## 58. Count the Number of Occurrences of a Character in a String
@@ -1169,11 +1201,11 @@ Write a function that counts the number of times a specific character appears in
 
 ```javascript
 function countCharacter(str, char) {
-  return (str.split(char).length - 1);
+  return str.split(char).length - 1;
 }
 
 // Example usage:
-console.log(countCharacter("hello world", 'o')); // Output: 2
+console.log(countCharacter("hello world", "o")); // Output: 2
 ```
 
 ## 59. Find the Greatest Common Divisor (GCD) of Two Numbers
@@ -1206,12 +1238,11 @@ Write a function that checks if a given string is a palindrome (reads the same b
 
 ```javascript
 function isValidPalindrome(str) {
-  const cleaned = str.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
-  return cleaned === cleaned.split('').reverse().join('');
+  const cleaned = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
+  return cleaned === cleaned.split("").reverse().join("");
 }
 
 // Example usage:
 console.log(isValidPalindrome("A man, a plan, a canal: Panama")); // Output: true
 console.log(isValidPalindrome("race a car")); // Output: false
 ```
-

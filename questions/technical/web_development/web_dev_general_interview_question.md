@@ -619,7 +619,7 @@
    - **Flexible Grid Layouts**: Use relative units like percentages and `em` instead of fixed units like pixels.
    - **Media Queries**: Apply different styles based on the device's characteristics, such as width, height, and orientation.
      ```css
-     @media ;
+     @media;
      ```
 
 max-width: 600px) {
@@ -627,7 +627,8 @@ body {
 background-color: lightblue;
 }
 }
-```
+
+````
 
 - **Flexible Images and Media**: Use CSS to ensure images and media scale appropriately within their containing elements.
   ```css
@@ -635,7 +636,7 @@ background-color: lightblue;
     max-width: 100%;
     height: auto;
   }
-  ```
+````
 
 3. **What is GraphQL and how does it differ from REST?**
 

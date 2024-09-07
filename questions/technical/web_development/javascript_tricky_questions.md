@@ -706,3 +706,21 @@ The output of the code will be:
 undefined;
 John;
 ```
+
+## Question 27
+
+What will be the output of the following JavaScript code?
+
+```javascript
+let f = function g() {
+  return 23;
+};
+
+console.log(typeof g);
+```
+
+The output of the code will be:
+
+```javascript
+undefined;
+```

@@ -682,7 +682,7 @@ background-color: lightblue;
      }
      ```
 
-### **How to Connect Frontend to Backend -- (Very Inportant)**
+### **How to Connect Frontend to Backend -- (Very Important)**
 
 #### 1. **Set Up the Backend API**
 

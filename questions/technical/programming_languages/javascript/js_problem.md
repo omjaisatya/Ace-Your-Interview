@@ -11,8 +11,23 @@ function reverseString(str) {
   return str.split("").reverse().join("");
 }
 
-// Example usage:
-console.log(reverseString("hello")); // Output: "olleh"
+console.log(reverseString("hello"));
+```
+
+**Without In-Built method**
+
+```js
+function reverseString(str) {
+  let reversed = "";
+
+  for (let i = str.length - 1; i >= 0; i--) {
+    reversed += str[i];
+  }
+
+  return reversed;
+}
+
+console.log(reverseString("hello"));
 ```
 
 ## 2. FizzBuzz
@@ -38,7 +53,6 @@ function fizzBuzz() {
   }
 }
 
-// Example usage:
 fizzBuzz();
 ```
 
@@ -55,8 +69,7 @@ function findLargestNumber(arr) {
   return Math.max(...arr);
 }
 
-// Example usage:
-console.log(findLargestNumber([10, 5, 20, 15])); // Output: 20
+console.log(findLargestNumber([10, 5, 20, 15]));
 ```
 
 ## 4. Check for Palindrome
@@ -73,9 +86,8 @@ function isPalindrome(str) {
   return str === reversedStr;
 }
 
-// Example usage:
-console.log(isPalindrome("racecar")); // Output: true
-console.log(isPalindrome("hello")); // Output: false
+console.log(isPalindrome("racecar"));
+console.log(isPalindrome("hello"));
 ```
 
 ## 5. Remove Duplicates from an Array
@@ -91,8 +103,7 @@ function removeDuplicates(arr) {
   return [...new Set(arr)];
 }
 
-// Example usage:
-console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5])); // Output: [1, 2, 3, 4, 5]
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
 ```
 
 ## 6. Count Vowels in a String
@@ -117,8 +128,7 @@ function countVowels(str) {
   return count;
 }
 
-// Example usage:
-console.log(countVowels("Hello World")); // Output: 3
+console.log(countVowels("Hello World"));
 ```
 
 ## 7. Sum of Array Elements
@@ -134,8 +144,7 @@ function sumArray(arr) {
   return arr.reduce((sum, num) => sum + num, 0);
 }
 
-// Example usage:
-console.log(sumArray([1, 2, 3, 4])); // Output: 10
+console.log(sumArray([1, 2, 3, 4]));
 ```
 
 ## 8. Factorial of a Number
@@ -155,8 +164,7 @@ function factorial(num) {
   }
 }
 
-// Example usage:
-console.log(factorial(5)); // Output: 120
+console.log(factorial(5));
 ```
 
 ## 9. Find Prime Numbers
@@ -185,8 +193,7 @@ function findPrimes(n) {
   return primes;
 }
 
-// Example usage:
-console.log(findPrimes(20)); // Output: [2, 3, 5, 7, 11, 13, 17, 19]
+console.log(findPrimes(20));
 ```
 
 ## 10. Find the Fibonacci Sequence
@@ -206,8 +213,7 @@ function fibonacci(n) {
   return fibSequence.slice(0, n);
 }
 
-// Example usage:
-console.log(fibonacci(10)); // Output: [0, 1, 1, 2, 3, 5, 8, 13, 21, 34]
+console.log(fibonacci(10));
 ```
 
 ## 11. Flatten an Array
@@ -223,8 +229,7 @@ function flattenArray(arr) {
   return arr.flat(Infinity);
 }
 
-// Example usage:
-console.log(flattenArray([1, [2, [3, [4]]]])); // Output: [1, 2, 3, 4]
+console.log(flattenArray([1, [2, [3, [4]]]]));
 ```
 
 ## 12. Merge Two Sorted Arrays
@@ -254,8 +259,7 @@ function mergeSortedArrays(arr1, arr2) {
   return merged.concat(arr1.slice(i)).concat(arr2.slice(j));
 }
 
-// Example usage:
-console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6])); // Output: [1, 2, 3, 4, 5, 6]
+console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6]));
 ```
 
 ## 13. Find the Missing Number in an Array
@@ -273,8 +277,7 @@ function findMissingNumber(arr, n) {
   return totalSum - arrSum;
 }
 
-// Example usage:
-console.log(findMissingNumber([1, 2, 4, 5], 5)); // Output: 3
+console.log(findMissingNumber([1, 2, 4, 5], 5));
 ```
 
 ## 14. Find the Common Elements in Two Arrays
@@ -290,8 +293,7 @@ function findCommonElements(arr1, arr2) {
   return arr1.filter((value) => arr2.includes(value));
 }
 
-// Example usage:
-console.log(findCommonElements([1, 2, 3], [2, 3, 4])); // Output: [2, 3]
+console.log(findCommonElements([1, 2, 3], [2, 3, 4]));
 ```
 
 ## 15. Capitalize the First Letter of Each Word
@@ -310,8 +312,7 @@ function capitalizeWords(str) {
     .join(" ");
 }
 
-// Example usage:
-console.log(capitalizeWords("hello world")); // Output: "Hello World"
+console.log(capitalizeWords("hello world"));
 ```
 
 ## 16. Find the Longest Word in a String
@@ -332,8 +333,7 @@ function findLongestWord(str) {
     );
 }
 
-// Example usage:
-console.log(findLongestWord("The quick brown fox jumped over the lazy dog")); // Output: "jumped"
+console.log(findLongestWord("The quick brown fox jumped over the lazy dog"));
 ```
 
 ## 17. Convert a String to Title Case
@@ -352,8 +352,7 @@ function toTitleCase(str) {
     .join(" ");
 }
 
-// Example usage:
-console.log(toTitleCase("the quick brown fox")); // Output: "The Quick Brown Fox"
+console.log(toTitleCase("the quick brown fox"));
 ```
 
 ## 18. Find the Index of the First Occurrence of a Substring
@@ -369,8 +368,7 @@ function indexOfSubstring(str, substr) {
   return str.indexOf(substr);
 }
 
-// Example usage:
-console.log(indexOfSubstring("hello world", "world")); // Output: 6
+console.log(indexOfSubstring("hello world", "world"));
 ```
 
 ## 19. Calculate the Average of an Array of Numbers
@@ -387,8 +385,7 @@ function calculateAverage(arr) {
   return sum / arr.length;
 }
 
-// Example usage:
-console.log(calculateAverage([1, 2, 3, 4, 5])); // Output: 3
+console.log(calculateAverage([1, 2, 3, 4, 5]));
 ```
 
 ## 20. Generate a Random Integer Between Two Values
@@ -404,8 +401,7 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Example usage:
-console.log(getRandomInt(1, 10)); // Output: A random integer between 1 and 10
+console.log(getRandomInt(1, 10));
 ```
 
 ## 21. Find the Intersection of Two Arrays
@@ -421,8 +417,7 @@ function intersectArrays(arr1, arr2) {
   return arr1.filter((value) => arr2.includes(value));
 }
 
-// Example usage:
-console.log(intersectArrays([1, 2, 3], [2, 3, 4])); // Output: [2, 3]
+console.log(intersectArrays([1, 2, 3], [2, 3, 4]));
 ```
 
 ## 22. Remove All Falsey Values from an Array
@@ -438,8 +433,7 @@ function removeFalseyValues(arr) {
   return arr.filter(Boolean);
 }
 
-// Example usage:
-console.log(removeFalseyValues([0, 1, false, 2, "", 3])); // Output: [1, 2, 3]
+console.log(removeFalseyValues([0, 1, false, 2, "", 3]));
 ```
 
 ## 23. Convert an Array to an Object
@@ -458,13 +452,12 @@ function arrayToObject(arr) {
   }, {});
 }
 
-// Example usage:
 console.log(
   arrayToObject([
     ["name", "Alice"],
     ["age", 25],
   ])
-); // Output: { name: 'Alice', age: 25 }
+);
 ```
 
 ## 24. Find the Second Largest Number in an Array

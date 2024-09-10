@@ -555,6 +555,8 @@ function Parent() {
 ## 40. How does React handle reconciliation?
 
 **Answer:** Reconciliation is the process React uses to update the DOM with the results of rendering a component. When a component's state or props change, React generates a new Virtual DOM tree and compares it to the previous one. This comparison process, known as "diffing", allows React to determine the minimal set of changes needed to update the real DOM efficiently.
+**OR**
+React assesses the necessity for a real DOM update when there’s a change in a component’s props or state. This evaluation involves comparing the newly returned element with the one previously displayed. If they are not equal, React proceeds to update the DOM. This process is referred to as reconciliation.
 
 # Redux Interview Questions and Answers
 

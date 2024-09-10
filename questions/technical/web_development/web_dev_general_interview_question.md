@@ -789,3 +789,67 @@ const fetchDataWithAuth = async () => {
 
 - For applications that need real-time updates (e.g., chat apps), you can use **WebSockets** to maintain a persistent connection between the frontend and backend.
 - Libraries like **Socket.IO** in both the frontend and backend allow real-time bidirectional communication.
+
+---
+
+### What are differences between **Websocket** and **Socket.io**
+
+### **1. WebSocket**
+
+#### **What is WebSocket?**
+
+- **WebSocket** is a communication protocol that provides **full-duplex** (two-way) communication over a single, long-lived TCP connection between a client (e.g., browser) and a server.
+- Unlike traditional HTTP, which is **request-response** based (where the client sends a request and the server responds), WebSockets allow for **continuous, real-time communication** between the server and client, without the need to repeatedly send requests.
+- **Key Feature**: Once the WebSocket connection is established, both client and server can send data to each other **at any time**. This makes WebSockets ideal for applications that need real-time data exchange, such as chat applications, stock market updates, or online gaming.
+
+#### **How It Works:**
+
+1. **Connection Establishment**: The client initiates the WebSocket connection via an HTTP `Upgrade` request.
+2. **Persistent Connection**: Once the connection is upgraded to WebSocket, it stays open, allowing continuous data flow between the client and the server.
+3. **Real-time Communication**: Both client and server can send messages to each other, and those messages can be processed instantly.
+
+#### **Use Cases**:
+
+- **Real-time Applications**: Chat apps, live sports scores, online gaming, stock trading.
+- **Notifications**: Sending real-time updates to users, like push notifications.
+
+---
+
+### **2. Socket.IO**
+
+#### **What is Socket.IO?**
+
+- **Socket.IO** is a popular **JavaScript library** that builds on top of WebSockets, providing additional functionality such as **fall-back options** (for browsers that don’t support WebSockets), automatic **reconnection**, and a higher-level, easier-to-use API.
+- While **Socket.IO** uses WebSocket as one of its transport mechanisms, it can also use other protocols (e.g., long polling) to establish and maintain a connection between the client and server. This makes Socket.IO more reliable in situations where WebSockets alone may fail due to network issues, firewalls, or old browsers.
+
+#### **Key Features**:
+
+1. **Automatic Fallback**: If WebSocket is not supported, it can fall back to other methods like HTTP long polling.
+2. **Reconnection Logic**: It automatically tries to reconnect if the connection is lost.
+3. **Rooms and Namespaces**: Socket.IO allows clients to join specific rooms and namespaces, which is useful for structuring communication between users.
+4. **Broadcasting**: You can broadcast messages to multiple clients at once.
+
+#### **How It Works**:
+
+- Socket.IO consists of two parts: a client-side library that runs in the browser and a server-side library for Node.js.
+- Once a connection is established, both sides can send messages back and forth, similar to WebSockets, but with additional features like reconnections and fallbacks.
+
+#### **Use Cases**:
+
+- Similar to WebSockets, but with more reliability and built-in features.
+- Commonly used in chat applications, collaborative tools, real-time notifications, multiplayer games, and live event updates.
+
+---
+
+### **Key Differences Between WebSocket and Socket.IO**:
+
+| Feature                   | **WebSocket**                                  | **Socket.IO**                                       |
+| ------------------------- | ---------------------------------------------- | --------------------------------------------------- |
+| **Protocol**              | Standard WebSocket Protocol                    | Built on top of WebSocket with custom protocol      |
+| **Transport Mechanism**   | WebSocket only                                 | WebSocket, fallback to long polling, etc.           |
+| **Browser Compatibility** | Only works in browsers that support WebSockets | Works in more browsers due to fallback options      |
+| **Reconnection**          | Requires manual handling                       | Built-in reconnection support                       |
+| **Additional Features**   | Basic full-duplex communication                | Rooms, namespaces, broadcasting, reconnection, etc. |
+| **Ease of Use**           | Requires more setup for real-world use cases   | Simplified API with more features                   |
+
+---

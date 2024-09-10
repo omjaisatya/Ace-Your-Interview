@@ -195,9 +195,19 @@ return (
   - Can have state and lifecycle methods.
   - `render()` method is used to return JSX.
 - **Functional Components:**
+
   - Defined using plain JavaScript functions.
   - Can use hooks to manage state and lifecycle.
   - Simpler and shorter, often preferred in modern React development.
+
+  | **Functional Components**                                                           | **Class Components**                                                                          |
+  | ----------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+  | A plain JavaScript function that accepts `props` and returns a React element (JSX). | Requires extending `React.Component` and creating a `render()` function that returns JSX.     |
+  | No `render()` method.                                                               | Must have a `render()` method that returns JSX.                                               |
+  | Runs from top to bottom, and once the function returns, it can't be kept alive.     | Lifecycle methods keep the class component alive, invoked depending on the component's phase. |
+  | Known as **Stateless Components** as they primarily focus on UI rendering.          | Known as **Stateful Components** because they maintain and manage state.                      |
+  | Lifecycle methods like `componentDidMount` cannot be used.                          | Lifecycle methods such as `componentDidMount`, `componentWillUnmount`, etc., can be used.     |
+  | React hooks like `useState` can be used to make functional components stateful.     | Uses `this.state` and `this.setState` for state management.                                   |
 
 ## 22. What is the `useEffect` hook and how does it work?
 

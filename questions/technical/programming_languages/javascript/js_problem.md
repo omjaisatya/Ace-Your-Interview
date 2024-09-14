@@ -143,6 +143,33 @@ function removeDuplicates(arr) {
 console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
 ```
 
+**Without in-built method:**
+
+```javascript
+function removeDuplicates(arr) {
+  let uniqueArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    let isDuplicate = false;
+
+    for (let j = 0; j < uniqueArr.length; j++) {
+      if (arr[i] === uniqueArr[j]) {
+        isDuplicate = true;
+        break;
+      }
+    }
+
+    if (!isDuplicate) {
+      uniqueArr.push(arr[i]);
+    }
+  }
+
+  return uniqueArr;
+}
+
+console.log(removeDuplicates([1, 2, 2, 3, 4, 4, 5]));
+```
+
 ## 6. Count Vowels in a String
 
 **Question:**
@@ -168,6 +195,32 @@ function countVowels(str) {
 console.log(countVowels("Hello World"));
 ```
 
+**Without in-built method:**
+
+```javascript
+function countVowels(str) {
+  let count = 0;
+
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i].toLowerCase();
+
+    if (
+      char === "a" ||
+      char === "e" ||
+      char === "i" ||
+      char === "o" ||
+      char === "u"
+    ) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countVowels("Hello World"));
+```
+
 ## 7. Sum of Array Elements
 
 **Question:**
@@ -179,6 +232,22 @@ Write a function that calculates the sum of all elements in an array.
 ```javascript
 function sumArray(arr) {
   return arr.reduce((sum, num) => sum + num, 0);
+}
+
+console.log(sumArray([1, 2, 3, 4]));
+```
+
+**Without in-built method:**
+
+```javascript
+function sumArray(arr) {
+  let sum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+
+  return sum;
 }
 
 console.log(sumArray([1, 2, 3, 4]));
@@ -248,6 +317,25 @@ function fibonacci(n) {
     fibSequence[i] = fibSequence[i - 1] + fibSequence[i - 2];
   }
   return fibSequence.slice(0, n);
+}
+
+console.log(fibonacci(10));
+```
+
+**Without in-built method:**
+
+```javascript
+function fibonacci(n) {
+  let fibSequence = [];
+
+  if (n >= 1) fibSequence.push(0);
+  if (n >= 2) fibSequence.push(1);
+
+  for (let i = 2; i < n; i++) {
+    fibSequence.push(fibSequence[i - 1] + fibSequence[i - 2]);
+  }
+
+  return fibSequence;
 }
 
 console.log(fibonacci(10));

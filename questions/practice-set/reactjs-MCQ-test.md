@@ -107,3 +107,113 @@
 - d) Using `handleState`
 
 **Answer:** a) Using `onSubmit` and controlled components
+
+# Set 2
+
+### 1. How do you update the state of a functional component in React.js?
+
+- a) Using `this.setState()`
+- b) Using `useState()`
+- c) Using `forceUpdate()`
+- d) Using `stateUpdater()`
+
+**Answer:** b) Using `useState()`
+
+---
+
+### 2. What is the purpose of `React.Fragment`?
+
+- a) To group a list of children without adding extra nodes to the DOM
+- b) To wrap state and props in a single component
+- c) To render a component only once
+- d) To create a new React component
+
+**Answer:** a) To group a list of children without adding extra nodes to the DOM
+
+---
+
+### 3. Which method in React is used to handle form data?
+
+- a) `componentWillReceiveProps()`
+- b) `handleChange()`
+- c) `onSubmit()`
+- d) `setState()`
+
+**Answer:** b) `handleChange()`
+
+---
+
+### 4. Which of the following is true about React Keys?
+
+- a) Keys should be unique among siblings
+- b) Keys are used to set the component's state
+- c) Keys are passed as props to child components
+- d) Keys are required for all elements in a component
+
+**Answer:** a) Keys should be unique among siblings
+
+---
+
+### 5. How do you conditionally render components in React.js?
+
+- a) Using `this.state()`
+- b) Using `if` or `switch` statements
+- c) Using `this.setState()`
+- d) Using `componentDidMount()`
+
+**Answer:** b) Using `if` or `switch` statements
+
+---
+
+### 6. Which hook should be used for performance optimizations in React functional components?
+
+- a) `useEffect()`
+- b) `useState()`
+- c) `useCallback()`
+- d) `useRef()`
+
+**Answer:** c) `useCallback()`
+
+---
+
+### 7. How do you pass methods to child components in React?
+
+- a) Through state
+- b) Through props
+- c) By importing the method into the child component
+- d) Using `componentDidUpdate()`
+
+**Answer:** b) Through props
+
+---
+
+### 8. What is the correct syntax to create a reference in React?
+
+- a) `const ref = React.useRef()`
+- b) `const ref = React.setRef()`
+- c) `const ref = new Ref()`
+- d) `const ref = React.ref()`
+
+**Answer:** a) `const ref = React.useRef()`
+
+---
+
+### 9. What does `React.StrictMode` do?
+
+- a) It checks for potential problems in an application
+- b) It disables the rendering of child components
+- c) It is used to prevent code from executing twice
+- d) It optimizes React component rendering
+
+**Answer:** a) It checks for potential problems in an application
+
+---
+
+### 10. Which lifecycle method is invoked immediately after updating occurs?
+
+- a) `componentWillUpdate()`
+- b) `componentDidUpdate()`
+- c) `componentWillReceiveProps()`
+- d) `componentWillMount()`
+
+**Answer:** b) `componentDidUpdate()`

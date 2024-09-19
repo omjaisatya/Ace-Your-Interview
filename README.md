@@ -7,6 +7,7 @@ Welcome to the **Ace Your Interview** repository! This collection is designed to
 - [Introduction](#introduction)
 - [Categories](#categories)
   - [Technical](#technical)
+  - [Practice](#practice-test---mcq)
   - [Behavioral](#behavioral)
   - [HR](#hr)
   <!-- - [Contributing](#contributing) -->

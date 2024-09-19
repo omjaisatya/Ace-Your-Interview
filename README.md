@@ -45,6 +45,12 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
 - [Problem Solving](questions/behavioral/problem_solving.md)
 - [Communication](questions/behavioral/communication.md)
 
+### Practice Test - MCQ
+
+- [HTML](questions/practice-set/html-MCQ-test.md)
+- [ReactJS](questions/practice-set/reactjs-MCQ-test.md)
+- [NodeJS](questions/practice-set/nodejs-MCQ-test.md)
+
 ### HR
 
 - [General HR Questions](questions/hr/general.md)

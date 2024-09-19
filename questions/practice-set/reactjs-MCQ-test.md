@@ -217,3 +217,113 @@
 - d) `componentWillMount()`
 
 **Answer:** b) `componentDidUpdate()`
+
+# Set 3
+
+### 1. What does `useContext()` hook do in React?
+
+- a) It updates the component’s state
+- b) It allows reading and subscribing to context values
+- c) It renders multiple components at once
+- d) It triggers side effects in the component
+
+**Answer:** b) It allows reading and subscribing to context values
+
+---
+
+### 2. How does React identify which items have changed, been added, or been removed from a list?
+
+- a) Using `state`
+- b) Using `props`
+- c) Using keys
+- d) Using IDs
+
+**Answer:** c) Using keys
+
+---
+
+### 3. What is the purpose of `useEffect()` in React?
+
+- a) To manage component state
+- b) To trigger side effects in a functional component
+- c) To create refs for elements
+- d) To pass data between components
+
+**Answer:** b) To trigger side effects in a functional component
+
+---
+
+### 4. In which phase of the React component lifecycle is `componentDidMount()` called?
+
+- a) Initialization
+- b) Updating
+- c) Unmounting
+- d) Mounting
+
+**Answer:** d) Mounting
+
+---
+
+### 5. Which hook can be used to access the previous value of a state in React functional components?
+
+- a) `useState()`
+- b) `useEffect()`
+- c) `useRef()`
+- d) `useReducer()`
+
+**Answer:** c) `useRef()`
+
+---
+
+### 6. What is the purpose of `React.memo()`?
+
+- a) To optimize rendering by memoizing functional components
+- b) To create memoized state values
+- c) To execute side effects
+- d) To manage component state
+
+**Answer:** a) To optimize rendering by memoizing functional components
+
+---
+
+### 7. What is `Redux` in the context of React?
+
+- a) A database for storing data
+- b) A library for managing application state
+- c) A framework for building UIs
+- d) A server-side rendering tool
+
+**Answer:** b) A library for managing application state
+
+---
+
+### 8. What is the return value of `useState()` hook in React?
+
+- a) A single state value
+- b) An array with the current state and a function to update it
+- c) A reference to a DOM element
+- d) A function that triggers re-rendering
+
+**Answer:** b) An array with the current state and a function to update it
+
+---
+
+### 9. How can you handle errors in React components?
+
+- a) By using `ErrorHandler` method
+- b) By using `componentDidCatch()` lifecycle method
+- c) By using `useEffect()`
+- d) By using `throwError()`
+
+**Answer:** b) By using `componentDidCatch()` lifecycle method
+
+---
+
+### 10. What is a Pure Component in React?
+
+- a) A component that prevents re-renders
+- b) A component that renders the same output for the same props and state
+- c) A component that does not have any lifecycle methods
+- d) A component that cannot have any children
+
+**Answer:** b) A component that renders the same output for the same props and state

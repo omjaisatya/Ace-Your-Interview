@@ -327,3 +327,113 @@
 - d) A component that cannot have any children
 
 **Answer:** b) A component that renders the same output for the same props and state
+
+# Set 4
+
+### 1. Which hook would you use to access the latest props or state values inside an asynchronous function?
+
+- a) `useEffect()`
+- b) `useRef()`
+- c) `useState()`
+- d) `useReducer()`
+
+**Answer:** b) `useRef()`
+
+---
+
+### 2. What is the correct way to use inline conditional rendering in JSX?
+
+- a) `{condition && <Component />}`
+- b) `{condition ? return <Component />}`
+- c) `{if(condition) <Component />}`
+- d) `{Component(condition)}`
+
+**Answer:** a) `{condition && <Component />}`
+
+---
+
+### 3. How can you prevent a component from re-rendering if its props have not changed?
+
+- a) Using `useEffect()`
+- b) Using `React.memo()`
+- c) Using `useState()`
+- d) Using `useCallback()`
+
+**Answer:** b) Using `React.memo()`
+
+---
+
+### 4. In React, what does lifting state up refer to?
+
+- a) Storing the state in the parent component and passing it down to child components
+- b) Creating state variables in child components
+- c) Using context to share state between components
+- d) Using `useState` in multiple components
+
+**Answer:** a) Storing the state in the parent component and passing it down to child components
+
+---
+
+### 5. What is the correct syntax for using `useReducer()` hook in React?
+
+- a) `const [state, dispatch] = useReducer(reducer, initialState)`
+- b) `const [state, setState] = useReducer(reducer, initialState)`
+- c) `const [state, dispatch] = useState(reducer)`
+- d) `const [state, reducer] = useReducer(dispatch)`
+
+**Answer:** a) `const [state, dispatch] = useReducer(reducer, initialState)`
+
+---
+
+### 6. Which of the following best describes React’s one-way data flow?
+
+- a) Data flows from parent to child components
+- b) Data can be passed in both directions between components
+- c) Data flows from child to parent components
+- d) React does not have a specific data flow pattern
+
+**Answer:** a) Data flows from parent to child components
+
+---
+
+### 7. What does `useMemo()` hook do in React?
+
+- a) It returns a memoized value and recomputes it only when dependencies change
+- b) It memorizes state values across renders
+- c) It triggers side effects in functional components
+- d) It manages the component lifecycle
+
+**Answer:** a) It returns a memoized value and recomputes it only when dependencies change
+
+---
+
+### 8. How can you update a value in the state without re-rendering the component?
+
+- a) Using `useState()`
+- b) Using `useRef()`
+- c) Using `useEffect()`
+- d) Using `useReducer()`
+
+**Answer:** b) Using `useRef()`
+
+---
+
+### 9. Which of the following is a valid reason to use `useEffect()` hook?
+
+- a) To trigger an action after a component has mounted
+- b) To prevent a component from rendering
+- c) To access the DOM element directly
+- d) To manage global state
+
+**Answer:** a) To trigger an action after a component has mounted
+
+---
+
+### 10. In which scenario should you consider using `useReducer()` instead of `useState()`?
+
+- a) When managing multiple complex state updates
+- b) When handling asynchronous actions
+- c) When dealing with simple state like booleans or strings
+- d) When you need to update refs
+
+**Answer:** a) When managing multiple complex state updates

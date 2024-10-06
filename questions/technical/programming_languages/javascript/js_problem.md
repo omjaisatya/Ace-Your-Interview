@@ -494,6 +494,27 @@ function findCommonElements(arr1, arr2) {
 console.log(findCommonElements([1, 2, 3], [2, 3, 4]));
 ```
 
+**Without in-built methods**
+
+```javascript
+function findCommonElements(arr1, arr2) {
+  let commonElements = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    for (let j = 0; j < arr2.length; j++) {
+      if (arr1[i] === arr2[j]) {
+        commonElements.push(arr1[i]);
+        break;
+      }
+    }
+  }
+
+  return commonElements;
+}
+
+console.log(findCommonElements([1, 2, 3], [2, 3, 4])); // Output: [2, 3]
+```
+
 ## 15. Capitalize the First Letter of Each Word
 
 **Question:**
@@ -511,6 +532,31 @@ function capitalizeWords(str) {
 }
 
 console.log(capitalizeWords("hello world"));
+```
+
+**Without in-built methods**
+
+```javascript
+function capitalizeWords(str) {
+  let capitalizedStr = "";
+  let capitalizeNext = true;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === " ") {
+      capitalizedStr += str[i];
+      capitalizeNext = true;
+    } else if (capitalizeNext) {
+      capitalizedStr += str[i].toUpperCase();
+      capitalizeNext = false;
+    } else {
+      capitalizedStr += str[i];
+    }
+  }
+
+  return capitalizedStr;
+}
+
+console.log(capitalizeWords("hello world")); // Output: "Hello World"
 ```
 
 ## 16. Find the Longest Word in a String

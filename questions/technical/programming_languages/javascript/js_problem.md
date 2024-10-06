@@ -461,6 +461,23 @@ function findMissingNumber(arr, n) {
 console.log(findMissingNumber([1, 2, 4, 5], 5));
 ```
 
+**Without in-built methods**
+
+```javascript
+function findMissingNumber(arr, n) {
+  let totalSum = (n * (n + 1)) / 2;
+  let arrSum = 0;
+
+  for (let i = 0; i < arr.length; i++) {
+    arrSum += arr[i];
+  }
+
+  return totalSum - arrSum;
+}
+
+console.log(findMissingNumber([1, 2, 4, 5], 5)); // Output: 3
+```
+
 ## 14. Find the Common Elements in Two Arrays
 
 **Question:**

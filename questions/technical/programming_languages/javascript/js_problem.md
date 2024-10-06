@@ -357,6 +357,28 @@ function flattenArray(arr) {
 console.log(flattenArray([1, [2, [3, [4]]]]));
 ```
 
+**Without in-built method**
+
+```javascript
+function flattenArray(arr) {
+  let flattened = [];
+
+  // Loop through each element in the array
+  for (let i = 0; i < arr.length; i++) {
+    if (Array.isArray(arr[i])) {
+      flattened = flattened.concat(flattenArray(arr[i]));
+    } else {
+      flattened.push(arr[i]);
+    }
+  }
+
+  return flattened;
+}
+
+// Example usage:
+console.log(flattenArray([1, [2, [3, [4]]]])); // Output: [1, 2, 3, 4]
+```
+
 ## 12. Merge Two Sorted Arrays
 
 **Question:**
@@ -385,6 +407,40 @@ function mergeSortedArrays(arr1, arr2) {
 }
 
 console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6]));
+```
+
+**Without in-built methods**
+
+```javascript
+function mergeSortedArrays(arr1, arr2) {
+  let merged = [];
+  let i = 0,
+    j = 0;
+
+  while (i < arr1.length && j < arr2.length) {
+    if (arr1[i] < arr2[j]) {
+      merged.push(arr1[i]);
+      i++;
+    } else {
+      merged.push(arr2[j]);
+      j++;
+    }
+  }
+
+  while (i < arr1.length) {
+    merged.push(arr1[i]);
+    i++;
+  }
+
+  while (j < arr2.length) {
+    merged.push(arr2[j]);
+    j++;
+  }
+
+  return merged;
+}
+
+console.log(mergeSortedArrays([1, 3, 5], [2, 4, 6])); // Output: [1, 2, 3, 4, 5, 6]
 ```
 
 ## 13. Find the Missing Number in an Array

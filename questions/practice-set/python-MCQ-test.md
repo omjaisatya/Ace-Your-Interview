@@ -522,3 +522,221 @@ print(x)
 
 **Answer**: B) `open("file.txt", "w")`  
 **Explanation**: The `"w"` mode opens a file for writing, creating the file if it doesn’t exist or truncating it if it does.
+
+# Python Interview MCQs - Set D
+
+### 1. What will be the output of the following code?
+
+```python
+print(list("hello"))
+```
+
+- A) `['hello']`
+- B) `['h', 'e', 'l', 'l', 'o']`
+- C) `['h e l l o']`
+- D) Error
+
+**Answer**: B) `['h', 'e', 'l', 'l', 'o']`  
+**Explanation**: `list("hello")` converts the string `"hello"` into a list of individual characters.
+
+---
+
+### 2. Which of the following keywords is used to check if a key exists in a dictionary?
+
+- A) `includes`
+- B) `exists`
+- C) `in`
+- D) `find`
+
+**Answer**: C) `in`  
+**Explanation**: The `in` keyword checks if a key exists in a dictionary. For example, `key in dictionary`.
+
+---
+
+### 3. What will be the output of the following code?
+
+```python
+x = [10, 20, 30]
+y = x
+y[0] = 100
+print(x)
+```
+
+- A) `[100, 20, 30]`
+- B) `[10, 20, 30]`
+- C) `[10, 100, 30]`
+- D) Error
+
+**Answer**: A) `[100, 20, 30]`  
+**Explanation**: `y` is a reference to the list `x`, so changes in `y` also affect `x`.
+
+---
+
+### 4. What does the `eval()` function do in Python?
+
+- A) Converts a string to an integer
+- B) Evaluates a string as a Python expression
+- C) Executes a Python script
+- D) Compiles Python code
+
+**Answer**: B) Evaluates a string as a Python expression  
+**Explanation**: `eval()` takes a string and evaluates it as a Python expression.
+
+---
+
+### 5. What is the output of the following code?
+
+```python
+print("Python"[::-1])
+```
+
+- A) `nohtyP`
+- B) `Python`
+- C) `nohty`
+- D) `Error`
+
+**Answer**: A) `nohtyP`  
+**Explanation**: The slicing `[::-1]` reverses the string `"Python"`.
+
+---
+
+### 6. Which method can be used to remove whitespace from the beginning and end of a string?
+
+- A) `strip()`
+- B) `trim()`
+- C) `cut()`
+- D) `remove()`
+
+**Answer**: A) `strip()`  
+**Explanation**: `strip()` removes whitespace from the start and end of a string in Python.
+
+---
+
+### 7. What is the output of the following code?
+
+```python
+x = [1, 2, 3]
+print(x.append(4))
+```
+
+- A) `[1, 2, 3, 4]`
+- B) `None`
+- C) `Error`
+- D) `4`
+
+**Answer**: B) `None`  
+**Explanation**: The `append()` method modifies the list in place and returns `None`.
+
+---
+
+### 8. Which of the following statements about sets in Python is incorrect?
+
+- A) Sets are unordered collections.
+- B) Sets can contain duplicate elements.
+- C) Sets support mathematical operations like union and intersection.
+- D) Sets are mutable.
+
+**Answer**: B) Sets can contain duplicate elements.  
+**Explanation**: Sets are collections of unique elements, so duplicates are not allowed.
+
+---
+
+### 9. What will be the output of the following code?
+
+```python
+a = [1, 2, 3]
+b = a[:]
+b.append(4)
+print(a)
+```
+
+- A) `[1, 2, 3]`
+- B) `[1, 2, 3, 4]`
+- C) `[4, 1, 2, 3]`
+- D) Error
+
+**Answer**: A) `[1, 2, 3]`  
+**Explanation**: `b = a[:]` creates a shallow copy of `a`, so changes to `b` do not affect `a`.
+
+---
+
+### 10. Which of the following is used to handle exceptions in Python?
+
+- A) `try` and `catch`
+- B) `try` and `except`
+- C) `catch` and `finally`
+- D) `throw` and `finally`
+
+**Answer**: B) `try` and `except`  
+**Explanation**: In Python, `try` and `except` are used to handle exceptions.
+
+---
+
+### 11. What will be the output of the following code?
+
+```python
+print(type({}))
+```
+
+- A) `<class 'list'>`
+- B) `<class 'set'>`
+- C) `<class 'dict'>`
+- D) `<class 'tuple'>`
+
+**Answer**: C) `<class 'dict'>`  
+**Explanation**: `{}` represents an empty dictionary in Python. An empty set is created with `set()`.
+
+---
+
+### 12. Which of the following expressions will raise a `ZeroDivisionError` in Python?
+
+- A) `10 / 0`
+- B) `10 * 0`
+- C) `0 / 10`
+- D) `0 * 10`
+
+**Answer**: A) `10 / 0`  
+**Explanation**: Dividing a number by zero raises a `ZeroDivisionError`.
+
+---
+
+### 13. What is the purpose of the `break` statement in Python?
+
+- A) To exit a loop
+- B) To end a function
+- C) To stop the program
+- D) To pause a loop temporarily
+
+**Answer**: A) To exit a loop  
+**Explanation**: The `break` statement is used to exit a loop prematurely.
+
+---
+
+### 14. What will be the output of the following code?
+
+```python
+for i in range(3):
+    print(i)
+else:
+    print("Done")
+```
+
+- A) `0 1 2`
+- B) `0 1 2 Done`
+- C) `Done 0 1 2`
+- D) `Error`
+
+**Answer**: B) `0 1 2 Done`  
+**Explanation**: The `else` block in a `for` loop executes after the loop completes normally (without a `break`).
+
+---
+
+### 15. Which of the following statements is used to define a lambda function in Python?
+
+- A) `def`
+- B) `lambda`
+- C) `func`
+- D) `define`
+
+**Answer**: B) `lambda`  
+**Explanation**: `lambda` is used to create anonymous functions (inline functions) in Python.

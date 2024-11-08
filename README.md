@@ -51,6 +51,7 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
 - [HTML](questions/practice-set/html-MCQ-test.md)
 - [ReactJS](questions/practice-set/reactjs-MCQ-test.md)
 - [NodeJS](questions/practice-set/nodejs-MCQ-test.md)
+- [Python](questions/practice-set/python-MCQ-test.md)
 
 ### HR
 

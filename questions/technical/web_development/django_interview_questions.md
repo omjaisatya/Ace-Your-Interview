@@ -59,3 +59,65 @@
 ## 15. Explain the purpose of `__str__` method in Django models.
 
 **Answer:** The `__str__` method in Django models is used to define a human-readable string representation of a model instance. This method is called when the model instance is displayed in the Django admin interface or other places where the model instance needs to be represented as a string.
+
+# Django Interview Questions and Answers -- Section B
+
+## 1. What is a Django query set?
+
+**Answer:** A Django QuerySet is a collection of database queries that can be executed to retrieve objects from the database. It provides a high-level API to filter, order, and manipulate data. QuerySets are lazy; they are only evaluated when the data is actually needed.
+
+## 2. What is the purpose of the `get()` method in Django’s QuerySet?
+
+**Answer:** The `get()` method in Django’s QuerySet is used to retrieve a single object from the database that matches the given query. It raises a `DoesNotExist` exception if no objects are found and a `MultipleObjectsReturned` exception if more than one object matches the query.
+
+## 3. Explain the use of `save()` method in Django models.
+
+**Answer:** The `save()` method in Django models is used to save an instance of a model to the database. It can be overridden to customize the save behavior, such as modifying fields before saving or handling additional processing. By default, it inserts or updates the record in the database.
+
+## 4. What is Django’s `TemplateView`?
+
+**Answer:** `TemplateView` is a class-based view in Django that renders a template. It is used for simple views that only need to display a template with context data. It provides a `get()` method that processes HTTP GET requests and renders a specified template.
+
+## 5. How do you perform validation in Django forms?
+
+**Answer:** Validation in Django forms is performed using the `clean()` method and field-specific `clean_<fieldname>()` methods. The `clean()` method can be overridden to add custom validation logic, while field-specific methods validate individual fields. Validation errors are added to the form’s `errors` dictionary.
+
+## 6. What are Django migrations and why are they important?
+
+**Answer:** Django migrations are a way to propagate changes made to Django models into the database schema. They allow for version control of database changes, making it possible to apply incremental changes, roll back changes, and keep the database schema in sync with the models.
+
+## 7. What is Django’s `Admin` interface, and how can it be customized?
+
+**Answer:** Django’s `Admin` interface is a web-based interface for managing model data. It is automatically generated from registered models and provides an easy way to perform CRUD operations. It can be customized by creating a custom `ModelAdmin` class to modify the list display, form layout, filters, and more.
+
+## 8. How do you handle file uploads in Django?
+
+**Answer:** File uploads in Django are handled using `FileField` or `ImageField` in models. In the form, the file is uploaded via an HTML form with `enctype="multipart/form-data"`. The uploaded file is then accessible through the request’s `FILES` attribute and can be processed or saved using Django’s file handling methods.
+
+## 9. What is Django’s `SessionMiddleware`?
+
+**Answer:** `SessionMiddleware` is a middleware component in Django that manages user sessions. It stores session data on the server side and handles the assignment and retrieval of session data for each request. Sessions are used to persist user-specific data across requests.
+
+## 10. What is the `@property` decorator in Django models?
+
+**Answer:** The `@property` decorator in Django models is used to define a method that can be accessed like an attribute. It allows you to create computed properties that do not require storing data in the database but can provide useful information derived from other model fields.
+
+## 11. Explain the use of Django’s `get_object_or_404()` function.
+
+**Answer:** `get_object_or_404()` is a shortcut function in Django used to retrieve an object from the database. If the object is not found, it raises an `Http404` exception. It is commonly used in views to handle cases where the requested object may not exist and to provide a user-friendly error page.
+
+## 12. What are Django’s class-based views (CBVs) and their benefits?
+
+**Answer:** Django’s class-based views (CBVs) provide a way to handle views using classes rather than functions. They offer a more organized and reusable approach to view logic by utilizing inheritance and mixins. CBVs come with built-in generic views for common tasks like listing and creating objects.
+
+## 13. How do you configure email settings in Django?
+
+**Answer:** Email settings in Django are configured in the `settings.py` file using variables such as `EMAIL_BACKEND`, `EMAIL_HOST`, `EMAIL_PORT`, `EMAIL_USE_TLS`, `EMAIL_USE_SSL`, and `EMAIL_HOST_USER`/`EMAIL_HOST_PASSWORD`. These settings define the email backend and server details used for sending emails.
+
+## 14. What is the purpose of Django’s `manage.py shell`?
+
+**Answer:** The `manage.py shell` command opens an interactive Python shell with Django’s context. It allows developers to interact with Django models, run queries, and test code snippets in the context of the Django project without needing to write and execute scripts.
+
+## 15. How can you optimize database queries in Django?
+
+**Answer:** Database queries in Django can be optimized by using techniques such as query optimization (e.g., using `select_related` and `prefetch_related` to reduce database hits), indexing important fields, avoiding N+1 query problems, and using Django’s query optimization features like database functions and annotations.

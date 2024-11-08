@@ -297,3 +297,228 @@ print({1, 2, 3} & {2, 3, 4})
 
 **Answer**: B) `{2, 3}`  
 **Explanation**: The `&` operator returns the intersection of two sets, which is `{2, 3}` in this case.
+
+# Python Interview MCQs -- Set C
+
+### 1. What will be the output of the following code?
+
+```python
+print("python".capitalize())
+```
+
+- A) Python
+- B) PYTHON
+- C) python
+- D) error
+
+**Answer**: A) Python  
+**Explanation**: The `capitalize()` method capitalizes the first character of the string and makes all other characters lowercase.
+
+---
+
+### 2. What is the data type of `None` in Python?
+
+- A) `bool`
+- B) `str`
+- C) `NoneType`
+- D) `int`
+
+**Answer**: C) `NoneType`  
+**Explanation**: `None` is a special constant in Python representing the absence of a value or a null value, and its type is `NoneType`.
+
+---
+
+### 3. What will be the output of the following code?
+
+```python
+a = [1, 2, 3]
+print(a * 2)
+```
+
+- A) `[1, 2, 3, 1, 2, 3]`
+- B) `[2, 4, 6]`
+- C) `6`
+- D) Error
+
+**Answer**: A) `[1, 2, 3, 1, 2, 3]`  
+**Explanation**: Multiplying a list by an integer (like `2`) duplicates the list elements by that integer.
+
+---
+
+### 4. Which of the following keywords is used to create an exception in Python?
+
+- A) `try`
+- B) `catch`
+- C) `throw`
+- D) `raise`
+
+**Answer**: D) `raise`  
+**Explanation**: The `raise` keyword is used to manually raise exceptions in Python.
+
+---
+
+### 5. What is the output of the following code?
+
+```python
+a = [1, 2, 3, 4, 5]
+print(a[2:4])
+```
+
+- A) `[2, 3, 4]`
+- B) `[3, 4]`
+- C) `[1, 2, 3, 4]`
+- D) `[3, 4, 5]`
+
+**Answer**: B) `[3, 4]`  
+**Explanation**: The slice `[2:4]` starts at index `2` and stops just before index `4`, so it includes elements at index `2` and `3` only.
+
+---
+
+### 6. What is the output of the following code?
+
+```python
+x = {1, 2, 3}
+y = {2, 3, 4}
+print(x | y)
+```
+
+- A) `{1, 2, 3, 4}`
+- B) `{2, 3}`
+- C) `{1, 4}`
+- D) Error
+
+**Answer**: A) `{1, 2, 3, 4}`  
+**Explanation**: The `|` operator returns the union of two sets, which includes all unique elements from both sets.
+
+---
+
+### 7. Which of the following statements is false about Python dictionaries?
+
+- A) Dictionaries are unordered collections.
+- B) Dictionary keys must be unique.
+- C) Dictionary values must be unique.
+- D) Dictionaries use key-value pairs.
+
+**Answer**: C) Dictionary values must be unique.  
+**Explanation**: Dictionary keys must be unique, but values can be duplicated.
+
+---
+
+### 8. What is the output of the following code?
+
+```python
+print(10 // 3)
+```
+
+- A) `3.33`
+- B) `3`
+- C) `4`
+- D) `10.0`
+
+**Answer**: B) `3`  
+**Explanation**: `//` is the floor division operator, which performs integer division and discards the decimal part.
+
+---
+
+### 9. Which of the following is not a valid Python variable name?
+
+- A) `_my_var`
+- B) `2var`
+- C) `my_var`
+- D) `myVar2`
+
+**Answer**: B) `2var`  
+**Explanation**: Variable names in Python cannot start with a number.
+
+---
+
+### 10. What will be the output of the following code?
+
+```python
+def func(a, b=5, c=10):
+    print(a, b, c)
+
+func(3, c=20)
+```
+
+- A) `3 5 10`
+- B) `3 5 20`
+- C) `3 20 10`
+- D) Error
+
+**Answer**: B) `3 5 20`  
+**Explanation**: The function `func` is called with `a=3` and `c=20`, while `b` uses its default value of `5`.
+
+---
+
+### 11. What will be the output of the following code?
+
+```python
+print("abcde"[-1])
+```
+
+- A) `a`
+- B) `e`
+- C) `d`
+- D) Error
+
+**Answer**: B) `e`  
+**Explanation**: Negative indexing starts from the end of the string, so `[-1]` gives the last character, which is `e`.
+
+---
+
+### 12. What will be the output of the following code?
+
+```python
+a = (1, 2, 3)
+a[0] = 4
+```
+
+- A) `(4, 2, 3)`
+- B) `(1, 2, 3)`
+- C) Error
+- D) `(4, 4, 3)`
+
+**Answer**: C) Error  
+**Explanation**: Tuples are immutable in Python, so attempting to change `a[0]` will raise a `TypeError`.
+
+---
+
+### 13. Which of the following functions can convert an integer `x` to a string in Python?
+
+- A) `str(x)`
+- B) `to_string(x)`
+- C) `int(x)`
+- D) `string(x)`
+
+**Answer**: A) `str(x)`  
+**Explanation**: The `str()` function converts a value to a string in Python.
+
+---
+
+### 14. What will be the output of the following code?
+
+```python
+x = [i**2 for i in range(3)]
+print(x)
+```
+
+- A) `[1, 4, 9]`
+- B) `[0, 1, 4]`
+- C) `[0, 1, 2]`
+- D) Error
+
+**Answer**: B) `[0, 1, 4]`  
+**Explanation**: The list comprehension `[i**2 for i in range(3)]` squares each number from `0` to `2`, producing `[0, 1, 4]`.
+
+---
+
+### 15. Which of the following is the correct way to open a file in write mode in Python?
+
+- A) `open("file.txt", "r")`
+- B) `open("file.txt", "w")`
+- C) `open("file.txt", "rw")`
+- D) `open("file.txt")`
+
+**Answer**: B) `open("file.txt", "w")`  
+**Explanation**: The `"w"` mode opens a file for writing, creating the file if it doesn’t exist or truncating it if it does.

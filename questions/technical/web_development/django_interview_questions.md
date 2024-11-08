@@ -121,3 +121,65 @@
 ## 15. How can you optimize database queries in Django?
 
 **Answer:** Database queries in Django can be optimized by using techniques such as query optimization (e.g., using `select_related` and `prefetch_related` to reduce database hits), indexing important fields, avoiding N+1 query problems, and using Django’s query optimization features like database functions and annotations.
+
+# Django Interview Questions and Answers -- Section C
+
+## 1. What is the purpose of Django's `__init__.py` file?
+
+**Answer:** The `__init__.py` file is used to mark a directory as a Python package. In Django, it helps Python recognize the directory as a module and is necessary for importing models, views, and other components from the directory.
+
+## 2. What are Django signals and how can they be used?
+
+**Answer:** Django signals are a mechanism for allowing certain senders to notify a set of receivers when specific actions occur. They are used to perform additional actions in response to model changes, such as sending notifications or logging events. Signals are defined in the `signals.py` file and connected using the `connect()` method.
+
+## 3. How can you implement pagination in Django?
+
+**Answer:** Pagination in Django is implemented using the `Paginator` class from `django.core.paginator`. You create a `Paginator` instance with a QuerySet and the desired number of items per page. Then, you can retrieve specific pages using the `page()` method and pass the resulting page object to the template for rendering.
+
+## 4. What is the difference between `ForeignKey` and `ManyToManyField` in Django?
+
+**Answer:** `ForeignKey` is used to create a one-to-many relationship where one model instance can be related to many instances of another model, but each instance of the related model refers to only one instance of the first model. `ManyToManyField` creates a many-to-many relationship where each model instance can be related to multiple instances of another model and vice versa.
+
+## 5. What is the role of the `base.html` template in Django projects?
+
+**Answer:** The `base.html` template is a common base template that provides a consistent layout and structure for other templates in a Django project. It typically includes elements like headers, footers, and navigation bars that are shared across multiple pages. Other templates extend `base.html` using the `{% extends "base.html" %}` tag.
+
+## 6. How does Django handle database transactions?
+
+**Answer:** Django handles database transactions using the `transaction` module from `django.db`. Transactions ensure that a series of database operations are executed as a single unit of work, either fully completing or rolling back in case of errors. Django provides decorators and context managers like `@transaction.atomic` and `transaction.atomic()` to manage transactions.
+
+## 7. Explain the concept of middleware in Django.
+
+**Answer:** Middleware in Django is a framework of hooks into Django's request/response processing. Middleware classes are executed for each request and response, allowing for processing tasks such as session management, authentication, and modifying request/response objects. Middleware is defined in the `MIDDLEWARE` setting in `settings.py`.
+
+## 8. What is Django’s `cache` framework?
+
+**Answer:** Django’s cache framework provides a mechanism for storing and retrieving data in-memory or on disk to reduce the need to repeatedly access expensive resources, like database queries. It supports different caching backends like Memcached and Redis and can cache views, template fragments, and arbitrary data using the `cache` API.
+
+## 9. How can you handle user permissions and access control in Django?
+
+**Answer:** Django handles user permissions and access control using the `auth` system, which includes user groups, permissions, and the `User` model. You can use decorators like `@permission_required` and mixins like `PermissionRequiredMixin` in class-based views to restrict access based on permissions. Custom permissions can also be defined in models and checked in views.
+
+## 10. What is the purpose of Django’s `collectstatic` command?
+
+**Answer:** The `collectstatic` command is used to gather static files from various locations in a Django project and copy them into a single directory specified by the `STATIC_ROOT` setting. This is particularly useful for deploying static files to a production server, where a web server like Nginx or Apache can serve them efficiently.
+
+## 11. How can you create a custom management command in Django?
+
+**Answer:** To create a custom management command in Django, you need to create a new Python file inside a `management/commands` directory within a Django app. This file should define a class that inherits from `BaseCommand` and override the `handle()` method to implement the command’s logic. The command can then be executed using the `manage.py` script.
+
+## 12. What is the purpose of the `admin.site.register()` function?
+
+**Answer:** The `admin.site.register()` function is used to register models with the Django admin site. It allows the model to be managed through the admin interface, where you can customize its display, add search and filter options, and enable CRUD operations.
+
+## 13. Explain the concept of `context_processors` in Django.
+
+**Answer:** `context_processors` are functions that add additional context data to Django templates. They are defined in the `TEMPLATES` setting and are executed for each request to provide common context variables available to all templates, such as site information or user details.
+
+## 14. How do you perform custom validation for a Django model field?
+
+**Answer:** Custom validation for a Django model field can be performed by defining a `clean_<fieldname>()` method in the model. This method allows you to implement field-specific validation logic and raise `ValidationError` if the validation fails. You can also override the `clean()` method in the model to implement validation that involves multiple fields.
+
+## 15. What is the purpose of Django’s `User` model?
+
+**Answer:** Django’s `User` model is used to handle user authentication and management. It provides fields for storing user information such as username, password, email, and first/last names, along with methods for authentication, permissions, and user-related operations. It is the default model used by Django’s authentication system.

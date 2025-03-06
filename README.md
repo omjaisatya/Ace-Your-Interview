@@ -39,7 +39,8 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
 3. **Database Management**
    - [SQL](questions/technical/databases/sql.md)
    - [MongoDB](questions/technical/databases/mongodb.md)
-4. **Testing** -[software-testing](questions/technical/Testing/software_testing.md)
+4. **Testing**
+   - [software-testing](questions/technical/Testing/software_testing.md)
 
 ### Behavioral
 

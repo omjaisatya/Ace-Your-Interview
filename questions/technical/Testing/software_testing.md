@@ -178,3 +178,33 @@ Ad-hoc testing is an informal testing approach where testers explore the softwar
 
 - **Retesting**: Testing a specific defect after it has been fixed.
 - **Regression Testing**: Testing the application to ensure recent changes haven’t affected existing functionalities.
+
+## 26. What is Mutation Testing?
+
+**Answer:**
+Mutation testing is a technique used to evaluate the quality of test cases by introducing small changes (mutations) to the code and checking if the tests detect them.
+
+## 27. What is Risk-Based Testing?
+
+**Answer:**
+Risk-based testing prioritizes testing efforts based on the potential risk and impact of failures in different parts of the software.
+
+## 28. What is Soak Testing?
+
+**Answer:**
+Soak testing involves running a system at high load for an extended period to detect performance degradation and memory leaks.
+
+## 29. What is Pairwise Testing?
+
+**Answer:**
+Pairwise testing is a combinatorial testing technique that ensures every possible pair of input values is tested at least once, reducing the number of test cases needed.
+
+## 30. What is Decision Table Testing?
+
+**Answer:**
+Decision table testing is a technique that uses a table to represent complex business rules and test cases to ensure all decision combinations are covered.
+
+## 31. What is Recovery Testing?
+
+**Answer:**
+Recovery testing verifies how well a system can recover from crashes, failures, or unexpected conditions and resume normal operation.

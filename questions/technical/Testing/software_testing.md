@@ -151,3 +151,30 @@ Some widely used software testing tools are:
 - **TestNG** (Unit Testing)
 - **QTP/UFT** (Functional Testing)
 - **Appium** (Mobile Testing)
+
+## 21. What is a Test Environment?
+
+**Answer:**
+A test environment is a setup that includes the necessary hardware, software, network configurations, and test data required to execute test cases.
+
+## 22. What is End-to-End Testing?
+
+**Answer:**
+End-to-end testing validates the complete workflow of an application from start to finish, ensuring that all integrated components work as expected.
+
+## 23. What is Monkey Testing?
+
+**Answer:**
+Monkey testing is an ad-hoc testing technique where testers provide random inputs to the application to identify unexpected behaviors or crashes.
+
+## 24. What is Ad-hoc Testing?
+
+**Answer:**
+Ad-hoc testing is an informal testing approach where testers explore the software without predefined test cases, relying on intuition and domain knowledge.
+
+## 25. What is the Difference Between Retesting and Regression Testing?
+
+**Answer:**
+
+- **Retesting**: Testing a specific defect after it has been fixed.
+- **Regression Testing**: Testing the application to ensure recent changes haven’t affected existing functionalities.

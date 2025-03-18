@@ -24,6 +24,7 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
    - [Python](questions/technical/programming_languages/python/python.md)
    - [JavaScript](questions/technical/programming_languages/javascript)
    - [Java](questions/technical/programming_languages/java/java.md)
+   - [OOPs](questions/technical/programming_languages/python/opps.md)
 2. **Web Development**
    - [HTML](questions/technical/web_development/html.md)
    - [CSS](questions/technical/web_development/css.md)

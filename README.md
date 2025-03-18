@@ -31,6 +31,7 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
    - [Bootstrap](questions/technical/web_development/bootstrap_interview.md)
    - [Sass](questions/technical/web_development/sass_interview_question.md)
    - [JavaScript Tricky](questions/technical/web_development/javascript_tricky_questions.md)
+   - [JavaScript DOM](questions/technical/programming_languages/javascript/js_dom.md)
    - [React](questions/technical/web_development/react.md)
    - [React Native](questions/technical/web_development/react_native_question.md)
    - [Typescript](questions/technical/web_development/typescript_interview_question.md)

@@ -853,3 +853,21 @@ const fetchDataWithAuth = async () => {
 | **Ease of Use**           | Requires more setup for real-world use cases   | Simplified API with more features                   |
 
 ---
+
+### Difference Between Local Storage and Session Storage
+
+Both **Local Storage** and **Session Storage** are part of the **Web Storage API** in modern browsers, allowing web applications to store data on a user's device. However, they have key differences in **lifespan**, **scope**, and **usage**.
+
+| Feature            | Local Storage                                                                                        | Session Storage                                                                                                  |
+| ------------------ | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| **Lifespan**       | Data persists indefinitely unless manually cleared by the user or programmatically removed.          | Data is cleared once the session ends (i.e., when the tab or browser is closed).                                 |
+| **Scope**          | Accessible across multiple tabs and windows of the same browser.                                     | Only available to the tab or window that created it.                                                             |
+| **Storage Limit**  | Typically 5MB per domain.                                                                            | Typically 5MB per domain.                                                                                        |
+| **Data Retention** | Survives browser restarts and system reboots.                                                        | Lost when the tab or browser is closed.                                                                          |
+| **Use Cases**      | Storing user preferences, themes, authentication tokens (if security concerns are handled properly). | Temporary data such as form inputs, one-time session information, or shopping cart data within a single session. |
+| **Security**       | Can be accessed by any script on the same origin, so it must not store sensitive data.               | More secure since it automatically expires when the session ends.                                                |
+
+#### **When to Use Which?**
+
+- **Use Local Storage** when you need to store data that should persist across sessions, such as user settings, theme preferences, or caching API responses.
+- **Use Session Storage** when you only need temporary data storage, such as form drafts or transient UI state that should disappear after the user leaves the page.

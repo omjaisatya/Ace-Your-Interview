@@ -26,6 +26,7 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
    - [Java](questions/technical/programming_languages/java/java.md)
    - [OOPs](questions/technical/programming_languages/python/opps.md)
 2. **Web Development**
+
    - [HTML](questions/technical/web_development/html.md)
    - [CSS](questions/technical/web_development/css.md)
    - [Bootstrap](questions/technical/web_development/bootstrap_interview.md)
@@ -38,9 +39,16 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
    - [React Machine Test](questions/technical/web_development/react_machine_test.md)
    - [Node.js](questions/technical/web_development/nodejs.md)
    - [Web Dev General Ques.](questions/technical/web_development/web_dev_general_interview_question.md)
+
    #### **Others**
+
    - [others](questions/technical/web_development/others/others.md)
    - [socketio](questions/technical/web_development/others/socketio.md)
+
+   ### **Simple Explanation**
+
+   - [REACTJS](questions/technical/web_development/simple_explaination/react.md)
+
 3. **Database Management**
    - [SQL](questions/technical/databases/sql.md)
    - [MongoDB](questions/technical/databases/mongodb.md)

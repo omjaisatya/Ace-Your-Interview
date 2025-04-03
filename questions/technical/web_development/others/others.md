@@ -1079,3 +1079,36 @@ However, **using JWT does not inherently increase security** in OAuth2-based app
 ### Final Thoughts
 
 If you need a simple, stateless authentication mechanism, JWT is a great choice. If your application involves third-party access, user delegation, or session management, OAuth is more suitable. In some cases, combining both provides the best balance of security and efficiency.
+
+---
+
+### **TypeScript vs JavaScript: Key Differences and When to Use Which**
+
+Both **JavaScript (JS)** and **TypeScript (TS)** are used for web development, but TypeScript is a **superset of JavaScript** that introduces **static typing** and additional features to improve code quality and maintainability.
+
+| Feature                           | JavaScript (JS)                                                                 | TypeScript (TS)                                                                                  |
+| --------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| **Definition**                    | A dynamically typed, interpreted programming language used for web development. | A statically typed superset of JavaScript that compiles to JavaScript.                           |
+| **Typing**                        | Dynamic (types are inferred at runtime).                                        | Static (types are checked at compile time).                                                      |
+| **Error Handling**                | Errors appear only at runtime.                                                  | Errors are detected during compilation, preventing runtime issues.                               |
+| **Compilation**                   | No compilation is required; JS runs directly in browsers.                       | Needs to be compiled to JavaScript before execution.                                             |
+| **Readability & Maintainability** | More flexible but harder to maintain in large projects.                         | Easier to maintain and scale due to static typing.                                               |
+| **IDE Support**                   | Basic autocompletion and error detection.                                       | Enhanced autocompletion, refactoring tools, and better debugging in modern IDEs (e.g., VS Code). |
+| **Object-Oriented Features**      | Supports classes and objects (ES6+).                                            | Provides interfaces, generics, and access modifiers.                                             |
+| **Usage**                         | Best for small projects, quick scripting, and simple web applications.          | Ideal for large-scale applications, enterprise projects, and teams that need strict type safety. |
+| **Performance**                   | Slightly faster since there’s no compilation step.                              | Compilation takes time, but runtime performance is the same.                                     |
+
+### **When to Use Which?**
+
+✅ **Use JavaScript when:**
+
+- You’re working on small projects or quick prototyping.
+- You need lightweight scripting without additional configuration.
+- You’re working with existing JavaScript frameworks (React, Vue, etc.).
+
+✅ **Use TypeScript when:**
+
+- You’re building large-scale, complex applications.
+- You want better maintainability, debugging, and refactoring support.
+- You’re working in a team where type safety is critical.
+- You want to avoid common JavaScript runtime errors before execution.

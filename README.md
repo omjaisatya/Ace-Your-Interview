@@ -38,9 +38,9 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
    - [React Machine Test](questions/technical/web_development/react_machine_test.md)
    - [Node.js](questions/technical/web_development/nodejs.md)
    - [Web Dev General Ques.](questions/technical/web_development/web_dev_general_interview_question.md)
-     **Others**
-     - [others](questions/technical/web_development/others/others.md)
-     - [socketio](questions/technical/web_development/others/socketio.md)
+   #### **Others**
+   - [others](questions/technical/web_development/others/others.md)
+   - [socketio](questions/technical/web_development/others/socketio.md)
 3. **Database Management**
    - [SQL](questions/technical/databases/sql.md)
    - [MongoDB](questions/technical/databases/mongodb.md)

@@ -48,6 +48,7 @@ Preparing for an interview can be a daunting task. This repository aims to ease 
    ### **Simple Explanation**
 
    - [REACTJS](questions/technical/web_development/simple_explaination/react.md)
+   - [JAVASCRIPT](questions/technical/web_development/simple_explaination/javascript-simple.md)
 
 3. **Database Management**
    - [SQL](questions/technical/databases/sql.md)
